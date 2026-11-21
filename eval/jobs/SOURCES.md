@@ -1,9 +1,8 @@
 # Job-description inputs for the Stage 2 skill-gap evaluation
 
-These texts are third-party job postings, copied for local evaluation only. Do not publish or redistribute them.
-Retrieved on 2026-10-26 with the Claude desktop app's built-in browser. Only page boilerplate was removed.
-Requirements were not edited, summarised, reordered or reworded. Blank lines between sections and list items
-were normalised; no words were changed.
+**Public-release note:** the posting texts described below (`strong.txt`, `partial.txt`, `poor.txt`) are **not included in this repository**, because they are third-party content that cannot be redistributed. This file records only source metadata (titles, URLs, status, what was removed) and short hash prefixes of the local copies. It reproduces no posting text.
+
+The notes below describe the maintainer's local, unpublished working copies, which must not be published or redistributed. They were retrieved on 2026-10-26 with the Claude desktop app's built-in browser. Only page boilerplate was removed, the requirements were not edited, summarised, reordered or reworded, and blank lines between sections and list items were normalised (no words changed). These statements compare the local copies with the original web pages; they say nothing about content in this repository.
 
 Fit labels (strong / partial / poor) describe the posting against the one test resume and are provisional until
 the ground-truth comparison is done. Seniority is recorded here separately from technical skill gaps.
@@ -48,7 +47,7 @@ the ground-truth comparison is done. Seniority is recorded here separately from 
   (either crucial or good-to-have is accepted). Containers, Kubernetes, CI/CD and observability appear in both
   the required and the preferred lists.
 
-## File integrity (SHA-256, first 12 characters; UTF-8, LF line endings)
+## File integrity of the local copies (SHA-256, first 12 characters; UTF-8, LF line endings)
 - strong.txt   d13ec67c14e3
 - partial.txt  644fe6948d4b
 - poor.txt     dc8b4b32094a

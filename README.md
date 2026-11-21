@@ -43,7 +43,7 @@ Exact pinned versions are in `requirements.txt`.
 
 ## Evaluation methodology and measured results
 
-The evaluation lives in `eval/` and is deliberately conservative: hand-authored **synthetic** resumes and job descriptions, labels written by the author, fixed repeats, raw model calls logged, and metrics reported as numerator/denominator. The committed result artifacts are frozen. Reports: `eval/pipeline/results/pipeline_918e73269cf5/summary.md` (pipeline) and `eval/ats/results/ats_dev_20261029T052205Z/` (ATS bullets).
+The evaluation lives in `eval/` and is deliberately conservative: hand-authored **synthetic** resumes and job descriptions, labels written by the author, fixed repeats, raw model calls logged, and metrics reported as numerator/denominator. The committed result artifacts are frozen. Reports: [pipeline summary](eval/pipeline/results/pipeline_918e73269cf5/summary.md). ATS bullets, in the order they were produced: (1) [baseline automated checks](eval/ats/results/ats_dev_20261029T052205Z/report.md), (2) [human review of all 102 bullets](eval/ats/results/ats_dev_20261029T052205Z/step5_human_review_report.md), (3) [Step 6 integrity check and repeat analysis](eval/ats/results/ats_dev_20261029T052205Z/step6/step6_report.md).
 
 **Omitted from the public release.** The local job-posting inputs `eval/jobs/strong.txt`, `partial.txt` and `poor.txt` (third-party postings that cannot be redistributed) and the nine historical Stage 2 skill-gap result files under `eval/results/` that quote them are not part of this repository. Only each run's `metadata.json` (hashes and sizes) is kept, and `eval/jobs/SOURCES.md` records where the postings came from. To run `eval/run_skill_eval.py` (it makes live Groq calls) you must supply your own resume PDF (`--resume`) and your own job-posting text files named `strong.txt`, `partial.txt` and `poor.txt` in the directory given by `--jobs` (default `eval/jobs`). The omitted result files cannot be checked from the public repository. The metrics reported in this README come from the pipeline and ATS results listed above.
 
@@ -62,6 +62,8 @@ The evaluation lives in `eval/` and is deliberately conservative: hand-authored 
 E1 precision and F1 are not reported (`n/a`): the labels do not define a complete set of non-required skills.
 
 **ATS bullet evaluation** (9 development cases, 2 repeats, 102 bullets): no API or schema failures in 18 calls; invented numbers 0/102; absent-skill flags 6/102 (all from one case). Provisional human review of all 102 bullets: supported by the resume 70 yes / 32 partially / 0 no; overall 70 improved, 18 unchanged, 14 worse.
+
+**Reading the three ATS reports.** They are successive stages of one frozen run (`ats_dev_20261029T052205Z`), not competing results. The baseline report was produced before any human review was recorded, so it states `Bullets reviewed: 0/102`; that was true when it was generated, and the file is kept as generated. The human review of all 102 bullets is recorded separately in `bullets_reviewed.csv`, `human_review_decisions.csv` and the Step 5 report, and the original `bullets.csv` is not overwritten. Step 6 re-reads those files, checks their integrity and compares the two repeats. The automated-check numbers above come from the baseline report; the human-review numbers come from the Step 5 and Step 6 reports.
 
 **What these numbers do not show**
 - They come from ten (pipeline) and nine (ATS) hand-authored synthetic scenarios, one model and draft labels. They are a baseline, not evidence of accuracy on real resumes.
@@ -218,6 +220,16 @@ eval/       frozen offline evaluation framework, datasets and result artifacts
 tests/      unit, security, deployment-config and mocked-pipeline tests; tests/docker/ smoke kit
 docker-compose.yaml, requirements.txt, .env.example
 ```
+
+### Legacy developer scripts (do not import or run casually)
+
+Three scripts under `backend/` are kept from early development. Nothing in the application imports them, and all three are excluded from the Docker images through `.dockerignore`. Use them only deliberately, and only against a throw-away local database.
+
+| Script | What it does | Risk |
+|---|---|---|
+| `backend/testing.py` | Prints every user's username and email and every session's name, user ID and stored analysis data from the configured database. It has no `__main__` guard, so **importing it runs it**. | Exposes personal data in the terminal or logs. Never run it against real data. |
+| `backend/db/reset_db.py` | When run as a script, **drops every table** (users, sessions, stored analyses) in the database selected by `DATABASE_URL` / `POSTGRES_*` (or a `.env` file found by python-dotenv), then recreates empty tables. There is no confirmation prompt. Importing it does not drop anything. | Irreversible data loss. Check the target first. |
+| `backend/db/connection.py` | **Importing it** opens and closes a PostgreSQL connection to the hard-coded `localhost:5432`, database `resume_reviewer`, user `postgres` (password from `POSTGRES_PASSWORD`) and prints the result. | Ignores `DATABASE_URL`, so a "connected" message does not prove the app's configuration works. It changes nothing. Do not import it from application code. |
 
 ## Known limitations
 
