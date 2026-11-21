@@ -1,8 +1,111 @@
 # ResumeReviewer
 
-ResumeReviewer compares a candidate's resume (PDF) with a job description and returns a structured analysis: a resume summary, extracted credentials, the skills the job asks for, the skills missing from the resume (with priority tiers and quoted evidence), ATS-oriented bullet rewrites, and course suggestions for the gaps. It is a portfolio project: a FastAPI backend, a Streamlit frontend, PostgreSQL, and an LLM (Groq, `openai/gpt-oss-20b`) behind a five-stage prompt pipeline, plus a small offline evaluation framework used to measure that pipeline.
+ResumeReviewer compares a candidate's resume (PDF) with a job description and returns a structured analysis: a resume summary, extracted credentials, the skills the job asks for, the skills missing from the resume (with priority tiers and quoted evidence), ATS-oriented bullet rewrites, and course suggestions for the gaps. It is a portfolio project: a FastAPI backend, a Streamlit frontend, PostgreSQL, and an LLM (Groq, `openai/gpt-oss-20b`, called through LangChain) behind a five-stage prompt pipeline, all run with Docker Compose, plus a small offline evaluation framework used to measure that pipeline.
 
-> **Status:** project closed out for portfolio use. It is a demonstration, not a production service, and the evaluation covers synthetic data only (see [Evaluation](#evaluation-methodology-and-measured-results) and [Known limitations](#known-limitations)).
+> **Status:** project closed out for portfolio use. It is a portfolio demonstration, not a production service, and the evaluation is based on synthetic data only (see [Evaluation](#evaluation-methodology-and-measured-results) and [Known limitations](#known-limitations)).
+
+## Contents
+
+- [Quickstart (Docker Compose)](#quickstart-docker-compose)
+- [Architecture](#architecture)
+- [Technology stack](#technology-stack)
+- [Features](#features)
+- [Evaluation](#evaluation-methodology-and-measured-results)
+- [Observability](#observability)
+- [Docker details: containers and volumes](#docker-details-containers-and-volumes)
+- [Configuration](#configuration)
+- [Running without Docker](#running-without-docker)
+- [Demo workflow](#demo-workflow)
+- [API overview](#api-overview)
+- [Security](#security-model-for-uploads-and-credentials)
+- [Tests](#tests)
+- [Project structure](#project-structure)
+- [Known limitations](#known-limitations)
+
+## Quickstart (Docker Compose)
+
+Runs the whole stack (PostgreSQL, backend, frontend) on your own computer. This is a local demonstration, not a production deployment.
+
+**Prerequisites**
+
+- Docker Desktop or Docker Engine with Docker Compose v2 (the `docker compose` command).
+- A Groq API key and a YouTube Data API key. The current Compose configuration requires both and refuses to start if either is unset or empty, but it only checks that they are set. Valid keys are needed for the model analysis (Groq) and the course suggestions (YouTube) to work; placeholder values will not work.
+- Internet access: the first build downloads the base images and installs the Python dependencies.
+
+**1. Clone**
+
+```bash
+git clone https://github.com/Shashank-Rawat7/ResumeReviewer.git
+cd ResumeReviewer
+```
+
+**2. Create `.env`** (it holds your secrets; never commit it)
+
+```bash
+cp .env.example .env
+```
+
+On Windows PowerShell use:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+**3. Fill in `.env`.** Use plain `KEY=value` lines with no spaces around `=`. These six values are required:
+
+| Variable | What to set |
+|---|---|
+| `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB` | database user, password and name for the PostgreSQL container; choose your own password |
+| `GROQ_API_KEY` | your Groq API key |
+| `YOUTUBE_API_KEY` | your YouTube Data API key |
+| `SECRET_KEY` | JWT signing key: a cryptographically random value of at least 32 characters with at least 8 distinct characters. The backend refuses to start with the placeholder, an empty, a short or a repetitive value |
+
+Generate a `SECRET_KEY` and paste the output into `.env` as `SECRET_KEY=<value>`:
+
+```bash
+openssl rand -hex 32
+```
+
+If OpenSSL is not installed (common on Windows), `python -c "import secrets; print(secrets.token_hex(32))"` produces an equivalent value.
+
+**4. Build and start**
+
+```bash
+docker compose up --build -d
+```
+
+PostgreSQL starts first, the backend waits until it is healthy, and the frontend waits for the backend.
+
+**5. Check status and logs**
+
+```bash
+docker compose ps
+docker compose logs -f backend frontend
+```
+
+The backend and frontend show as healthy once their healthchecks pass. If the backend keeps restarting, check its log: an unsafe `SECRET_KEY` is reported there by name.
+
+**6. Open the app**
+
+| What | URL |
+|---|---|
+| Frontend | http://localhost:8501 |
+| Backend API | http://localhost:8000 |
+| Health check | http://localhost:8000/health |
+
+All ports are published on `127.0.0.1` only, so the app is reachable from this computer only. The host ports can be changed in `.env` (see [Configuration](#configuration)); PostgreSQL is also published on `127.0.0.1:5432` by default, so set `POSTGRES_HOST_PORT` if a local PostgreSQL already uses that port.
+
+**7. Stop**
+
+```bash
+docker compose down
+```
+
+This stops and removes the containers but keeps your data in the named volumes.
+
+> **Warning: destructive cleanup.** `docker compose down -v` also deletes the named volumes `postgres_data` (the database: users, sessions and saved analyses) and `uploads` (uploaded PDFs). That data is lost and cannot be recovered.
+
+Resume and job text are sent to Groq for processing, so use a resume you are comfortable sharing with a third-party provider. The Docker setup was smoke-tested earlier with a mock model; see Verification status under [Tests](#tests) for exactly what has and has not been re-verified.
 
 ## Architecture
 
@@ -95,24 +198,9 @@ Example (shortened):
 - The model call has **no request timeout** configured in production. Adding one is a separate operational change that needs its own review; it is intentionally not part of this feature.
 - The pre-existing evaluation baseline was measured with the parser before this instrumentation was added; the added code does not change prompts, model parameters, inputs or call order.
 
-## Running with Docker (recommended)
+## Docker details: containers and volumes
 
-**Prerequisites:** Docker Desktop or Docker Engine with Compose v2, and your own Groq and YouTube Data API keys.
-
-1. Create `.env` from the template and fill in real values (never commit it):
-   ```bash
-   cp .env.example .env
-   ```
-   Use plain `KEY=value` lines with no spaces around `=` (Compose reads `.env` for interpolation). `docker compose` fails with a clear message if a required variable is missing.
-2. Build and start everything:
-   ```bash
-   docker compose up --build
-   ```
-   PostgreSQL starts first; the backend waits until it is healthy and the frontend waits for the backend.
-3. Open the app at http://localhost:8501 (API at http://localhost:8000, `/health` for a liveness check). All ports are published on `127.0.0.1` only.
-4. Stop: `docker compose down` (data is kept). To also delete the database and uploads: `docker compose down -v`.
-
-**Containers and volumes**
+The commands to build, start and stop the stack are in the [Quickstart](#quickstart-docker-compose). `docker compose` fails with a clear message if a required variable is missing. PostgreSQL starts first; the backend waits until it is healthy and the frontend waits for the backend. All ports are published on `127.0.0.1` only.
 
 | Service | Image | Notes |
 |---|---|---|
