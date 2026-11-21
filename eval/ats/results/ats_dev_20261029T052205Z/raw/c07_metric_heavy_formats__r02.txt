@@ -1,0 +1,28 @@
+```json
+{
+  "optimized_bullets": [
+    {
+      "section": "Projects - Data Ingestion Pipeline (Aug 2023 - Nov 2023)",
+      "bullets": [
+        "Ingested 240,000 records daily from three CSV sources into PostgreSQL 15 using Python 3.11.",
+        "Reduced nightly load time from 38 minutes to 9 minutes while maintaining memory usage below 1.5 GB.",
+        "Implemented data‑quality checks that rejected 0.4% of rows and logged each rejection reason."
+      ]
+    },
+    {
+      "section": "Projects - Search API (Feb 2024 - Apr 2024)",
+      "bullets": [
+        "Delivered a search endpoint with a median latency of 120 ms and a 95th percentile latency of 310 ms under 200 concurrent users.",
+        "Conducted a load test of 1.2 million requests, achieving an error rate below 0.1%."
+      ]
+    },
+    {
+      "section": "Work Experience - Platform Intern (Jun 2023 - Aug 2023)",
+      "bullets": [
+        "Upgraded four services from Python 3.8 to Python 3.11 during the internship.",
+        "Reviewed 27 pull requests and resolved 9 flaky tests."
+      ]
+    }
+  ]
+}
+```

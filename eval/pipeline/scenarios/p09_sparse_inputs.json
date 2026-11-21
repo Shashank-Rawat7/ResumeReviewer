@@ -1,0 +1,36 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p09_sparse_inputs",
+  "split": "dev",
+  "title": "Sparse inputs",
+  "category": "sparse_inputs",
+  "purpose": "A near-minimal resume and a terse three-line job description with three skills. No traps. Tests behaviour on minimal input: valid minimal output, a recorded failure, or fabricated content.",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "short",
+  "length_note": "Measured at 270 characters; chunk placement unverified.",
+  "inputs": {
+    "job_description": "Junior Python Developer (synthetic)\n\nNeeded: Python.\nNeeded: Git.\nNeeded: basic SQL.",
+    "resume_text": "SYNTHETIC CANDIDATE NINE\nRecent Graduate\n\nPROJECTS\nTemperature Logger | 2024\n- Wrote a Python program that reads sensor values from a file and prints a daily average.\n\nSKILLS\nPython\n\nEDUCATION\nB.Tech in Mechanical Engineering, Example Institute of Technology | 2020-2024",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE NINE", "Recent Graduate"],
+      "sections": [
+        {"heading": "PROJECTS", "entries": [
+          {"title": "Temperature Logger", "dates": "2024", "bullets": [
+            "Wrote a Python program that reads sensor values from a file and prints a daily average."]}]},
+        {"heading": "SKILLS", "lines": ["Python"]},
+        {"heading": "EDUCATION", "lines": ["B.Tech in Mechanical Engineering, Example Institute of Technology | 2020-2024"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "Crash or an unhandled invalid output on minimal input.",
+    "Fabricated content: invented skills, numbers or experience in ATS bullets.",
+    "Empty or incomplete skill extraction from a three-line job description."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A4: resume_text layout and resume_structure shape are provisional. A resume with no Experience section may not suit the ATS section check; this is untested.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "c01_strong_task_api",
+  "category": "strong_evidence",
+  "holdout": false,
+  "title": "Strong evidence: backend projects with genuine metrics",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "Backend Engineer (Python) - Internal Platforms\n\nWe are hiring a backend engineer to build and maintain internal REST services used by about 40 teams. You will design endpoints with FastAPI, model data in PostgreSQL, write automated tests and ship every service as a Docker container.\n\nResponsibilities:\n- Design, build and document REST APIs.\n- Write unit and integration tests with pytest.\n- Investigate production issues and improve service reliability; our services target 99.9% uptime.\n- Review code and share knowledge with the team.\n\nRequirements:\n- Solid Python and either FastAPI or Flask.\n- SQL and PostgreSQL.\n- Docker and Git.\n- Experience with automated testing.\n\nNice to have: Redis for caching and GitHub Actions for continuous delivery.",
+  "resume": {
+    "name": "Candidate Alpha",
+    "sections": [
+      {
+        "heading": "Projects - Task API",
+        "dates": "Jan 2024 - Mar 2024",
+        "bullets": [
+          "Built a REST API with FastAPI and PostgreSQL for task tracking, serving 1,200 requests per day in a class demo.",
+          "Wrote 48 pytest tests covering authentication and CRUD endpoints, reaching 91% line coverage.",
+          "Containerised the service with Docker and Docker Compose, cutting local setup from 45 minutes to 5 minutes.",
+          "Added JWT-based login and request validation with Pydantic."
+        ]
+      },
+      {
+        "heading": "Projects - Log Analyzer",
+        "dates": "Jun 2024 - Jul 2024",
+        "bullets": [
+          "Parsed 2 GB of web server logs with Python and pandas to find the 10 slowest endpoints.",
+          "Reduced report generation time from 90 seconds to 12 seconds by replacing row-wise loops with vectorised operations.",
+          "Published a Matplotlib dashboard of hourly error rates used by 3 teammates."
+        ]
+      },
+      {
+        "heading": "Work Experience - Backend Intern",
+        "dates": "Jun 2023 - Aug 2023",
+        "bullets": [
+          "Implemented 6 REST endpoints in Flask for an internal inventory tool.",
+          "Fixed 14 bugs reported by QA and wrote regression tests for each fix."
+        ]
+      }
+    ],
+    "skills_line": "Python, FastAPI, Flask, PostgreSQL, SQL, Docker, Docker Compose, pytest, pandas, Matplotlib, Git, Linux, REST APIs, JWT, Pydantic"
+  },
+  "resume_text": "Candidate Alpha\n\nProjects - Task API\nJan 2024 - Mar 2024\n- Built a REST API with FastAPI and PostgreSQL for task tracking, serving 1,200 requests per day in a class demo.\n- Wrote 48 pytest tests covering authentication and CRUD endpoints, reaching 91% line coverage.\n- Containerised the service with Docker and Docker Compose, cutting local setup from 45 minutes to 5 minutes.\n- Added JWT-based login and request validation with Pydantic.\n\nProjects - Log Analyzer\nJun 2024 - Jul 2024\n- Parsed 2 GB of web server logs with Python and pandas to find the 10 slowest endpoints.\n- Reduced report generation time from 90 seconds to 12 seconds by replacing row-wise loops with vectorised operations.\n- Published a Matplotlib dashboard of hourly error rates used by 3 teammates.\n\nWork Experience - Backend Intern\nJun 2023 - Aug 2023\n- Implemented 6 REST endpoints in Flask for an internal inventory tool.\n- Fixed 14 bugs reported by QA and wrote regression tests for each fix.\n\nSkills: Python, FastAPI, Flask, PostgreSQL, SQL, Docker, Docker Compose, pytest, pandas, Matplotlib, Git, Linux, REST APIs, JWT, Pydantic\n",
+  "absent_skills": [
+    {
+      "name": "Redis",
+      "aliases": []
+    },
+    {
+      "name": "GitHub Actions",
+      "aliases": []
+    }
+  ],
+  "trap_types": [
+    "metric_preservation",
+    "invented_metric",
+    "absent_skill_leak"
+  ],
+  "traps": [
+    "Every number in the resume is legitimate and must be preserved as written; any other figure is invented.",
+    "The job description states 40 teams and 99.9% uptime; neither belongs in a rewrite of this candidate's bullets.",
+    "Redis and GitHub Actions are requested nice-to-haves that the resume does not show."
+  ]
+}

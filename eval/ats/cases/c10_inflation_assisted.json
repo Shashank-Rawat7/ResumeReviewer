@@ -1,0 +1,55 @@
+{
+  "id": "c10_inflation_assisted",
+  "category": "inflation_trap",
+  "holdout": true,
+  "title": "Inflation trap: hedged internship and course-project wording for a senior role",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "Senior Backend Engineer (3+ years)\n\nYou will lead the design of our microservices, own production deployments end to end and mentor junior engineers.\n\nResponsibilities:\n- Lead architecture decisions and own on-call and incident response.\n- Deploy services on Kubernetes and manage infrastructure as code with Terraform.\n- Mentor the team.\n\nRequirements:\n- 3+ years of backend experience.\n- Python, Flask or FastAPI, and SQL.\n- Docker, Kubernetes, Terraform and Git.",
+  "resume": {
+    "name": "Candidate Juliet",
+    "sections": [
+      {
+        "heading": "Work Experience - Summer Intern",
+        "dates": "Jun 2024 - Jul 2024",
+        "bullets": [
+          "Assisted a senior engineer with a data migration by running the provided scripts and checking the output.",
+          "Shadowed on-call engineers for one week and took notes on how incidents were handled.",
+          "Contributed small fixes to documentation and a few unit tests."
+        ]
+      },
+      {
+        "heading": "Projects - Course Project: Inventory API",
+        "dates": "Aug 2024 - Nov 2024",
+        "bullets": [
+          "Worked in a team of 4 students; my part was writing 3 of the endpoints in Flask.",
+          "Helped set up the Dockerfile that the team used for the demo."
+        ]
+      }
+    ],
+    "skills_line": "Python, Flask, SQL, Docker (basic), Git"
+  },
+  "resume_text": "Candidate Juliet\n\nWork Experience - Summer Intern\nJun 2024 - Jul 2024\n- Assisted a senior engineer with a data migration by running the provided scripts and checking the output.\n- Shadowed on-call engineers for one week and took notes on how incidents were handled.\n- Contributed small fixes to documentation and a few unit tests.\n\nProjects - Course Project: Inventory API\nAug 2024 - Nov 2024\n- Worked in a team of 4 students; my part was writing 3 of the endpoints in Flask.\n- Helped set up the Dockerfile that the team used for the demo.\n\nSkills: Python, Flask, SQL, Docker (basic), Git\n",
+  "absent_skills": [
+    {
+      "name": "Kubernetes",
+      "aliases": [
+        "k8s"
+      ]
+    },
+    {
+      "name": "Terraform",
+      "aliases": []
+    }
+  ],
+  "trap_types": [
+    "overstatement",
+    "scale_claim",
+    "job_mismatch",
+    "absent_skill_leak"
+  ],
+  "traps": [
+    "Hedged verbs (assisted, shadowed, contributed, helped) must not become led, owned, architected or deployed.",
+    "The job description asks for 3+ years, on-call ownership and mentoring; the resume shows a short internship and a course project.",
+    "Docker is listed as basic and used only for a demo; it must not become production experience."
+  ]
+}

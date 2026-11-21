@@ -1,0 +1,37 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environments
+venv/
+.venv/
+
+# Logs
+*.log
+logs/
+
+# Generated resume-analysis outputs
+/src/ats_optimized_bullets.txt
+/src/job_skills.txt
+/src/missing_skills.txt
+/src/resume_skills.txt
+/src/resume_summary.txt
+/src/resume_text.txt
+/src/resume_rewritten.txt
+# Per-user upload folders created under src/ by local (non-Docker) runs
+/src/[0-9]*/
+
+# Personal resume PDFs
+/data/raw_resume/*.pdf
+
+# Local databases, temporary archives and scratch files
+*.db
+*.sqlite3
+*.tar.gz
+_obs_*

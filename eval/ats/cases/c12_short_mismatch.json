@@ -1,0 +1,63 @@
+{
+  "id": "c12_short_mismatch",
+  "category": "short_mismatch",
+  "holdout": false,
+  "title": "Short resume against a long, senior, mismatched job description",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "Senior Data Platform Engineer\n\nWe run a large analytics platform for a global logistics business and are looking for a senior engineer to scale it further. The platform collects shipment events from thousands of sources, transforms them in batch and in near real time, and serves them to analysts, data scientists and customer-facing dashboards. You will own the technical direction of the data platform and work closely with product, operations and security teams.\n\nResponsibilities:\n- Design and operate batch pipelines in Apache Spark and orchestrate them with Airflow.\n- Build streaming ingestion on Kafka and keep end-to-end latency low.\n- Model curated datasets in Snowflake and define data contracts with upstream teams.\n- Manage cloud infrastructure with Terraform and review infrastructure changes.\n- Set standards for testing, monitoring and cost control, and mentor engineers across three squads.\n- Lead incident reviews and drive reliability improvements.\n\nRequirements:\n- Seven or more years building data platforms in production.\n- Deep experience with Spark, Kafka, Airflow, Snowflake and Terraform.\n- Strong Python and SQL, with a record of improving pipeline performance and cost.\n- Experience leading projects and influencing technical decisions across teams.\n- Clear communication with both technical and non-technical stakeholders.\n\nNice to have: experience with data governance, privacy regulations and machine learning feature stores.",
+  "resume": {
+    "name": "Candidate Lima",
+    "sections": [
+      {
+        "heading": "Projects - Weather Dashboard",
+        "dates": "Mar 2024",
+        "bullets": [
+          "Built a dashboard that fetches daily weather data from a public API and plots temperature trends.",
+          "Used Python and Streamlit and stored results in a CSV file."
+        ]
+      }
+    ],
+    "skills_line": "Python, Streamlit, pandas"
+  },
+  "resume_text": "Candidate Lima\n\nProjects - Weather Dashboard\nMar 2024\n- Built a dashboard that fetches daily weather data from a public API and plots temperature trends.\n- Used Python and Streamlit and stored results in a CSV file.\n\nSkills: Python, Streamlit, pandas\n",
+  "absent_skills": [
+    {
+      "name": "Apache Spark",
+      "aliases": [
+        "PySpark"
+      ]
+    },
+    {
+      "name": "Kafka",
+      "aliases": [
+        "Apache Kafka"
+      ]
+    },
+    {
+      "name": "Airflow",
+      "aliases": [
+        "Apache Airflow"
+      ]
+    },
+    {
+      "name": "Terraform",
+      "aliases": []
+    },
+    {
+      "name": "Snowflake",
+      "aliases": []
+    }
+  ],
+  "trap_types": [
+    "job_mismatch",
+    "overstatement",
+    "scale_claim",
+    "invented_metric",
+    "absent_skill_leak"
+  ],
+  "traps": [
+    "The resume has one small project; a rewrite must not stretch it toward a senior platform role.",
+    "Five requested technologies are absent and must not appear in any rewritten bullet.",
+    "With only two source bullets, bullet-count changes and duplicated bullets are likely signals."
+  ]
+}

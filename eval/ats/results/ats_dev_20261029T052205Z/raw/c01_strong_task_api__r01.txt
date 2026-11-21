@@ -1,0 +1,30 @@
+```json
+{
+  "optimized_bullets": [
+    {
+      "section": "Projects - Task API (Jan 2024 - Mar 2024)",
+      "bullets": [
+        "Designed and implemented a FastAPI REST service with PostgreSQL for task tracking, handling 1,200 requests per day in a class demo.",
+        "Wrote 48 pytest unit tests covering authentication and CRUD endpoints, achieving 91% line coverage.",
+        "Containerised the service using Docker and Docker Compose, reducing local setup time from 45 minutes to 5 minutes.",
+        "Integrated JWT-based authentication and Pydantic request validation."
+      ]
+    },
+    {
+      "section": "Projects - Log Analyzer (Jun 2024 - Jul 2024)",
+      "bullets": [
+        "Parsed 2 GB of web server logs with Python and pandas to identify the 10 slowest endpoints.",
+        "Optimised report generation by replacing row‑wise loops with vectorised operations, cutting runtime from 90 seconds to 12 seconds.",
+        "Created a Matplotlib dashboard of hourly error rates, used by three teammates."
+      ]
+    },
+    {
+      "section": "Work Experience - Backend Intern (Jun 2023 - Aug 2023)",
+      "bullets": [
+        "Implemented six REST endpoints in Flask for an internal inventory tool.",
+        "Resolved 14 QA‑reported bugs and wrote regression tests for each fix."
+      ]
+    }
+  ]
+}
+```

@@ -1,0 +1,373 @@
+{
+  "meta": {
+    "format_version": 1,
+    "purpose": "Fixed technology vocabulary for the advisory check D4 (eval/ats/checks.py check_technologies). A bullet that names a term below which the source resume never mentions is flagged for review.",
+    "status": "LIMITED SCREENING AID. It is not a complete technology ontology and is not proof that a claim is, or is not, supported by the resume.",
+    "matching": "Case-insensitive; a term must be bounded by non-alphanumeric characters, so 'Java' does not match 'JavaScript', 'SQL' does not match 'NoSQL', 'Git' does not match 'GitHub' and 'Redis' does not match 'Redistribute'. Plural and spelling variants match only if listed as aliases.",
+    "alias_policy": [
+      "Aliases are exact alternative spellings of the SAME technology (Postgres, k8s, REST APIs, retrieval-augmented generation).",
+      "No generic or ambiguous aliases: bare Go, R, C, Node, Spark, Ray, Express, Swift, React, Lambda, Chroma, transformers, agents, cloud or data are deliberately absent.",
+      "Terms shorter than three characters are limited to S3 and C#.",
+      "Every term and alias is unique across the whole vocabulary (case-insensitive)."
+    ],
+    "known_limitations": [
+      "Technologies outside this list are invisible to the check (false negatives).",
+      "A technology the resume names with a different word is flagged (false positive), e.g. 'message queue' for RabbitMQ.",
+      "Related technologies are separate entries on purpose (Git and GitHub, Docker and Docker Compose, PostgreSQL and SQL).",
+      "Common English words used as names (pandas, Streamlit, Locust, Sentry, Helm, Groq) can match ordinary prose in rare cases."
+    ],
+    "groups": {
+      "languages": [
+        "Python",
+        "Java",
+        "JavaScript",
+        "TypeScript",
+        "Kotlin",
+        "Scala",
+        "Rust",
+        "C++",
+        "C#",
+        "PHP",
+        "Ruby",
+        "SQL",
+        "Bash"
+      ],
+      "frameworks": [
+        "FastAPI",
+        "Flask",
+        "Django",
+        "Spring Boot",
+        "Pydantic",
+        "SQLAlchemy",
+        "Uvicorn",
+        "Gunicorn",
+        "Celery",
+        "Streamlit",
+        "Gradio",
+        "asyncio",
+        "Node.js",
+        "Express.js"
+      ],
+      "apis": [
+        "REST API",
+        "GraphQL",
+        "gRPC",
+        "WebSockets",
+        "OpenAPI",
+        "JWT",
+        "OAuth",
+        "Nginx",
+        "microservices"
+      ],
+      "stores": [
+        "PostgreSQL",
+        "MySQL",
+        "SQLite",
+        "MongoDB",
+        "Redis",
+        "Elasticsearch",
+        "OpenSearch",
+        "DynamoDB",
+        "Cassandra",
+        "Neo4j",
+        "Snowflake",
+        "BigQuery",
+        "S3"
+      ],
+      "data_ml": [
+        "pandas",
+        "NumPy",
+        "SciPy",
+        "XGBoost",
+        "LightGBM",
+        "PyTorch",
+        "TensorFlow",
+        "Keras",
+        "spaCy",
+        "NLTK",
+        "MLflow",
+        "Matplotlib",
+        "Seaborn",
+        "Plotly",
+        "dbt",
+        "RabbitMQ",
+        "Hadoop",
+        "Tableau",
+        "Power BI",
+        "scikit-learn",
+        "Hugging Face",
+        "Weights & Biases",
+        "Jupyter",
+        "Apache Spark",
+        "Airflow",
+        "Kafka"
+      ],
+      "llm": [
+        "LLM",
+        "LLM API",
+        "RAG",
+        "embeddings",
+        "vector database",
+        "ChromaDB",
+        "OpenAI",
+        "fine-tuning",
+        "NLP",
+        "FAISS",
+        "Pinecone",
+        "Weaviate",
+        "Milvus",
+        "pgvector",
+        "LangChain",
+        "LangGraph",
+        "LlamaIndex",
+        "Anthropic",
+        "Gemini API",
+        "Groq",
+        "prompt engineering",
+        "LoRA"
+      ],
+      "devops": [
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "GCP",
+        "CI/CD",
+        "Docker Compose",
+        "Helm",
+        "Terraform",
+        "Ansible",
+        "AWS Lambda",
+        "EC2",
+        "Azure",
+        "GitHub Actions",
+        "GitHub",
+        "GitLab",
+        "Jenkins",
+        "Git",
+        "Linux",
+        "Prometheus",
+        "Grafana",
+        "OpenTelemetry",
+        "Sentry",
+        "Datadog",
+        "Locust",
+        "pytest",
+        "Selenium",
+        "Playwright",
+        "Postman"
+      ]
+    }
+  },
+  "terms": {
+    "Python": [],
+    "Java": [],
+    "JavaScript": [],
+    "TypeScript": [],
+    "Kotlin": [],
+    "Scala": [],
+    "Rust": [],
+    "C++": [],
+    "C#": [],
+    "PHP": [],
+    "Ruby": [],
+    "SQL": [],
+    "Bash": [
+      "shell scripting",
+      "shell scripts"
+    ],
+    "FastAPI": [],
+    "Flask": [],
+    "Django": [],
+    "Spring Boot": [],
+    "Pydantic": [],
+    "SQLAlchemy": [],
+    "Uvicorn": [],
+    "Gunicorn": [],
+    "Celery": [],
+    "Streamlit": [],
+    "Gradio": [],
+    "asyncio": [],
+    "Node.js": [
+      "NodeJS"
+    ],
+    "Express.js": [
+      "ExpressJS"
+    ],
+    "REST API": [
+      "REST APIs",
+      "RESTful API",
+      "RESTful APIs",
+      "REST endpoint",
+      "REST endpoints"
+    ],
+    "GraphQL": [],
+    "gRPC": [],
+    "WebSockets": [
+      "WebSocket"
+    ],
+    "OpenAPI": [
+      "Swagger"
+    ],
+    "JWT": [
+      "JSON Web Token",
+      "JSON Web Tokens"
+    ],
+    "OAuth": [
+      "OAuth2",
+      "OAuth 2.0"
+    ],
+    "Nginx": [],
+    "microservices": [
+      "microservice"
+    ],
+    "PostgreSQL": [
+      "Postgres"
+    ],
+    "MySQL": [],
+    "SQLite": [],
+    "MongoDB": [
+      "Mongo"
+    ],
+    "Redis": [],
+    "Elasticsearch": [],
+    "OpenSearch": [],
+    "DynamoDB": [],
+    "Cassandra": [],
+    "Neo4j": [],
+    "Snowflake": [],
+    "BigQuery": [],
+    "S3": [
+      "Amazon S3"
+    ],
+    "pandas": [],
+    "NumPy": [],
+    "SciPy": [],
+    "XGBoost": [],
+    "LightGBM": [],
+    "PyTorch": [],
+    "TensorFlow": [],
+    "Keras": [],
+    "spaCy": [],
+    "NLTK": [],
+    "MLflow": [],
+    "Matplotlib": [],
+    "Seaborn": [],
+    "Plotly": [],
+    "dbt": [],
+    "RabbitMQ": [],
+    "Hadoop": [],
+    "Tableau": [],
+    "Power BI": [],
+    "scikit-learn": [
+      "sklearn",
+      "scikit learn"
+    ],
+    "Hugging Face": [
+      "HuggingFace"
+    ],
+    "Weights & Biases": [
+      "wandb"
+    ],
+    "Jupyter": [
+      "JupyterLab",
+      "Jupyter notebook",
+      "Jupyter notebooks"
+    ],
+    "Apache Spark": [
+      "PySpark"
+    ],
+    "Airflow": [
+      "Apache Airflow"
+    ],
+    "Kafka": [
+      "Apache Kafka"
+    ],
+    "LLM": [
+      "LLMs",
+      "large language model",
+      "large language models"
+    ],
+    "LLM API": [
+      "LLM APIs"
+    ],
+    "RAG": [
+      "retrieval-augmented generation",
+      "retrieval augmented generation"
+    ],
+    "embeddings": [
+      "embedding"
+    ],
+    "vector database": [
+      "vector databases",
+      "vector store",
+      "vector stores",
+      "vector DB"
+    ],
+    "ChromaDB": [
+      "Chroma DB"
+    ],
+    "OpenAI": [
+      "OpenAI API"
+    ],
+    "fine-tuning": [
+      "fine tuning",
+      "finetuning"
+    ],
+    "NLP": [
+      "natural language processing"
+    ],
+    "FAISS": [],
+    "Pinecone": [],
+    "Weaviate": [],
+    "Milvus": [],
+    "pgvector": [],
+    "LangChain": [],
+    "LangGraph": [],
+    "LlamaIndex": [],
+    "Anthropic": [],
+    "Gemini API": [],
+    "Groq": [],
+    "prompt engineering": [],
+    "LoRA": [],
+    "Docker": [
+      "Dockerfile",
+      "Dockerfiles"
+    ],
+    "Kubernetes": [
+      "k8s"
+    ],
+    "AWS": [
+      "Amazon Web Services"
+    ],
+    "GCP": [
+      "Google Cloud",
+      "Google Cloud Platform"
+    ],
+    "CI/CD": [
+      "continuous integration"
+    ],
+    "Docker Compose": [],
+    "Helm": [],
+    "Terraform": [],
+    "Ansible": [],
+    "AWS Lambda": [],
+    "EC2": [],
+    "Azure": [],
+    "GitHub Actions": [],
+    "GitHub": [],
+    "GitLab": [],
+    "Jenkins": [],
+    "Git": [],
+    "Linux": [],
+    "Prometheus": [],
+    "Grafana": [],
+    "OpenTelemetry": [],
+    "Sentry": [],
+    "Datadog": [],
+    "Locust": [],
+    "pytest": [],
+    "Selenium": [],
+    "Playwright": [],
+    "Postman": []
+  }
+}

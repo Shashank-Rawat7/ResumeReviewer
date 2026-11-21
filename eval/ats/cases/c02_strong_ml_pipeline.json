@@ -1,0 +1,64 @@
+{
+  "id": "c02_strong_ml_pipeline",
+  "category": "strong_evidence",
+  "holdout": true,
+  "title": "Strong evidence: ML pipeline and batch scoring service",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "Machine Learning Engineer - Customer Analytics\n\nJoin a small team that turns customer data into models the business can use every day. You will train and evaluate models with scikit-learn and gradient boosting libraries, track experiments, and expose models through APIs.\n\nResponsibilities:\n- Build feature pipelines in Python and SQL.\n- Deploy models as containerised services.\n- Monitor model quality and document experiments.\n\nRequirements:\n- Python and SQL.\n- scikit-learn and experience deploying a model behind an API.\n- Docker and clear written communication.\n\nNice to have: Airflow for scheduling and Apache Spark for large datasets. Candidates who have run models in production for more than 2 years are preferred.",
+  "resume": {
+    "name": "Candidate Bravo",
+    "sections": [
+      {
+        "heading": "Projects - Churn Predictor",
+        "dates": "Sep 2023 - Dec 2023",
+        "bullets": [
+          "Trained a gradient boosting model with XGBoost on 18,000 customer records, reaching 0.84 ROC-AUC on a held-out test set.",
+          "Built a scikit-learn preprocessing pipeline that handled missing values and encoded 12 categorical features.",
+          "Tracked 25 experiments with MLflow and documented the best configuration in the project README."
+        ]
+      },
+      {
+        "heading": "Projects - Batch Scoring Service",
+        "dates": "Jan 2024 - Feb 2024",
+        "bullets": [
+          "Served the model through a FastAPI endpoint that scored 500 records per request in about 200 ms.",
+          "Packaged the service with Docker and added a health-check endpoint."
+        ]
+      },
+      {
+        "heading": "Work Experience - Data Analyst Intern",
+        "dates": "May 2023 - Jul 2023",
+        "bullets": [
+          "Automated a weekly sales report with Python and SQL, saving the team about 4 hours each week.",
+          "Cleaned and joined 5 source tables in PostgreSQL to build a reporting dataset."
+        ]
+      }
+    ],
+    "skills_line": "Python, SQL, PostgreSQL, scikit-learn, XGBoost, pandas, NumPy, MLflow, FastAPI, Docker, Git"
+  },
+  "resume_text": "Candidate Bravo\n\nProjects - Churn Predictor\nSep 2023 - Dec 2023\n- Trained a gradient boosting model with XGBoost on 18,000 customer records, reaching 0.84 ROC-AUC on a held-out test set.\n- Built a scikit-learn preprocessing pipeline that handled missing values and encoded 12 categorical features.\n- Tracked 25 experiments with MLflow and documented the best configuration in the project README.\n\nProjects - Batch Scoring Service\nJan 2024 - Feb 2024\n- Served the model through a FastAPI endpoint that scored 500 records per request in about 200 ms.\n- Packaged the service with Docker and added a health-check endpoint.\n\nWork Experience - Data Analyst Intern\nMay 2023 - Jul 2023\n- Automated a weekly sales report with Python and SQL, saving the team about 4 hours each week.\n- Cleaned and joined 5 source tables in PostgreSQL to build a reporting dataset.\n\nSkills: Python, SQL, PostgreSQL, scikit-learn, XGBoost, pandas, NumPy, MLflow, FastAPI, Docker, Git\n",
+  "absent_skills": [
+    {
+      "name": "Airflow",
+      "aliases": [
+        "Apache Airflow"
+      ]
+    },
+    {
+      "name": "Apache Spark",
+      "aliases": [
+        "PySpark"
+      ]
+    }
+  ],
+  "trap_types": [
+    "metric_preservation",
+    "invented_metric",
+    "absent_skill_leak"
+  ],
+  "traps": [
+    "Metrics such as 0.84 ROC-AUC, 18,000 records and 200 ms are real and must not change.",
+    "The job description asks for production experience of more than 2 years; the resume shows projects and an internship only.",
+    "Airflow and Apache Spark are requested nice-to-haves that the resume does not show."
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "abort_reason": null,
+  "calls": {
+    "e1": {
+      "attempts": 20,
+      "failed": 0,
+      "logical_calls": 20,
+      "ok": 20,
+      "skipped": 0
+    },
+    "e2": {
+      "attempts": 20,
+      "failed": 0,
+      "logical_calls": 20,
+      "ok": 20,
+      "skipped": 0
+    },
+    "e3": {
+      "attempts": 21,
+      "failed": 0,
+      "logical_calls": 20,
+      "ok": 20,
+      "skipped": 0
+    }
+  },
+  "completed_repeats": [
+    2,
+    3
+  ],
+  "configured_model_names": [
+    "openai/gpt-oss-20b"
+  ],
+  "environment": {
+    "packages": {
+      "PyYAML": "6.0.3",
+      "groq": "0.37.1",
+      "langchain-core": "0.3.86",
+      "langchain-groq": "0.2.4"
+    },
+    "platform": "Windows-11-10.0.26200-SP0",
+    "python": "3.12.4"
+  },
+  "finish_reasons": {
+    "e1": {
+      "stop": 20
+    },
+    "e2": {
+      "stop": 20
+    },
+    "e3": {
+      "stop": 20
+    }
+  },
+  "finished_at": "2026-10-30T09:49:03Z",
+  "manifest_version": "pipeline-manifest-1",
+  "model_name_note": "The client library echoes the configured model name in the response metadata; it is not an identifier verified or reported independently by the provider.",
+  "normalization_errors": 0,
+  "outputs_sha256": {
+    "outputs_rep2.json": "ec486ea00d848e3f36d2e55bc9aefef9bc06ea448274ad2c79d96a2e50467f3b",
+    "outputs_rep3.json": "00d7ff32f1514be2b7e0b1c98b3320bc59f9304ea789ac3c2277f76a8d40f5e9"
+  },
+  "plan_hash": "e178ce2e87927dc53387b88fff6bcdc428a8e5344c5d40e619f9e1ca05224f28",
+  "run_id": "pipeline_918e73269cf5",
+  "started_at": "2026-10-30T09:05:33Z",
+  "status": "completed"
+}

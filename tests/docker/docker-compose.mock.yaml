@@ -1,0 +1,24 @@
+# Used ONLY by tests/docker/smoke_test.py (as a second -f file on top of docker-compose.yaml).
+# Adds a mock Groq server and points the backend at it. Never use this in a real deployment.
+services:
+  mock-groq:
+    image: python:3.12.16-slim-trixie
+    command: ["python", "/mock/mock_groq.py", "8080"]
+    volumes:
+      - ./tests/docker/mock_groq.py:/mock/mock_groq.py:ro
+    ports:
+      - "127.0.0.1:${MOCK_GROQ_HOST_PORT:-18081}:8080"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/health', timeout=4)"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+    networks:
+      - resume-network
+
+  backend:
+    depends_on:
+      mock-groq:
+        condition: service_healthy
+    environment:
+      GROQ_API_BASE: http://mock-groq:8080

@@ -1,0 +1,28 @@
+```json
+{
+  "optimized_bullets": [
+    {
+      "section": "Projects - Document Q&A Assistant (Apr 2024 - Jun 2024)",
+      "bullets": [
+        "Designed a retrieval‑augmented generation (RAG) assistant that answers queries over uploaded PDF files.",
+        "Chunked documents and stored embeddings in FAISS, retrieving the top 4 passages for each question.",
+        "Integrated an LLM API via LangChain, employing a prompt that restricts responses to retrieved text.",
+        "Exposed the assistant through a FastAPI endpoint and a lightweight Streamlit interface."
+      ]
+    },
+    {
+      "section": "Projects - Prompt Evaluation Harness (Aug 2024 - Sep 2024)",
+      "bullets": [
+        "Developed a Python script that executes 30 test questions against multiple prompts and logs the responses to CSV files.",
+        "Manually compared outputs and identified prompts that generated unsupported claims."
+      ]
+    },
+    {
+      "section": "Work Experience - Research Intern (May 2023 - Jul 2023)",
+      "bullets": [
+        "Cleaned a text dataset of 5,000 support tickets and labeled 300 entries for a classification model."
+      ]
+    }
+  ]
+}
+```

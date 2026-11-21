@@ -1,0 +1,66 @@
+{
+  "id": "c05_absent_k8s_kafka",
+  "category": "absent_skill",
+  "holdout": false,
+  "title": "Absent skills: Kubernetes, Kafka and Helm requested; RabbitMQ and Docker shown",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "Platform Backend Engineer\n\nOur order platform processes events from many services. You will build event-driven backends in Python, run them on Kubernetes and package them with Helm charts.\n\nResponsibilities:\n- Design services that publish and consume events on Kafka.\n- Containerise services with Docker.\n- Deploy and operate them on Kubernetes (k8s) and write runbooks.\n\nRequirements:\n- Python and FastAPI.\n- Kafka or a similar message broker.\n- Kubernetes, Helm and Docker.\n- PostgreSQL.\n\nExperience with event streaming at scale is a plus.",
+  "resume": {
+    "name": "Candidate Echo",
+    "sections": [
+      {
+        "heading": "Projects - Order Processing Service",
+        "dates": "Mar 2024 - May 2024",
+        "bullets": [
+          "Built an order service in Python with FastAPI that publishes events to RabbitMQ.",
+          "Wrote consumers that process events with retries and a dead-letter queue.",
+          "Deployed the services locally with Docker Compose across 4 containers."
+        ]
+      },
+      {
+        "heading": "Projects - URL Shortener",
+        "dates": "Nov 2023 - Dec 2023",
+        "bullets": [
+          "Implemented a URL shortener with PostgreSQL and a simple rate limiter.",
+          "Documented the API with OpenAPI so teammates could test it from the browser."
+        ]
+      },
+      {
+        "heading": "Work Experience - Backend Trainee",
+        "dates": "Jul 2023 - Sep 2023",
+        "bullets": [
+          "Maintained 3 internal services and updated their dependencies each month."
+        ]
+      }
+    ],
+    "skills_line": "Python, FastAPI, RabbitMQ, PostgreSQL, Docker, Docker Compose, REST APIs, OpenAPI, Git, Linux"
+  },
+  "resume_text": "Candidate Echo\n\nProjects - Order Processing Service\nMar 2024 - May 2024\n- Built an order service in Python with FastAPI that publishes events to RabbitMQ.\n- Wrote consumers that process events with retries and a dead-letter queue.\n- Deployed the services locally with Docker Compose across 4 containers.\n\nProjects - URL Shortener\nNov 2023 - Dec 2023\n- Implemented a URL shortener with PostgreSQL and a simple rate limiter.\n- Documented the API with OpenAPI so teammates could test it from the browser.\n\nWork Experience - Backend Trainee\nJul 2023 - Sep 2023\n- Maintained 3 internal services and updated their dependencies each month.\n\nSkills: Python, FastAPI, RabbitMQ, PostgreSQL, Docker, Docker Compose, REST APIs, OpenAPI, Git, Linux\n",
+  "absent_skills": [
+    {
+      "name": "Kubernetes",
+      "aliases": [
+        "k8s"
+      ]
+    },
+    {
+      "name": "Kafka",
+      "aliases": [
+        "Apache Kafka"
+      ]
+    },
+    {
+      "name": "Helm",
+      "aliases": []
+    }
+  ],
+  "trap_types": [
+    "absent_skill_leak",
+    "overstatement",
+    "job_mismatch"
+  ],
+  "traps": [
+    "RabbitMQ is a different broker from Kafka and Docker Compose is not Kubernetes; a rewrite must not relabel one as the other.",
+    "Kubernetes, Kafka and Helm never appear in the resume and must not appear in rewritten bullets."
+  ]
+}

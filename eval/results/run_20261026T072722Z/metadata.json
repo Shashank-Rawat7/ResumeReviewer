@@ -1,0 +1,22 @@
+{
+  "utc_time": "2026-10-26T07:27:22.149598+00:00",
+  "model": "openai/gpt-oss-20b",
+  "temperature": 0.2,
+  "parser_py_sha256": "3a92f74d15d773c015223cc16db69f0c93f0368420804e206a998e5c873d1e07",
+  "prompts_yaml_sha256": "c472c06a9af41c7ab6129977b81722ae105dc48e40d0349870471583e9d4e6fe",
+  "resume_pdf_bytes": 84682,
+  "resume_pdf_sha256": "e0c3cde875823e57449911d8cc45ce1cf250ad0dd70547c1398f7f5a8f111eab",
+  "resume_text_chars": 4021,
+  "python": "3.12.4",
+  "packages": {
+    "langchain": "0.3.27",
+    "langchain-core": "0.3.86",
+    "langchain-groq": "0.2.4",
+    "groq": "0.37.1",
+    "PyPDF2": "3.0.1"
+  },
+  "selected_jobs": [
+    "poor"
+  ],
+  "repeat": 3
+}

@@ -1,0 +1,21 @@
+```json
+{
+  "optimized_bullets": [
+    {
+      "section": "Projects - Sentiment Classifier (Mar 2024 - Apr 2024)",
+      "bullets": [
+        "Trained a text classification model using scikit-learn on a public movie review dataset.",
+        "Evaluated logistic regression and a small neural network, selecting the simpler model for deployment.",
+        "Documented results and limitations in a Jupyter notebook."
+      ]
+    },
+    {
+      "section": "Projects - Resume Parser (Jul 2024 - Aug 2024)",
+      "bullets": [
+        "Extracted candidate names and skill sets from PDF resumes using regular expressions and spaCy.",
+        "Implemented the parser as a command‑line tool for easy integration."
+      ]
+    }
+  ]
+}
+```

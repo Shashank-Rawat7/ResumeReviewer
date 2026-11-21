@@ -1,0 +1,4762 @@
+{
+  "call_outcomes": {
+    "e1": {
+      "attempts": 30,
+      "finish_reasons": {
+        "stop": 30
+      },
+      "logical_calls_failed": 0,
+      "logical_calls_ok": 30,
+      "retried_attempts": 0,
+      "skipped": 0
+    },
+    "e2": {
+      "attempts": 30,
+      "finish_reasons": {
+        "stop": 30
+      },
+      "logical_calls_failed": 0,
+      "logical_calls_ok": 30,
+      "retried_attempts": 0,
+      "skipped": 0
+    },
+    "e3": {
+      "attempts": 31,
+      "finish_reasons": {
+        "stop": 30
+      },
+      "logical_calls_failed": 0,
+      "logical_calls_ok": 30,
+      "retried_attempts": 1,
+      "skipped": 0
+    }
+  },
+  "conditions": [
+    "Inputs are the scenario's job_description and resume_text, passed to the prompts directly. Production joins overlapping text chunks into resume_text (open item A6); that duplication is not reproduced.",
+    "PDF extraction and the resume-summary and credentials steps are not evaluated.",
+    "E2 is COUPLED to E1 as in production: it receives E1's cleaned output. E3 receives only the job description and the resume text and never E1 or E2 data.",
+    "Model settings are those written in the ChatGroq(...) call of src/parser.py. No seed is set, as in production, so repeats measure run-to-run variation rather than a fixed result.",
+    "The runner retries a transport failure at most once. The model client is created with max_retries=0 (an evaluation override; production leaves the library default), so the runner's retry is the ONLY retry and every HTTP request is one logged attempt.",
+    "The model client is created with a request timeout (evaluation_overrides.request_timeout, seconds). A request that exceeds it fails as a timeout, which the runner treats as a transport failure (one retry). Production sets no timeout, and the installed client library applies none by default.",
+    "The model name recorded is the CONFIGURED name, echoed back by the client library in the response metadata. It is not an identifier verified or reported independently by the provider.",
+    "Scenario files stay unfrozen (draft); their content hashes are recorded and the run refuses if any changed.",
+    "Repeat 1 comes from source run pipeline_8a8a6a446c17, which set no explicit client request timeout; repeats 2-3 of this run use request_timeout=120 s. The repeats therefore differ in this one client setting; no other setting, prompt, dataset file or scoring file differs."
+  ],
+  "configured_model_names": [
+    "openai/gpt-oss-20b"
+  ],
+  "continuation": {
+    "client_request_timeout": {
+      "1": "none set (library default)",
+      "2": "120 s",
+      "3": "120 s"
+    },
+    "excluded_source_log_lines": 23,
+    "repeat_sources": {
+      "1": "pipeline_8a8a6a446c17",
+      "2": "pipeline_918e73269cf5",
+      "3": "pipeline_918e73269cf5"
+    },
+    "source_calls_jsonl_sha256": "8eaa5b94021a6f1009d1f1dec9fc3a70606e48e2c9a621c82ea449d0d68de6b6",
+    "source_outputs_rep1_sha256": "e14f255fe39386af31c5a411e54cbf83d550c2ada31f3f7d68d27dd7a326cd7f",
+    "source_plan_hash": "1115e1a8aeb8d7cd5dbebf5ab9975345b92a7c4f15a12482bba791d7cbc51072",
+    "source_run_id": "pipeline_8a8a6a446c17"
+  },
+  "dataset_ids": [
+    "p01_strong_fit",
+    "p02_partial_mixed_tiers",
+    "p03_poor_fit",
+    "p04_duplicate_tier_conflict",
+    "p05_equivalents_aliases",
+    "p06_mention_vs_evidence",
+    "p07_no_metrics_resume",
+    "p08_soft_academic",
+    "p09_sparse_inputs",
+    "p10_adjacent_technologies"
+  ],
+  "limitations": [
+    "Ten hand-authored synthetic scenarios, one model, draft-1 labels: a baseline, not a generalisation claim.",
+    "Pooled rates add numerators and denominators across scenarios; per-scenario results are kept beside them.",
+    "E3 numbers are deterministic screens, not verification that bullets are factually correct.",
+    "Ranges across repeats show variation between runs; they are not confidence intervals.",
+    "Repeats are split over two runs (pipeline_8a8a6a446c17: repeat 1; this run: repeats 2-3). 23 call-log line(s) of the interrupted source run are excluded.",
+    "The report scores only the supplied precomputed outputs. It is not a measurement of a live model.",
+    "Stage reports are embedded unchanged from score.py and e3.py; read their own limitations.",
+    "E3 results are deterministic screens, not verification that bullets are factually correct."
+  ],
+  "metrics": [
+    {
+      "direction": "higher_is_better",
+      "metric": "offered_options_match_rule",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 10,
+          "numerator": 10,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 10,
+          "numerator": 10,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 10,
+          "numerator": 10,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 1.0,
+      "rate_min": 1.0,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "course"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "skipped_count_match_rule",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 10,
+          "numerator": 10,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 10,
+          "numerator": 10,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 10,
+          "numerator": 10,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 1.0,
+      "rate_min": 1.0,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "course"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "label_eligibility_agreement",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 65,
+          "numerator": 58,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 5,
+              "rate": 0.625,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 8,
+              "rate": 0.888889,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 6,
+              "rate": 0.75,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.892308,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 65,
+          "numerator": 58,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 5,
+              "rate": 0.625,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 3,
+              "rate": 0.5,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.892308,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 65,
+          "numerator": 63,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 5,
+              "rate": 0.833333,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.969231,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.969231,
+      "rate_min": 0.892308,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "course"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "skill_recall",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 68,
+          "numerator": 64,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 4,
+              "rate": 0.5,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.941176,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 68,
+          "numerator": 65,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 5,
+              "rate": 0.625,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.955882,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 68,
+          "numerator": 64,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 4,
+              "rate": 0.5,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.941176,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.955882,
+      "rate_min": 0.941176,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e1"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "precision",
+      "per_repeat": [
+        {
+          "available": false,
+          "denominator": null,
+          "numerator": null,
+          "per_scenario": [
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": null,
+          "repeat": 1,
+          "unavailable_reason": "the labels do not establish that the authored skill list is exhaustive, so false positives cannot be identified"
+        },
+        {
+          "available": false,
+          "denominator": null,
+          "numerator": null,
+          "per_scenario": [
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": null,
+          "repeat": 2,
+          "unavailable_reason": "the labels do not establish that the authored skill list is exhaustive, so false positives cannot be identified"
+        },
+        {
+          "available": false,
+          "denominator": null,
+          "numerator": null,
+          "per_scenario": [
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": null,
+          "repeat": 3,
+          "unavailable_reason": "the labels do not establish that the authored skill list is exhaustive, so false positives cannot be identified"
+        }
+      ],
+      "rate_max": null,
+      "rate_min": null,
+      "repeats_available": 0,
+      "screening_only": false,
+      "stage": "e1"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "f1",
+      "per_repeat": [
+        {
+          "available": false,
+          "denominator": null,
+          "numerator": null,
+          "per_scenario": [
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": null,
+          "repeat": 1,
+          "unavailable_reason": "the labels do not establish that the authored skill list is exhaustive, so false positives cannot be identified"
+        },
+        {
+          "available": false,
+          "denominator": null,
+          "numerator": null,
+          "per_scenario": [
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": null,
+          "repeat": 2,
+          "unavailable_reason": "the labels do not establish that the authored skill list is exhaustive, so false positives cannot be identified"
+        },
+        {
+          "available": false,
+          "denominator": null,
+          "numerator": null,
+          "per_scenario": [
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": null,
+          "repeat": 3,
+          "unavailable_reason": "the labels do not establish that the authored skill list is exhaustive, so false positives cannot be identified"
+        }
+      ],
+      "rate_max": null,
+      "rate_min": null,
+      "repeats_available": 0,
+      "screening_only": false,
+      "stage": "e1"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "status_agreement",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 65,
+          "numerator": 57,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 6,
+              "rate": 0.75,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 8,
+              "rate": 0.888889,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 6,
+              "rate": 0.75,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 4,
+              "numerator": 3,
+              "rate": 0.75,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 6,
+              "rate": 0.75,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.876923,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 65,
+          "numerator": 57,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 5,
+              "rate": 0.625,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 4,
+              "numerator": 3,
+              "rate": 0.75,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 3,
+              "rate": 0.5,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.876923,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 65,
+          "numerator": 60,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 4,
+              "numerator": 3,
+              "rate": 0.75,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 5,
+              "rate": 0.833333,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.923077,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.923077,
+      "rate_min": 0.876923,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "status_agreement_strict",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 65,
+          "numerator": 57,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 6,
+              "rate": 0.75,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 8,
+              "rate": 0.888889,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 6,
+              "rate": 0.75,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 4,
+              "numerator": 3,
+              "rate": 0.75,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 6,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 6,
+              "rate": 0.75,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.876923,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 65,
+          "numerator": 57,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 5,
+              "rate": 0.625,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 4,
+              "numerator": 3,
+              "rate": 0.75,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 3,
+              "rate": 0.5,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.876923,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 65,
+          "numerator": 60,
+          "per_scenario": [
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 4,
+              "numerator": 3,
+              "rate": 0.75,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 5,
+              "rate": 0.833333,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.923077,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.923077,
+      "rate_min": 0.876923,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "gap_detection_recall",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 37,
+          "numerator": 30,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 3,
+              "rate": 0.6,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 8,
+              "numerator": 7,
+              "rate": 0.875,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 3,
+              "rate": 0.6,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 2,
+              "rate": 0.5,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.810811,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 37,
+          "numerator": 30,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 2,
+              "rate": 0.4,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 4,
+              "numerator": 1,
+              "rate": 0.25,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 3,
+              "rate": 0.75,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.810811,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 37,
+          "numerator": 34,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 4,
+              "rate": 0.8,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 4,
+              "numerator": 3,
+              "rate": 0.75,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 3,
+              "rate": 0.75,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.918919,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.918919,
+      "rate_min": 0.810811,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "lower_is_better",
+      "metric": "false_flag_rate",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 28,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 2,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 28,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 2,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 28,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 2,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.0,
+      "rate_min": 0.0,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "status_exact_match_given_flagged",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 30,
+          "numerator": 29,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 1,
+              "rate": 0.5,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.966667,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 30,
+          "numerator": 29,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 1,
+              "rate": 0.5,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.966667,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 34,
+          "numerator": 32,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 4,
+              "rate": 0.8,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 1,
+              "rate": 0.5,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.941176,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.966667,
+      "rate_min": 0.941176,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "tier_agreement_determinate",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 29,
+          "numerator": 29,
+          "per_scenario": [
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 28,
+          "numerator": 27,
+          "per_scenario": [
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 7,
+              "numerator": 7,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 1,
+              "rate": 0.5,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.964286,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 30,
+          "numerator": 28,
+          "per_scenario": [
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 7,
+              "numerator": 6,
+              "rate": 0.857143,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 3,
+              "numerator": 2,
+              "rate": 0.666667,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.933333,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 1.0,
+      "rate_min": 0.933333,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "tier_agreement_ambiguous_set",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 2,
+          "numerator": 2,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 3,
+          "numerator": 3,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 5,
+          "numerator": 4,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.8,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 1.0,
+      "rate_min": 0.8,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "jd_evidence_found",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 32,
+          "numerator": 31,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 2,
+              "rate": 0.666667,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 8,
+              "numerator": 8,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.96875,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 32,
+          "numerator": 32,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 36,
+          "numerator": 36,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 9,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 1.0,
+      "rate_min": 0.96875,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "jd_quote_matches_authored_anchor",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 32,
+          "numerator": 29,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 2,
+              "rate": 0.666667,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 8,
+              "numerator": 6,
+              "rate": 0.75,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.90625,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 32,
+          "numerator": 30,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 7,
+              "rate": 0.777778,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.9375,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 36,
+          "numerator": 34,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 9,
+              "numerator": 7,
+              "rate": 0.777778,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 4,
+              "numerator": 4,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 3,
+              "numerator": 3,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 5,
+              "rate": 1.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.944444,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.944444,
+      "rate_min": 0.90625,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "higher_is_better",
+      "metric": "resume_evidence_quote_found",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 5,
+          "numerator": 5,
+          "per_scenario": [
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 2,
+          "numerator": 2,
+          "per_scenario": [
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 4,
+          "numerator": 4,
+          "per_scenario": [
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 2,
+              "numerator": 2,
+              "rate": 1.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 1,
+              "rate": 1.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 0,
+              "numerator": 0,
+              "rate": null,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 1.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 1.0,
+      "rate_min": 1.0,
+      "repeats_available": 3,
+      "screening_only": false,
+      "stage": "e2"
+    },
+    {
+      "direction": "lower_is_better",
+      "metric": "bullets_with_unsupported_number",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 58,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 10,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 59,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 10,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 59,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 10,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.0,
+      "rate_min": 0.0,
+      "repeats_available": 3,
+      "screening_only": true,
+      "stage": "e3"
+    },
+    {
+      "direction": "lower_is_better",
+      "metric": "bullets_with_number_not_in_resume_text",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 58,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 10,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 59,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 10,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 59,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 10,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.0,
+      "rate_min": 0.0,
+      "repeats_available": 3,
+      "screening_only": true,
+      "stage": "e3"
+    },
+    {
+      "direction": "lower_is_better",
+      "metric": "bullets_mentioning_absent_skill",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 58,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 10,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 59,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 10,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 59,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 10,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 9,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 6,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.0,
+      "rate_min": 0.0,
+      "repeats_available": 3,
+      "screening_only": true,
+      "stage": "e3"
+    },
+    {
+      "direction": "lower_is_better",
+      "metric": "bullets_with_guard_phrase",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 18,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 19,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 19,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 4,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": null,
+              "numerator": null,
+              "rate": null,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 5,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.0,
+      "rate_min": 0.0,
+      "repeats_available": 3,
+      "screening_only": true,
+      "stage": "e3"
+    },
+    {
+      "direction": "lower_is_better",
+      "metric": "scenario_has_flagged_bullet",
+      "per_repeat": [
+        {
+          "available": true,
+          "denominator": 10,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 1,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 10,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 2,
+          "unavailable_reason": null
+        },
+        {
+          "available": true,
+          "denominator": 10,
+          "numerator": 0,
+          "per_scenario": [
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p01_strong_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p02_partial_mixed_tiers"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p03_poor_fit"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p04_duplicate_tier_conflict"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p05_equivalents_aliases"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p06_mention_vs_evidence"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p07_no_metrics_resume"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p08_soft_academic"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p09_sparse_inputs"
+            },
+            {
+              "denominator": 1,
+              "numerator": 0,
+              "rate": 0.0,
+              "scenario_id": "p10_adjacent_technologies"
+            }
+          ],
+          "rate": 0.0,
+          "repeat": 3,
+          "unavailable_reason": null
+        }
+      ],
+      "rate_max": 0.0,
+      "rate_min": 0.0,
+      "repeats_available": 3,
+      "screening_only": true,
+      "stage": "e3"
+    }
+  ],
+  "model": {
+    "max_tokens": 8192,
+    "model": "openai/gpt-oss-20b",
+    "reasoning_effort": "low",
+    "temperature": 0.2
+  },
+  "outputs_sha256": {
+    "outputs_rep1.json": "e14f255fe39386af31c5a411e54cbf83d550c2ada31f3f7d68d27dd7a326cd7f",
+    "outputs_rep2.json": "ec486ea00d848e3f36d2e55bc9aefef9bc06ea448274ad2c79d96a2e50467f3b",
+    "outputs_rep3.json": "00d7ff32f1514be2b7e0b1c98b3320bc59f9304ea789ac3c2277f76a8d40f5e9"
+  },
+  "plan_hash": "e178ce2e87927dc53387b88fff6bcdc428a8e5344c5d40e619f9e1ca05224f28",
+  "repeats": [
+    1,
+    2,
+    3
+  ],
+  "repeats_planned": 3,
+  "repeats_summarized": 3,
+  "report_sha256": {
+    "report_rep1.json": "9ecc776c31c4a283cb7bbde99ccb18ef9fa82f30598794186d277bfb7a0906c2",
+    "report_rep2.json": "2b368d6b700eb3c2b45b9e0e5d7c353074b800c94791511f866e12a28dbcc928",
+    "report_rep3.json": "4f44d93227b15144dd82ed92c36d713fcb629a88f0922f11ad333127fb450958"
+  },
+  "run_id": "pipeline_918e73269cf5",
+  "run_status": "completed",
+  "summary_version": "pipeline-summary-1",
+  "warning_counts": {
+    "1": 1,
+    "2": 0,
+    "3": 0
+  }
+}

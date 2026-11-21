@@ -1,0 +1,21 @@
+```json
+{
+  "optimized_bullets": [
+    {
+      "section": "Projects - Data Scripts (Mar 2024 - May 2024)",
+      "bullets": [
+        "Developed Python scripts to process and transform data files for analysis.",
+        "Cleaned datasets and generated visual charts to support stakeholder insights.",
+        "Collaborated with the team to deliver project deliverables on schedule."
+      ]
+    },
+    {
+      "section": "Work Experience - Trainee Analyst (Jul 2023 - Dec 2023)",
+      "bullets": [
+        "Assisted the reporting team with daily data extraction and reporting tasks.",
+        "Acquired proficiency in company-specific analytical tools and processes."
+      ]
+    }
+  ]
+}
+```

@@ -1,0 +1,61 @@
+{
+  "id": "c07_metric_heavy_formats",
+  "category": "metric_heavy",
+  "holdout": false,
+  "title": "Metric-heavy: Indian grouping, versions, units, percentiles, dates and magnitudes",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "Data Platform Engineer\n\nOur platform ingests millions of records every day and serves search and reporting APIs. You will build ingestion pipelines in Python, tune PostgreSQL and measure latency under load.\n\nResponsibilities:\n- Own ingestion jobs and data-quality checks.\n- Run load tests and keep our APIs fast.\n- Set up dashboards and alerts with Prometheus and Grafana.\n\nRequirements:\n- Python 3 and PostgreSQL.\n- Performance testing, Linux and Git.\n\nNice to have: Prometheus and Grafana.",
+  "resume": {
+    "name": "Candidate Golf",
+    "sections": [
+      {
+        "heading": "Projects - Data Ingestion Pipeline",
+        "dates": "Aug 2023 - Nov 2023",
+        "bullets": [
+          "Ingested 2,40,000 records per day from 3 CSV sources into PostgreSQL 15 using Python 3.11.",
+          "Cut nightly load time from 38 minutes to 9 minutes and kept memory under 1.5 GB.",
+          "Added data-quality checks that rejected 0.4% of rows and logged each reason."
+        ]
+      },
+      {
+        "heading": "Projects - Search API",
+        "dates": "Feb 2024 - Apr 2024",
+        "bullets": [
+          "Served a search endpoint with median latency of 120 ms and 95th percentile of 310 ms under 200 concurrent users.",
+          "Handled a load test of 1.2 million requests with an error rate below 0.1%."
+        ]
+      },
+      {
+        "heading": "Work Experience - Platform Intern",
+        "dates": "Jun 2023 - Aug 2023",
+        "bullets": [
+          "Upgraded 4 services from Python 3.8 to Python 3.11 during the internship.",
+          "Reviewed 27 pull requests and fixed 9 flaky tests."
+        ]
+      }
+    ],
+    "skills_line": "Python, PostgreSQL, FastAPI, pytest, Docker, Linux, Git, Locust"
+  },
+  "resume_text": "Candidate Golf\n\nProjects - Data Ingestion Pipeline\nAug 2023 - Nov 2023\n- Ingested 2,40,000 records per day from 3 CSV sources into PostgreSQL 15 using Python 3.11.\n- Cut nightly load time from 38 minutes to 9 minutes and kept memory under 1.5 GB.\n- Added data-quality checks that rejected 0.4% of rows and logged each reason.\n\nProjects - Search API\nFeb 2024 - Apr 2024\n- Served a search endpoint with median latency of 120 ms and 95th percentile of 310 ms under 200 concurrent users.\n- Handled a load test of 1.2 million requests with an error rate below 0.1%.\n\nWork Experience - Platform Intern\nJun 2023 - Aug 2023\n- Upgraded 4 services from Python 3.8 to Python 3.11 during the internship.\n- Reviewed 27 pull requests and fixed 9 flaky tests.\n\nSkills: Python, PostgreSQL, FastAPI, pytest, Docker, Linux, Git, Locust\n",
+  "absent_skills": [
+    {
+      "name": "Prometheus",
+      "aliases": []
+    },
+    {
+      "name": "Grafana",
+      "aliases": []
+    }
+  ],
+  "trap_types": [
+    "metric_preservation",
+    "format_robustness",
+    "invented_metric",
+    "absent_skill_leak"
+  ],
+  "traps": [
+    "Legitimate figures use Indian grouping (2,40,000), versions (3.11, 15), units (120 ms, 1.5 GB), a percentile (95th) and magnitudes (1.2 million); all must survive unchanged in value.",
+    "The dataset deliberately avoids formats the checker documents as blind spots (space grouping, European decimals).",
+    "Prometheus and Grafana are requested nice-to-haves that the resume does not show."
+  ]
+}

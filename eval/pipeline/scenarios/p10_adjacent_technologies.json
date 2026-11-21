@@ -1,0 +1,40 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p10_adjacent_technologies",
+  "split": "dev",
+  "title": "Ambiguous adjacent technologies",
+  "category": "adjacent_technologies",
+  "purpose": "The resume shows technologies adjacent to three required skills (RabbitMQ for Kafka, BigQuery for Snowflake, Docker Swarm for Kubernetes), an 'or similar' requirement met by Luigi, a demonstrated control (Python) and a missing control (Terraform). Tests that proficiency is not inferred from an adjacent technology.",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "short",
+  "length_note": "Measured at 666 characters; chunk placement unverified.",
+  "inputs": {
+    "job_description": "Streaming Data Engineer - Skyline Mobility (synthetic)\n\nRequired:\n- Python for data engineering.\n- Apache Kafka for event streaming.\n- Snowflake as the analytics warehouse.\n- Apache Airflow or a similar workflow orchestrator.\n\nPreferred:\n- Kubernetes for running data services.\n\nOptional:\n- Terraform for infrastructure automation.",
+    "resume_text": "SYNTHETIC CANDIDATE TEN\nData Engineer\n\nEXPERIENCE\nData Engineer, Pelican Mobility (synthetic) | 2020-2024\n- Built Python services that publish vehicle events to RabbitMQ queues and consume them in downstream workers.\n- Loaded daily trip summaries into Google BigQuery and wrote the SQL transformations for them.\n- Ran the team's services as containers on a small Docker Swarm cluster.\n- Scheduled nightly jobs with Luigi and monitored their failures.\n- Handled about 1 million events per day across 3 queues.\n\nSKILLS\nPython, RabbitMQ, Google BigQuery, Docker Swarm, Luigi, SQL\n\nEDUCATION\nB.Tech in Electronics Engineering, Example Institute of Technology | 2016-2020",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE TEN", "Data Engineer"],
+      "sections": [
+        {"heading": "EXPERIENCE", "entries": [
+          {"title": "Data Engineer, Pelican Mobility (synthetic)", "dates": "2020-2024", "bullets": [
+            "Built Python services that publish vehicle events to RabbitMQ queues and consume them in downstream workers.",
+            "Loaded daily trip summaries into Google BigQuery and wrote the SQL transformations for them.",
+            "Ran the team's services as containers on a small Docker Swarm cluster.",
+            "Scheduled nightly jobs with Luigi and monitored their failures.",
+            "Handled about 1 million events per day across 3 queues."]}]},
+        {"heading": "SKILLS", "lines": ["Python, RabbitMQ, Google BigQuery, Docker Swarm, Luigi, SQL"]},
+        {"heading": "EDUCATION", "lines": ["B.Tech in Electronics Engineering, Example Institute of Technology | 2016-2020"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "Inferring Kafka, Snowflake or Kubernetes proficiency from RabbitMQ, BigQuery or Docker Swarm (skill reported as absent or no gap).",
+    "ATS bullets recasting RabbitMQ, BigQuery, Docker Swarm or Luigi as Kafka, Snowflake, Kubernetes or Airflow.",
+    "Flagging the demonstrated Python control, or failing to flag the Terraform control."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A4: resume_text layout and resume_structure shape are provisional.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

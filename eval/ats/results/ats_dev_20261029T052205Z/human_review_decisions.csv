@@ -1,0 +1,103 @@
+﻿case_id,repeat,bullet_index,supported_by_source_evidence,unsupported_or_invented_claims,relevance_to_job_description,clarity_and_action_orientation,overall_rewrite_improvement,reviewer_notes
+c01_strong_task_api,1,0,yes,none,high,high,improved,"Supported FastAPI/PostgreSQL task API and 1,200 requests/day class-demo figure."
+c01_strong_task_api,1,1,yes,none,high,high,improved,Preserves 48 pytest tests and 91% line coverage.
+c01_strong_task_api,1,2,yes,none,high,high,improved,Preserves Docker setup reduction from 45 to 5 minutes.
+c01_strong_task_api,1,3,yes,none,high,high,improved,JWT authentication and Pydantic validation are supported.
+c01_strong_task_api,1,4,yes,none,medium,high,unchanged,Preserves 2 GB logs and the 10 slowest endpoints; wording effectively unchanged.
+c01_strong_task_api,1,5,yes,none,high,high,improved,Preserves report-time reduction from 90 to 12 seconds.
+c01_strong_task_api,1,6,yes,none,medium,high,improved,Dashboard and use by three teammates are supported.
+c01_strong_task_api,1,7,yes,none,high,high,unchanged,Six Flask REST endpoints supported; wording effectively unchanged.
+c01_strong_task_api,1,8,yes,none,high,high,improved,Preserves 14 QA bugs and regression tests for each fix.
+c01_strong_task_api,2,0,yes,none,high,high,improved,"Supported FastAPI/PostgreSQL task API and 1,200 requests/day class-demo figure."
+c01_strong_task_api,2,1,yes,none,high,high,improved,Preserves 48 pytest tests and 91% line coverage.
+c01_strong_task_api,2,2,yes,none,high,high,improved,Preserves Docker setup reduction from 45 to 5 minutes.
+c01_strong_task_api,2,3,partially,"Enforcing data integrity is an inferred outcome, not explicitly established.",high,high,improved,JWT login and Pydantic validation supported; data-integrity outcome inferred.
+c01_strong_task_api,2,4,yes,none,medium,high,unchanged,Preserves 2 GB logs and the 10 slowest endpoints; wording effectively unchanged.
+c01_strong_task_api,2,5,yes,none,high,high,improved,Preserves report-time reduction from 90 to 12 seconds.
+c01_strong_task_api,2,6,partially,Specific monitoring purpose is not explicit in source.,medium,high,improved,Dashboard and use by three teammates supported; monitoring purpose not explicit.
+c01_strong_task_api,2,7,yes,none,high,high,unchanged,Six Flask REST endpoints supported; wording effectively unchanged.
+c01_strong_task_api,2,8,yes,none,high,high,improved,Preserves 14 QA bugs and regression tests for each fix.
+c03_vague_backend_intern,1,0,partially,Python use in this role and Django are not established.,high,high,worse,"Python is in the overall skills line, but project-specific use and Django are not established."
+c03_vague_backend_intern,1,1,yes,Application-stability improvement is inferred.,high,high,improved,Testing and fixing issues are supported; stability outcome is not explicit.
+c03_vague_backend_intern,1,2,partially,Development-practice outcome is inferred.,medium,high,improved,Meetings and code reviews are supported; stated outcome is inferred.
+c03_vague_backend_intern,1,3,partially,Django and CRUD are not established.,high,high,worse,Book-management app supported; framework and CRUD details are not.
+c03_vague_backend_intern,1,4,partially,PostgreSQL and retrieval behavior are not established.,high,high,worse,"A database is mentioned, not PostgreSQL or retrieval specifics."
+c03_vague_backend_intern,2,0,partially,Python use in this role and Django are not established.,high,high,worse,"Python is in the overall skills line, but project-specific use and Django are not established."
+c03_vague_backend_intern,2,1,yes,Application-stability improvement is inferred.,high,high,improved,Testing and fixing issues are supported; stability outcome is not explicit.
+c03_vague_backend_intern,2,2,partially,Feedback on code quality is not explicit.,medium,high,improved,Participation in meetings/reviews supported; feedback claim not explicit.
+c03_vague_backend_intern,2,3,partially,Django and CRUD are not established.,high,high,worse,Book-management app supported; framework and CRUD details are not.
+c03_vague_backend_intern,2,4,partially,PostgreSQL and retrieval behavior are not established.,high,high,worse,"A database is mentioned, not PostgreSQL or retrieval specifics."
+c04_vague_data_scripts,1,0,partially,Python use for these scripts and downstream analysis are not explicit.,high,high,improved,Processing files supported; project-specific Python use/downstream purpose not explicit.
+c04_vague_data_scripts,1,1,partially,Stakeholder-insights outcome is inferred.,high,high,improved,Cleaning data and charts supported; stakeholder insights not explicit.
+c04_vague_data_scripts,1,2,partially,Cross-functional collaboration is not established.,medium,high,improved,Teamwork supported; cross-functional scope not established.
+c04_vague_data_scripts,1,3,partially,Data extraction is not explicit.,high,high,improved,Day-to-day reporting support is supported; extraction is not explicit.
+c04_vague_data_scripts,1,4,partially,"Proficiency overstates the source, which only says tools were learned.",medium,medium,worse,Learning tools is supported; proficiency is not established.
+c04_vague_data_scripts,2,0,partially,Python use for these scripts and downstream analysis are not explicit.,high,high,improved,Processing files supported; project-specific Python use/downstream purpose not explicit.
+c04_vague_data_scripts,2,1,partially,Stakeholder-insights outcome is inferred.,high,high,improved,Cleaning data and charts supported; stakeholder insights not explicit.
+c04_vague_data_scripts,2,2,partially,On-schedule delivery is not established.,medium,high,improved,Teamwork and delivery supported; on-schedule claim not established.
+c04_vague_data_scripts,2,3,partially,Data extraction is not explicit.,high,high,improved,Day-to-day reporting support is supported; extraction is not explicit.
+c04_vague_data_scripts,2,4,partially,"Proficiency overstates the source, which only says tools were learned.",medium,medium,worse,Learning tools is supported; proficiency is not established.
+c05_absent_k8s_kafka,1,0,yes,none,high,high,improved,FastAPI/Python order service with RabbitMQ supported; no Kafka substitution.
+c05_absent_k8s_kafka,1,1,yes,none,high,high,improved,Retry logic and dead-letter queue explicitly supported.
+c05_absent_k8s_kafka,1,2,yes,none,high,high,improved,Docker Compose across four local containers supported; not Kubernetes.
+c05_absent_k8s_kafka,1,3,partially,The source says simple rate limiter; 'custom' is not established.,high,high,improved,"URL shortener, PostgreSQL, rate limiter supported; 'custom' embellishes."
+c05_absent_k8s_kafka,1,4,yes,none,high,high,improved,OpenAPI documentation and browser endpoint testing supported.
+c05_absent_k8s_kafka,1,5,yes,none,medium,high,unchanged,Three services and monthly dependency updates preserved; nearly unchanged.
+c05_absent_k8s_kafka,2,0,yes,none,high,high,improved,FastAPI/Python order service with RabbitMQ supported; no Kafka substitution.
+c05_absent_k8s_kafka,2,1,yes,none,high,high,improved,Retry logic and dead-letter queue explicitly supported.
+c05_absent_k8s_kafka,2,2,yes,none,high,high,improved,Docker Compose across four local containers supported; not Kubernetes.
+c05_absent_k8s_kafka,2,3,partially,The source says simple rate limiter; 'custom' is not established.,high,high,improved,"URL shortener, PostgreSQL, rate limiter supported; 'custom' embellishes."
+c05_absent_k8s_kafka,2,4,yes,none,high,high,improved,OpenAPI documentation and browser endpoint testing supported.
+c05_absent_k8s_kafka,2,5,yes,none,medium,high,unchanged,Three services and monthly dependency updates preserved; nearly unchanged.
+c07_metric_heavy_formats,1,0,yes,none,high,high,improved,"240,000 value preserved despite Indian grouping normalization; versions retained."
+c07_metric_heavy_formats,1,1,yes,none,high,high,improved,Preserves 38-to-9-minute load time and memory below 1.5 GB.
+c07_metric_heavy_formats,1,2,yes,none,high,high,improved,Preserves 0.4% rejection rate and reason logging.
+c07_metric_heavy_formats,1,3,yes,none,high,high,improved,"Preserves 120 ms median, 310 ms 95th percentile, and 200 concurrent users."
+c07_metric_heavy_formats,1,4,yes,none,high,high,improved,Preserves 1.2 million requests and error rate below 0.1%.
+c07_metric_heavy_formats,1,5,yes,none,medium,high,unchanged,Preserves four services and Python 3.8-to-3.11 upgrade; wording largely unchanged.
+c07_metric_heavy_formats,1,6,yes,none,medium,high,improved,Preserves 27 pull requests and nine flaky tests.
+c07_metric_heavy_formats,2,0,yes,none,high,high,improved,"240,000 value preserved despite Indian grouping normalization; versions retained."
+c07_metric_heavy_formats,2,1,yes,none,high,high,improved,Preserves 38-to-9-minute load time and memory below 1.5 GB.
+c07_metric_heavy_formats,2,2,yes,none,high,high,improved,Preserves 0.4% rejection rate and reason logging.
+c07_metric_heavy_formats,2,3,yes,none,high,high,improved,"Preserves 120 ms median, 310 ms 95th percentile, and 200 concurrent users."
+c07_metric_heavy_formats,2,4,yes,none,high,high,improved,Preserves 1.2 million requests and error rate below 0.1%.
+c07_metric_heavy_formats,2,5,yes,none,medium,high,unchanged,Preserves four services and Python 3.8-to-3.11 upgrade; wording largely unchanged.
+c07_metric_heavy_formats,2,6,yes,none,medium,high,improved,Preserves 27 pull requests and nine flaky tests.
+c08_no_metric_scale_trap,1,0,partially,Realtime behavior is not measured; 'FastAPIbased' formatting is poor.,high,high,improved,Core chat/WebSockets supported; realtime claim not measured and formatting needs cleanup.
+c08_no_metric_scale_trap,1,1,yes,Efficiency benefit is not measured.,high,high,improved,PostgreSQL history and pagination supported; 'efficiently' implies an unmeasured benefit.
+c08_no_metric_scale_trap,1,2,partially,Comprehensive coverage and reliability outcome are not established.,high,medium,worse,"Unit tests supported, but comprehensiveness/reliability are overstated."
+c08_no_metric_scale_trap,1,3,partially,Authentication implementation and CRUD operations are not established.,high,high,worse,Accounts and REST API supported; authentication/CRUD specifics are not.
+c08_no_metric_scale_trap,1,4,yes,none,medium,high,improved,Docker deployment on a personal server for friends to try accurately paraphrased.
+c08_no_metric_scale_trap,2,0,partially,Realtime behavior is not measured; 'FastAPIbased' formatting is poor.,high,high,improved,Core chat/WebSockets supported; realtime claim not measured and formatting needs cleanup.
+c08_no_metric_scale_trap,2,1,yes,Efficiency benefit is not measured.,high,high,improved,PostgreSQL history and pagination supported; 'efficiently' implies an unmeasured benefit.
+c08_no_metric_scale_trap,2,2,partially,Comprehensive coverage and reliability outcome are not established.,high,medium,worse,"Unit tests supported, but comprehensiveness/reliability are overstated."
+c08_no_metric_scale_trap,2,3,partially,Authentication implementation and CRUD operations are not established.,high,high,worse,Accounts and REST API supported; authentication/CRUD specifics are not.
+c08_no_metric_scale_trap,2,4,yes,none,medium,high,improved,Docker deployment on a personal server for friends to try accurately paraphrased.
+c09_no_metric_perf_trap,1,0,yes,none,high,high,improved,"Preserves classifier, scikit-learn, and public movie-review dataset."
+c09_no_metric_perf_trap,1,1,partially,Selection for deployment is not established.,high,high,improved,Comparison and simpler-model choice supported; deployment purpose is not.
+c09_no_metric_perf_trap,1,2,yes,none,medium,high,improved,Notebook documenting results and limitations accurately captured.
+c09_no_metric_perf_trap,1,3,yes,none,medium,high,unchanged,Accurate; repeat 2 is identical to source and D6 flagged.
+c09_no_metric_perf_trap,1,4,partially,Easy-integration benefit is not established.,medium,medium,worse,CLI implementation supported; easy-integration benefit is unverified.
+c09_no_metric_perf_trap,2,0,yes,none,high,high,improved,"Preserves classifier, scikit-learn, and public movie-review dataset."
+c09_no_metric_perf_trap,2,1,partially,Selection for deployment is not established.,high,high,improved,Comparison and simpler-model choice supported; deployment purpose is not.
+c09_no_metric_perf_trap,2,2,yes,none,medium,high,improved,Notebook documenting results and limitations accurately captured.
+c09_no_metric_perf_trap,2,3,yes,none,medium,high,unchanged,Accurate; repeat 2 is identical to source and D6 flagged.
+c09_no_metric_perf_trap,2,4,partially,Easy-integration benefit is not established.,medium,medium,worse,CLI implementation supported; easy-integration benefit is unverified.
+c11_fresher_llm_rag,1,0,yes,none,high,high,improved,Accurately describes the RAG assistant.
+c11_fresher_llm_rag,1,1,yes,none,high,high,unchanged,FAISS/top-four retrieval accurate; identical to source and D6 flagged.
+c11_fresher_llm_rag,1,2,yes,none,high,high,improved,"LLM API, LangChain and retrieved-text instruction supported."
+c11_fresher_llm_rag,1,3,yes,none,high,high,unchanged,FastAPI endpoint and Streamlit interface supported; wording unchanged.
+c11_fresher_llm_rag,1,4,yes,none,high,high,improved,"Preserves 30 questions, multiple prompts and CSV logging."
+c11_fresher_llm_rag,1,5,yes,none,high,high,improved,Manual comparison and identification of unsupported claims supported.
+c11_fresher_llm_rag,1,6,yes,none,medium,high,improved,"Preserves 5,000 tickets and 300 labels."
+c11_fresher_llm_rag,2,0,yes,none,high,high,unchanged,Accurate but effectively unchanged from source.
+c11_fresher_llm_rag,2,1,yes,none,high,high,unchanged,FAISS/top-four retrieval accurate; identical to source and D6 flagged.
+c11_fresher_llm_rag,2,2,yes,none,high,high,improved,"LLM API, LangChain and retrieved-text instruction supported."
+c11_fresher_llm_rag,2,3,yes,none,high,high,unchanged,FastAPI endpoint and Streamlit interface supported; wording unchanged.
+c11_fresher_llm_rag,2,4,yes,none,high,high,unchanged,Accurate but identical to source; D6 flagged.
+c11_fresher_llm_rag,2,5,yes,none,high,high,unchanged,Accurate but identical to source; D6 flagged.
+c11_fresher_llm_rag,2,6,yes,none,medium,high,unchanged,Accurate but identical to source; D6 flagged.
+c12_short_mismatch,1,0,yes,none,medium,high,improved,Faithfully describes daily weather retrieval and visualization.
+c12_short_mismatch,1,1,yes,none,medium,high,improved,"Python, Streamlit and CSV storage supported; concise rewrite."
+c12_short_mismatch,2,0,yes,none,medium,high,improved,Faithfully describes daily weather retrieval and visualization.
+c12_short_mismatch,2,1,yes,none,medium,high,improved,"Python, Streamlit, retrieval, plotting and CSV storage supported; modest rewrite."

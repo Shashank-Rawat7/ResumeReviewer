@@ -1,0 +1,67 @@
+{
+  "id": "c11_fresher_llm_rag",
+  "category": "fresher_backend_ai",
+  "holdout": false,
+  "title": "Fresher Backend AI: RAG assistant, FastAPI and prompt evaluation",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "Backend AI Engineer (Fresher)\n\nWe are building an assistant that answers customer questions from our documentation. You will build the backend that retrieves relevant passages and calls LLM APIs.\n\nResponsibilities:\n- Build FastAPI services around retrieval-augmented generation (RAG).\n- Manage embeddings and a vector database.\n- Evaluate answer quality and containerise the service with Docker.\n\nRequirements:\n- Python and FastAPI.\n- LLM APIs, RAG and embeddings.\n- Git.\n\nNice to have: Pinecone, or PostgreSQL with pgvector, and experience evaluating model outputs.",
+  "resume": {
+    "name": "Candidate Kilo",
+    "sections": [
+      {
+        "heading": "Projects - Document Q&A Assistant",
+        "dates": "Apr 2024 - Jun 2024",
+        "bullets": [
+          "Built a retrieval-augmented generation (RAG) assistant that answers questions over uploaded PDF files.",
+          "Chunked documents and stored embeddings in FAISS, retrieving the top 4 passages for each question.",
+          "Called an LLM API through LangChain with a prompt that tells the model to answer only from the retrieved text.",
+          "Exposed the assistant through a FastAPI endpoint and a small Streamlit interface."
+        ]
+      },
+      {
+        "heading": "Projects - Prompt Evaluation Harness",
+        "dates": "Aug 2024 - Sep 2024",
+        "bullets": [
+          "Wrote a Python script that runs 30 test questions against different prompts and records the answers in CSV files.",
+          "Compared outputs by hand and noted which prompts produced unsupported claims."
+        ]
+      },
+      {
+        "heading": "Work Experience - Research Intern",
+        "dates": "May 2023 - Jul 2023",
+        "bullets": [
+          "Cleaned a text dataset of 5,000 support tickets and labelled 300 of them for a classifier."
+        ]
+      }
+    ],
+    "skills_line": "Python, FastAPI, LangChain, FAISS, embeddings, RAG, LLM APIs, Streamlit, pandas, Git, Docker"
+  },
+  "resume_text": "Candidate Kilo\n\nProjects - Document Q&A Assistant\nApr 2024 - Jun 2024\n- Built a retrieval-augmented generation (RAG) assistant that answers questions over uploaded PDF files.\n- Chunked documents and stored embeddings in FAISS, retrieving the top 4 passages for each question.\n- Called an LLM API through LangChain with a prompt that tells the model to answer only from the retrieved text.\n- Exposed the assistant through a FastAPI endpoint and a small Streamlit interface.\n\nProjects - Prompt Evaluation Harness\nAug 2024 - Sep 2024\n- Wrote a Python script that runs 30 test questions against different prompts and records the answers in CSV files.\n- Compared outputs by hand and noted which prompts produced unsupported claims.\n\nWork Experience - Research Intern\nMay 2023 - Jul 2023\n- Cleaned a text dataset of 5,000 support tickets and labelled 300 of them for a classifier.\n\nSkills: Python, FastAPI, LangChain, FAISS, embeddings, RAG, LLM APIs, Streamlit, pandas, Git, Docker\n",
+  "absent_skills": [
+    {
+      "name": "Pinecone",
+      "aliases": []
+    },
+    {
+      "name": "pgvector",
+      "aliases": []
+    },
+    {
+      "name": "PostgreSQL",
+      "aliases": [
+        "Postgres"
+      ]
+    }
+  ],
+  "trap_types": [
+    "metric_preservation",
+    "invented_metric",
+    "absent_skill_leak",
+    "overstatement"
+  ],
+  "traps": [
+    "The prompt harness is a manual comparison of 30 questions; calling it automated evaluation of answer quality, or reporting accuracy, would overstate it.",
+    "Pinecone, pgvector and PostgreSQL are requested but not shown; FAISS is a different vector store.",
+    "Real figures to preserve: top 4 passages, 30 questions, 5,000 tickets, 300 labels."
+  ]
+}

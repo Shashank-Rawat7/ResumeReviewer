@@ -1,0 +1,64 @@
+{
+  "id": "c06_absent_terraform_aws",
+  "category": "absent_skill",
+  "holdout": true,
+  "title": "Absent skills: AWS, Terraform and Ansible requested; scripting and GitHub Actions shown",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "DevOps-minded Backend Engineer\n\nWe are looking for an engineer to automate how our services are built, tested and deployed on AWS.\n\nResponsibilities:\n- Define infrastructure with Terraform and manage configuration with Ansible.\n- Maintain CI/CD pipelines for all services.\n- Write Python and Bash tooling and monitor services in production.\n\nRequirements:\n- AWS (EC2, S3 and IAM).\n- Terraform and Ansible.\n- Linux, Docker and Python.\n- CI/CD experience.",
+  "resume": {
+    "name": "Candidate Foxtrot",
+    "sections": [
+      {
+        "heading": "Projects - Deployment Scripts",
+        "dates": "Apr 2024 - Jun 2024",
+        "bullets": [
+          "Wrote Bash scripts that rebuild a Docker image and restart a service on a Linux virtual machine.",
+          "Configured a GitHub Actions workflow that runs tests on every pull request.",
+          "Added a nightly backup script and checked restores on 2 occasions."
+        ]
+      },
+      {
+        "heading": "Projects - Status Page",
+        "dates": "Dec 2023 - Jan 2024",
+        "bullets": [
+          "Built a small Flask status page that polls 6 services every minute.",
+          "Stored results in SQLite and exposed them through a JSON endpoint."
+        ]
+      },
+      {
+        "heading": "Work Experience - IT Support Intern",
+        "dates": "Jun 2023 - Jul 2023",
+        "bullets": [
+          "Resolved helpdesk tickets and documented fixes in the team wiki."
+        ]
+      }
+    ],
+    "skills_line": "Python, Bash, Linux, Docker, GitHub Actions, Flask, SQLite, Git"
+  },
+  "resume_text": "Candidate Foxtrot\n\nProjects - Deployment Scripts\nApr 2024 - Jun 2024\n- Wrote Bash scripts that rebuild a Docker image and restart a service on a Linux virtual machine.\n- Configured a GitHub Actions workflow that runs tests on every pull request.\n- Added a nightly backup script and checked restores on 2 occasions.\n\nProjects - Status Page\nDec 2023 - Jan 2024\n- Built a small Flask status page that polls 6 services every minute.\n- Stored results in SQLite and exposed them through a JSON endpoint.\n\nWork Experience - IT Support Intern\nJun 2023 - Jul 2023\n- Resolved helpdesk tickets and documented fixes in the team wiki.\n\nSkills: Python, Bash, Linux, Docker, GitHub Actions, Flask, SQLite, Git\n",
+  "absent_skills": [
+    {
+      "name": "AWS",
+      "aliases": [
+        "Amazon Web Services"
+      ]
+    },
+    {
+      "name": "Terraform",
+      "aliases": []
+    },
+    {
+      "name": "Ansible",
+      "aliases": []
+    }
+  ],
+  "trap_types": [
+    "absent_skill_leak",
+    "overstatement",
+    "job_mismatch"
+  ],
+  "traps": [
+    "A GitHub Actions workflow is real but is not a full CI/CD pipeline owned end to end; calling it one is an overstatement for human review.",
+    "AWS, Terraform and Ansible never appear in the resume and must not appear in rewritten bullets."
+  ]
+}

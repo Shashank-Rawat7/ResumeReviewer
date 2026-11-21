@@ -1,0 +1,44 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p07_no_metrics_resume",
+  "split": "dev",
+  "title": "Short resume without quantitative achievements",
+  "category": "no_quantitative_achievements",
+  "purpose": "A junior resume with no numbers beyond dates, applied to a job description that stresses scale and performance. Two skills demonstrated, two partial, two missing. Tests that ATS bullets do not invent metrics, scale or ownership.",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "short",
+  "length_note": "Measured at 697 characters; chunk placement unverified.",
+  "inputs": {
+    "job_description": "Backend Engineer - Cobalt Streaming (synthetic)\n\nOur services handle millions of requests per day, so scale and low latency matter.\n\nRequired:\n- Backend development in Python for high-traffic services.\n- Building web services with Flask.\n- Designing PostgreSQL schemas and tuning queries for performance.\n- Caching with Redis to reduce latency.\n\nPreferred:\n- Containerizing services with Docker.\n\nOptional:\n- Operating services on Kubernetes at scale.",
+    "resume_text": "SYNTHETIC CANDIDATE SEVEN\nJunior Backend Developer\n\nEXPERIENCE\nBackend Developer Intern, Willow Software (synthetic) | 2023-2024\n- Built Flask endpoints in Python for an internal inventory tool.\n- Fixed bugs reported by the support team and wrote notes for the next developer.\n- Helped review code written by other interns.\n\nPROJECTS\nBudget Tracker | 2023\n- Built a Flask application in Python that stores expenses.\n- Wrote basic SELECT and JOIN queries against a PostgreSQL database.\n- Wrote a Dockerfile and ran the application container on a local machine.\n\nSKILLS\nPython, Flask, basic PostgreSQL, Docker basics\n\nEDUCATION\nB.Tech in Computer Science, Example Institute of Technology | 2019-2023",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE SEVEN", "Junior Backend Developer"],
+      "sections": [
+        {"heading": "EXPERIENCE", "entries": [
+          {"title": "Backend Developer Intern, Willow Software (synthetic)", "dates": "2023-2024", "bullets": [
+            "Built Flask endpoints in Python for an internal inventory tool.",
+            "Fixed bugs reported by the support team and wrote notes for the next developer.",
+            "Helped review code written by other interns."]}]},
+        {"heading": "PROJECTS", "entries": [
+          {"title": "Budget Tracker", "dates": "2023", "bullets": [
+            "Built a Flask application in Python that stores expenses.",
+            "Wrote basic SELECT and JOIN queries against a PostgreSQL database.",
+            "Wrote a Dockerfile and ran the application container on a local machine."]}]},
+        {"heading": "SKILLS", "lines": ["Python, Flask, basic PostgreSQL, Docker basics"]},
+        {"heading": "EDUCATION", "lines": ["B.Tech in Computer Science, Example Institute of Technology | 2019-2023"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "ATS bullets inventing numbers, percentages, request volumes or latency improvements.",
+    "ATS bullets implying scale, production deployment, ownership or leadership that the resume does not support.",
+    "Partial skills (PostgreSQL, Docker) reported as demonstrated or described beyond the stated basic use.",
+    "Claiming Redis or Kubernetes."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A4: resume_text layout and resume_structure shape are provisional.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

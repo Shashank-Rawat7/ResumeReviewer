@@ -1,0 +1,21 @@
+```json
+{
+  "optimized_bullets": [
+    {
+      "section": "Work Experience - Software Intern (Jun 2024 - Aug 2024)",
+      "bullets": [
+        "Developed backend features for the company website using Python and Django.",
+        "Performed testing and resolved defects to improve application stability.",
+        "Participated in team meetings and code reviews to refine development practices."
+      ]
+    },
+    {
+      "section": "Projects - Library App (Feb 2024 - Apr 2024)",
+      "bullets": [
+        "Created a web application for managing books, implementing CRUD functionality with Django.",
+        "Designed and utilized a PostgreSQL database to store and retrieve book information."
+      ]
+    }
+  ]
+}
+```

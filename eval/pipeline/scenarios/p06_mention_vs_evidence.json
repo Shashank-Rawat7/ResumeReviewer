@@ -1,0 +1,43 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p06_mention_vs_evidence",
+  "split": "dev",
+  "title": "Mention versus demonstrated evidence",
+  "category": "mention_vs_evidence",
+  "purpose": "Two skills (GraphQL, MongoDB) appear only in the skills line, two (React, TypeScript) are used in described work, one (Next.js) has related use only, and one (Cypress) is absent. Tests that a bare mention is not treated as demonstrated proficiency and that ATS bullets do not upgrade a mention into an achievement.",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "short",
+  "length_note": "Measured at 719 characters; chunk placement unverified.",
+  "inputs": {
+    "job_description": "Full-Stack Engineer - Brightwave Commerce (synthetic)\n\nRequired:\n- Building user interfaces with React.\n- Writing maintainable code in TypeScript.\n- Designing APIs with GraphQL.\n\nPreferred:\n- Working experience with MongoDB.\n- Experience with Next.js for server-rendered applications.\n\nOptional:\n- End-to-end testing with Cypress is a plus.",
+    "resume_text": "SYNTHETIC CANDIDATE SIX\nFull-Stack Developer\n\nEXPERIENCE\nFull-Stack Developer, Lakeside Booking (synthetic) | 2021-2024\n- Built the customer booking interface in React and TypeScript, serving about 5,000 monthly users.\n- Migrated 30 JavaScript components to TypeScript, which removed a class of runtime type errors.\n- Added server-side rendering to the booking pages using a custom Express server and React.\n- Maintained REST endpoints written in Node.js.\n\nPROJECTS\nEvent Planner | 2022\n- Built a React and TypeScript single-page app with a REST backend.\n\nSKILLS\nReact, TypeScript, JavaScript, Node.js, GraphQL, MongoDB, REST, Git\n\nEDUCATION\nB.Tech in Information Technology, Example Institute of Technology | 2017-2021",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE SIX", "Full-Stack Developer"],
+      "sections": [
+        {"heading": "EXPERIENCE", "entries": [
+          {"title": "Full-Stack Developer, Lakeside Booking (synthetic)", "dates": "2021-2024", "bullets": [
+            "Built the customer booking interface in React and TypeScript, serving about 5,000 monthly users.",
+            "Migrated 30 JavaScript components to TypeScript, which removed a class of runtime type errors.",
+            "Added server-side rendering to the booking pages using a custom Express server and React.",
+            "Maintained REST endpoints written in Node.js."]}]},
+        {"heading": "PROJECTS", "entries": [
+          {"title": "Event Planner", "dates": "2022", "bullets": [
+            "Built a React and TypeScript single-page app with a REST backend."]}]},
+        {"heading": "SKILLS", "lines": ["React, TypeScript, JavaScript, Node.js, GraphQL, MongoDB, REST, Git"]},
+        {"heading": "EDUCATION", "lines": ["B.Tech in Information Technology, Example Institute of Technology | 2017-2021"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "Treating a skills-line mention (GraphQL, MongoDB) as demonstrated proficiency.",
+    "Reporting a mention-only skill as missing without the resume-mention advisory being set.",
+    "ATS bullets turning a mention into an achievement (for example claiming to have designed GraphQL APIs or MongoDB schemas).",
+    "Next.js related use reported as fully demonstrated."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A4: resume_text layout and resume_structure shape are provisional.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

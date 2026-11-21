@@ -1,0 +1,151 @@
+{
+  "call_count_meaning": "planned_calls counts application-level invocations of the ATS chain. It does NOT guarantee that many HTTP requests: if the provider library retries internally (see provider_retry), up to planned_calls x (1 + max_retries) requests may be sent and the retries are invisible to this runner.",
+  "case_ids": [
+    "c01_strong_task_api",
+    "c03_vague_backend_intern",
+    "c04_vague_data_scripts",
+    "c05_absent_k8s_kafka",
+    "c07_metric_heavy_formats",
+    "c08_no_metric_scale_trap",
+    "c09_no_metric_perf_trap",
+    "c11_fresher_llm_rag",
+    "c12_short_mismatch"
+  ],
+  "code_fingerprints": {
+    "dataset_module": "29ff7340cf3737bfee8972a3329dbd7a64cb8eb2e53751e8acb403a9e07546c8",
+    "parser_py": "08b1f41d34c096c55423780eaeff9de9a1422d9177a5a9f182613a37e9b1af24",
+    "runner": "ce0891ff81f1a3bc4239ded32e5a34c5ca04be98b9617d12f772fce2bb738cd3"
+  },
+  "created_utc": "2026-10-29T04:15:30.064228+00:00",
+  "fingerprints": {
+    "checker": "16c1b5f06df7dd86c12665cdf9d436517098b8fea74c3fccd02b054ea4857006",
+    "dataset": "5288a730380421ae7460e48bc31d6b30be79833b32331e11190d594268f4dd20",
+    "prompt": "38ef19bbdc128fe8b53508b59aa772a82f911e643bb402dfb1e7ab3648dbbeb4",
+    "vocabulary": "7cd2352c3754afa0a6d77af85d8f2cb4d4422840e25718934b6703539e146ffe"
+  },
+  "frozen_from": null,
+  "kind": "plan",
+  "model_expected": "openai/gpt-oss-20b",
+  "model_settings": {
+    "max_retries": "not set in parser.py (library default applies)",
+    "max_tokens": 8192,
+    "model": "openai/gpt-oss-20b",
+    "reasoning_effort": "low",
+    "request_timeout": "not set in parser.py (library default applies)",
+    "source": "static parse of src/parser.py (ChatGroq call); not read from a running client",
+    "temperature": 0.2
+  },
+  "pacing": {
+    "minimum_wall_seconds": 680,
+    "pace_seconds": 40
+  },
+  "packages": {
+    "groq": "0.37.1",
+    "langchain": "0.3.27",
+    "langchain-core": "0.3.86",
+    "langchain-groq": "0.2.3"
+  },
+  "plan_schema_version": 2,
+  "planned_calls": 18,
+  "prompt_example_numbers": [
+    "2",
+    "2020",
+    "2021",
+    "35",
+    "5",
+    "50",
+    "92"
+  ],
+  "prompt_key": "resume_ats_optimizer",
+  "provider_retry": {
+    "groq_sdk_default_max_retries": 2,
+    "langchain_groq_default_max_retries": 2,
+    "method": "static text scan of the installed package source; nothing imported, no network; not verified at runtime"
+  },
+  "python_version": "3.12.4",
+  "repeats": 2,
+  "run_id": "ats_dev_20261029T041530Z",
+  "schedule": [
+    {
+      "case_id": "c01_strong_task_api",
+      "repeat": 1
+    },
+    {
+      "case_id": "c01_strong_task_api",
+      "repeat": 2
+    },
+    {
+      "case_id": "c03_vague_backend_intern",
+      "repeat": 1
+    },
+    {
+      "case_id": "c03_vague_backend_intern",
+      "repeat": 2
+    },
+    {
+      "case_id": "c04_vague_data_scripts",
+      "repeat": 1
+    },
+    {
+      "case_id": "c04_vague_data_scripts",
+      "repeat": 2
+    },
+    {
+      "case_id": "c05_absent_k8s_kafka",
+      "repeat": 1
+    },
+    {
+      "case_id": "c05_absent_k8s_kafka",
+      "repeat": 2
+    },
+    {
+      "case_id": "c07_metric_heavy_formats",
+      "repeat": 1
+    },
+    {
+      "case_id": "c07_metric_heavy_formats",
+      "repeat": 2
+    },
+    {
+      "case_id": "c08_no_metric_scale_trap",
+      "repeat": 1
+    },
+    {
+      "case_id": "c08_no_metric_scale_trap",
+      "repeat": 2
+    },
+    {
+      "case_id": "c09_no_metric_perf_trap",
+      "repeat": 1
+    },
+    {
+      "case_id": "c09_no_metric_perf_trap",
+      "repeat": 2
+    },
+    {
+      "case_id": "c11_fresher_llm_rag",
+      "repeat": 1
+    },
+    {
+      "case_id": "c11_fresher_llm_rag",
+      "repeat": 2
+    },
+    {
+      "case_id": "c12_short_mismatch",
+      "repeat": 1
+    },
+    {
+      "case_id": "c12_short_mismatch",
+      "repeat": 2
+    }
+  ],
+  "split": "dev",
+  "token_estimates": {
+    "ARE_ESTIMATES_NOT_MEASURED_USAGE": true,
+    "input_tokens_estimate": 19400,
+    "method": "input = characters of filled prompt / 4; output = 1500 tokens per call assumed",
+    "output_tokens_assumed": 27000,
+    "per_call_average_estimate": 2577,
+    "total_tokens_estimate": 46400
+  }
+}

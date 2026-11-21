@@ -1,0 +1,3 @@
+# Test-only requirements. The tests run with unittest (see Tests in the README); pytest is not used.
+# httpx is needed by FastAPI's TestClient.
+httpx>=0.27,<1

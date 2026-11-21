@@ -1,0 +1,49 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p04_duplicate_tier_conflict",
+  "split": "dev",
+  "title": "Duplicate skill across JD tiers, long resume",
+  "category": "duplicate_tier_conflict",
+  "purpose": "The job description lists Docker twice, under Required and again under Bonus, and mentions two further skills in an intro sentence with ambiguous tier. Tests duplicate handling (one entry, most demanding tier) and ambiguous-tier reporting. Eight distinct canonical skills, nine JD mentions.",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "long",
+  "length_note": "Measured at 1094 characters; chunk placement unverified.",
+  "inputs": {
+    "job_description": "Backend Engineer - Quarry Platform Team (synthetic)\n\nCandidates with experience with Apache Kafka or Kubernetes will be considered favourably.\n\nRequired:\n- Java development for backend services.\n- Spring Boot for building REST APIs.\n- PostgreSQL for relational data storage.\n- Redis for caching.\n- Containerization with Docker.\n\nPreferred:\n- Cloud deployment experience on AWS.\n\nBonus:\n- Docker image size optimisation.",
+    "resume_text": "SYNTHETIC CANDIDATE FOUR\nBackend Engineer\n\nEXPERIENCE\nBackend Engineer, Quarry Payments (synthetic) | 2020-2024\n- Developed 8 REST services in Java with Spring Boot for a payment reconciliation platform.\n- Designed PostgreSQL schemas for 15 tables and tuned 6 slow queries, cutting average response time from 800 ms to 200 ms.\n- Wrote integration tests for Spring Boot controllers and raised test coverage from 55% to 78%.\n- Deployed one service to an AWS EC2 instance by following a team runbook.\n- Participated in on-call rotation for 4 services.\n\nSoftware Engineer, Tidewater Systems (synthetic) | 2017-2020\n- Built batch jobs in Java that processed invoices for 200 customers.\n- Migrated reporting queries to PostgreSQL from spreadsheets, removing 10 hours of manual work each month.\n- Reviewed pull requests for a team of 5 engineers.\n\nPROJECTS\nLibrary Catalog API | 2021\n- Built a Spring Boot API with PostgreSQL and 40 automated tests.\n\nSKILLS\nJava, Spring Boot, PostgreSQL, REST APIs, JUnit, Maven, Git\n\nEDUCATION\nB.E. in Computer Engineering, Example College of Engineering | 2013-2017",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE FOUR", "Backend Engineer"],
+      "sections": [
+        {"heading": "EXPERIENCE", "entries": [
+          {"title": "Backend Engineer, Quarry Payments (synthetic)", "dates": "2020-2024", "bullets": [
+            "Developed 8 REST services in Java with Spring Boot for a payment reconciliation platform.",
+            "Designed PostgreSQL schemas for 15 tables and tuned 6 slow queries, cutting average response time from 800 ms to 200 ms.",
+            "Wrote integration tests for Spring Boot controllers and raised test coverage from 55% to 78%.",
+            "Deployed one service to an AWS EC2 instance by following a team runbook.",
+            "Participated in on-call rotation for 4 services."]},
+          {"title": "Software Engineer, Tidewater Systems (synthetic)", "dates": "2017-2020", "bullets": [
+            "Built batch jobs in Java that processed invoices for 200 customers.",
+            "Migrated reporting queries to PostgreSQL from spreadsheets, removing 10 hours of manual work each month.",
+            "Reviewed pull requests for a team of 5 engineers."]}]},
+        {"heading": "PROJECTS", "entries": [
+          {"title": "Library Catalog API", "dates": "2021", "bullets": [
+            "Built a Spring Boot API with PostgreSQL and 40 automated tests."]}]},
+        {"heading": "SKILLS", "lines": ["Java, Spring Boot, PostgreSQL, REST APIs, JUnit, Maven, Git"]},
+        {"heading": "EDUCATION", "lines": ["B.E. in Computer Engineering, Example College of Engineering | 2013-2017"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "Docker emitted twice (once per tier) or emitted at the lower tier.",
+    "Kafka and Kubernetes reported with an unsupported certainty about tier; their tier is authored as ambiguous.",
+    "Demonstrated skills flagged as gaps.",
+    "AWS partial evidence (one runbook-guided deployment) reported as fully demonstrated or fully missing."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A2: the expected single Docker entry at the highest tier follows the duplicate-resolution rule read from source (evidence_found, then highest tier, then first seen; not runtime-tested) and still depends on the model emitting both entries under one skill key and on its own tier choices.",
+    "A4: resume_text layout and resume_structure shape are provisional.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

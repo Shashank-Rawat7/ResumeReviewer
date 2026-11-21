@@ -1,0 +1,47 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p01_strong_fit",
+  "split": "dev",
+  "title": "Strong fit, metric-heavy long resume",
+  "category": "strong_fit",
+  "purpose": "A candidate who demonstrates six of seven JD skills with supported numbers. Tests that demonstrated skills are not flagged and that supported numbers survive ATS rewriting.",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "long",
+  "length_note": "Measured at 1204 characters; pytest evidence is concentrated in the final portion of the resume. Actual chunk placement is unverified.",
+  "inputs": {
+    "job_description": "Data Engineer - Northbeam Analytics (synthetic)\n\nWe are hiring a Data Engineer to build and maintain batch data pipelines.\n\nRequired qualifications:\n- Strong Python skills for building data pipelines.\n- Hands-on experience with PostgreSQL, including schema design and query tuning.\n- Experience orchestrating workflows with Apache Airflow.\n- Experience packaging services with Docker.\n- Working knowledge of AWS for storage and compute.\n\nPreferred qualifications:\n- Experience writing automated tests with pytest.\n\nOptional extras:\n- Familiarity with Kubernetes is a nice bonus.",
+    "resume_text": "SYNTHETIC CANDIDATE ONE\nData Engineer\n\nEXPERIENCE\nData Engineer, Harborline Retail (synthetic) | 2021-2024\n- Built 12 Apache Airflow DAGs that load retail sales data into PostgreSQL every night.\n- Reduced the nightly load time from 90 minutes to 25 minutes by rewriting slow PostgreSQL queries and adding indexes.\n- Wrote Python ingestion code that processes about 2 million rows per day from vendor files.\n- Containerized the ingestion jobs with Docker so that the same image runs locally and in AWS.\n- Cut monthly AWS storage cost by 30% by moving old files to cheaper storage classes.\n\nJunior Data Analyst, Brightpath Logistics (synthetic) | 2019-2021\n- Automated weekly reports with Python scripts and reduced manual reporting time by 6 hours per week.\n- Wrote pytest tests for the report scripts and ran them in a continuous integration job.\n\nPROJECTS\nPipeline Monitoring Dashboard | 2023\n- Built a small Python service that reads Airflow run history from PostgreSQL and flags failed runs.\n- Added unit tests with pytest covering 15 failure cases.\n\nSKILLS\nPython, PostgreSQL, Apache Airflow, Docker, AWS, pytest, Git\n\nEDUCATION\nB.Tech in Computer Science, Example Institute of Technology | 2015-2019",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE ONE", "Data Engineer"],
+      "sections": [
+        {"heading": "EXPERIENCE", "entries": [
+          {"title": "Data Engineer, Harborline Retail (synthetic)", "dates": "2021-2024", "bullets": [
+            "Built 12 Apache Airflow DAGs that load retail sales data into PostgreSQL every night.",
+            "Reduced the nightly load time from 90 minutes to 25 minutes by rewriting slow PostgreSQL queries and adding indexes.",
+            "Wrote Python ingestion code that processes about 2 million rows per day from vendor files.",
+            "Containerized the ingestion jobs with Docker so that the same image runs locally and in AWS.",
+            "Cut monthly AWS storage cost by 30% by moving old files to cheaper storage classes."]},
+          {"title": "Junior Data Analyst, Brightpath Logistics (synthetic)", "dates": "2019-2021", "bullets": [
+            "Automated weekly reports with Python scripts and reduced manual reporting time by 6 hours per week.",
+            "Wrote pytest tests for the report scripts and ran them in a continuous integration job."]}]},
+        {"heading": "PROJECTS", "entries": [
+          {"title": "Pipeline Monitoring Dashboard", "dates": "2023", "bullets": [
+            "Built a small Python service that reads Airflow run history from PostgreSQL and flags failed runs.",
+            "Added unit tests with pytest covering 15 failure cases."]}]},
+        {"heading": "SKILLS", "lines": ["Python, PostgreSQL, Apache Airflow, Docker, AWS, pytest, Git"]},
+        {"heading": "EDUCATION", "lines": ["B.Tech in Computer Science, Example Institute of Technology | 2015-2019"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "Flagging demonstrated skills as gaps (false flags), especially pytest, whose evidence is concentrated in the final portion of the resume.",
+    "Dropping or altering supported numbers in ATS bullets.",
+    "ATS bullets adding Kubernetes or unsupported scale or ownership claims."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A4: resume_text layout and resume_structure shape are provisional; the ATS section-check format was not inspected.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

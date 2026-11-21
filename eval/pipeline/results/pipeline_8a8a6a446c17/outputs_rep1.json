@@ -1,0 +1,587 @@
+{
+  "format_version": "pipeline-outputs-1",
+  "outputs": {
+    "p01_strong_fit": {
+      "e1": "{\n  \"technical_skills\": [\n    \"Python\",\n    \"PostgreSQL\",\n    \"Apache Airflow\",\n    \"Docker\",\n    \"AWS\",\n    \"pytest\",\n    \"Kubernetes\"\n  ],\n  \"soft_skills\": [],\n  \"academic_qualifications\": []\n}",
+      "e2_normalized": {
+        "crucial": [],
+        "diagnostics": [],
+        "good_to_have": [],
+        "normalization_ok": true,
+        "optional": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Familiarity with Kubernetes is a nice bonus.",
+            "reason": "The job description lists Kubernetes as an optional bonus, but the resume shows no related experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Kubernetes",
+            "status": "missing"
+          }
+        ]
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [],\n  \"good_to_have\": [],\n  \"optional\": [\n    {\n      \"skill\": \"Kubernetes\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description lists Kubernetes as an optional bonus, but the resume shows no related experience.\",\n      \"jd_evidence\": \"Familiarity with Kubernetes is a nice bonus.\"\n    }\n  ]\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Data Engineer, Harborline Retail (synthetic) | 2021-2024\",\n      \"bullets\": [\n        \"Built 12 Apache Airflow DAGs that load retail sales data into PostgreSQL nightly.\",\n        \"Reduced nightly load time from 90 minutes to 25 minutes by rewriting slow PostgreSQL queries and adding indexes.\",\n        \"Developed Python ingestion code that processes approximately 2 million rows per day from vendor files.\",\n        \"Containerized ingestion jobs with Docker to enable consistent execution locally and in AWS.\",\n        \"Cut monthly AWS storage cost by 30% by migrating old files to cheaper storage classes.\"\n      ]\n    },\n    {\n      \"section\": \"Junior Data Analyst, Brightpath Logistics (synthetic) | 2019-2021\",\n      \"bullets\": [\n        \"Automated weekly reports with Python scripts, reducing manual reporting time by 6 hours per week.\",\n        \"Wrote pytest tests for the report scripts and integrated them into a continuous integration pipeline.\"\n      ]\n    },\n    {\n      \"section\": \"Pipeline Monitoring Dashboard | 2023\",\n      \"bullets\": [\n        \"Built a Python service that reads Airflow run history from PostgreSQL and flags failed runs.\",\n        \"Added unit tests with pytest covering 15 failure cases.\"\n      ]\n    }\n  ]\n}"
+    },
+    "p02_partial_mixed_tiers": {
+      "e1": "{\n  \"technical_skills\": [\n    \"Python\",\n    \"scikit-learn\",\n    \"pandas\",\n    \"PyTorch\",\n    \"MLflow\",\n    \"Apache Spark\",\n    \"Kubernetes\",\n    \"Apache Airflow\"\n  ],\n  \"soft_skills\": [],\n  \"academic_qualifications\": []\n}",
+      "e2_normalized": {
+        "crucial": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Experience training deep learning models with PyTorch",
+            "reason": "The job requires experience training deep learning models with PyTorch, but the resume shows no PyTorch usage.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "PyTorch",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Experience tracking experiments with MLflow",
+            "reason": "The job requires experience tracking experiments with MLflow, but the resume shows no MLflow usage.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "MLflow",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": false,
+            "evidence_related": null,
+            "in_extracted_list": true,
+            "jd_evidence": "Prototyped one PySpark job on a sample dataset in a course project.",
+            "reason": "The job requires processing large datasets with Apache Spark; the resume shows a prototype PySpark job on a sample dataset.",
+            "resume_evidence": "Prototyped one PySpark job on a sample dataset in a course project.",
+            "resume_evidence_found": true,
+            "resume_evidence_names_skill": false,
+            "skill": "Apache Spark",
+            "status": "partial"
+          }
+        ],
+        "diagnostics": [
+          "'Apache Spark': jd_evidence was not found in the job description (evidence_found=False); excluded from legacy missing_skills."
+        ],
+        "good_to_have": [],
+        "normalization_ok": true,
+        "optional": []
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [\n    {\n      \"skill\": \"PyTorch\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job requires experience training deep learning models with PyTorch, but the resume shows no PyTorch usage.\",\n      \"jd_evidence\": \"Experience training deep learning models with PyTorch\"\n    },\n    {\n      \"skill\": \"MLflow\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job requires experience tracking experiments with MLflow, but the resume shows no MLflow usage.\",\n      \"jd_evidence\": \"Experience tracking experiments with MLflow\"\n    },\n    {\n      \"skill\": \"Apache Spark\",\n      \"category\": \"technical_skills\",\n      \"status\": \"partial\",\n      \"reason\": \"The job requires processing large datasets with Apache Spark; the resume shows a prototype PySpark job on a sample dataset.\",\n      \"jd_evidence\": \"Prototyped one PySpark job on a sample dataset in a course project.\",\n      \"resume_evidence\": \"Prototyped one PySpark job on a sample dataset in a course project.\"\n    }\n  ],\n  \"good_to_have\": [],\n  \"optional\": []\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Machine Learning Intern, Cedar Valley Insurance (synthetic) | 2023-2024\",\n      \"bullets\": [\n        \"Built a claim‑risk classifier in Python using scikit‑learn, raising recall from 0.62 to 0.71 on a held‑out set.\",\n        \"Prepared training data with pandas, consolidating four raw tables into a single feature table.\",\n        \"Trained a small TensorFlow model for text classification as an exploratory experiment.\"\n      ]\n    },\n    {\n      \"section\": \"Customer Churn Study | 2023\",\n      \"bullets\": [\n        \"Compared three scikit‑learn models on a public churn dataset and documented results in a Jupyter notebook.\",\n        \"Prototyped a PySpark job on a sample dataset as part of a course project.\"\n      ]\n    }\n  ]\n}"
+    },
+    "p03_poor_fit": {
+      "e1": "{\n  \"technical_skills\": [\n    \"Kubernetes\",\n    \"Terraform\",\n    \"AWS\",\n    \"EC2\",\n    \"S3\",\n    \"Jenkins\",\n    \"Ansible\",\n    \"Prometheus\",\n    \"Linux\",\n    \"Docker\",\n    \"Grafana\"\n  ],\n  \"soft_skills\": [],\n  \"academic_qualifications\": []\n}",
+      "e2_normalized": {
+        "crucial": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Production experience operating Kubernetes clusters.",
+            "reason": "The job requires production experience operating Kubernetes clusters, but the resume shows no related experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Kubernetes",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Infrastructure as code with Terraform.",
+            "reason": "Infrastructure as code with Terraform is required, yet the resume contains no Terraform usage.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Terraform",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Hands‑on experience with AWS services such as EC2 and S3.",
+            "reason": "Hands‑on experience with AWS services such as EC2 and S3 is required, but the resume does not mention AWS.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "AWS",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Hands‑on experience with AWS services such as EC2 and S3.",
+            "reason": "EC2 is explicitly listed as a required AWS service, but the resume has no EC2 experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "EC2",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Hands‑on experience with AWS services such as EC2 and S3.",
+            "reason": "S3 is explicitly listed as a required AWS service, but the resume has no S3 experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "S3",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Building CI/CD pipelines with Jenkins.",
+            "reason": "Building CI/CD pipelines with Jenkins is required, yet the resume shows no Jenkins usage.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Jenkins",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Configuration management with Ansible.",
+            "reason": "Configuration management with Ansible is required, but the resume contains no Ansible experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Ansible",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Monitoring and alerting with Prometheus.",
+            "reason": "Monitoring and alerting with Prometheus is required, yet the resume has no Prometheus experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Prometheus",
+            "status": "missing"
+          }
+        ],
+        "diagnostics": [],
+        "good_to_have": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Experience building and running containers with Docker.",
+            "reason": "Experience building and running containers with Docker is preferred; the resume shows Docker Compose usage, which is related but not the same.",
+            "resume_evidence": "Used Docker Compose to run a local development database for the team.",
+            "resume_evidence_found": true,
+            "resume_evidence_names_skill": true,
+            "skill": "Docker",
+            "status": "partial"
+          }
+        ],
+        "normalization_ok": true,
+        "optional": []
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [\n    {\n      \"skill\": \"Kubernetes\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job requires production experience operating Kubernetes clusters, but the resume shows no related experience.\",\n      \"jd_evidence\": \"Production experience operating Kubernetes clusters.\"\n    },\n    {\n      \"skill\": \"Terraform\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"Infrastructure as code with Terraform is required, yet the resume contains no Terraform usage.\",\n      \"jd_evidence\": \"Infrastructure as code with Terraform.\"\n    },\n    {\n      \"skill\": \"AWS\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"Hands‑on experience with AWS services such as EC2 and S3 is required, but the resume does not mention AWS.\",\n      \"jd_evidence\": \"Hands‑on experience with AWS services such as EC2 and S3.\"\n    },\n    {\n      \"skill\": \"EC2\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"EC2 is explicitly listed as a required AWS service, but the resume has no EC2 experience.\",\n      \"jd_evidence\": \"Hands‑on experience with AWS services such as EC2 and S3.\"\n    },\n    {\n      \"skill\": \"S3\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"S3 is explicitly listed as a required AWS service, but the resume has no S3 experience.\",\n      \"jd_evidence\": \"Hands‑on experience with AWS services such as EC2 and S3.\"\n    },\n    {\n      \"skill\": \"Jenkins\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"Building CI/CD pipelines with Jenkins is required, yet the resume shows no Jenkins usage.\",\n      \"jd_evidence\": \"Building CI/CD pipelines with Jenkins.\"\n    },\n    {\n      \"skill\": \"Ansible\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"Configuration management with Ansible is required, but the resume contains no Ansible experience.\",\n      \"jd_evidence\": \"Configuration management with Ansible.\"\n    },\n    {\n      \"skill\": \"Prometheus\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"Monitoring and alerting with Prometheus is required, yet the resume has no Prometheus experience.\",\n      \"jd_evidence\": \"Monitoring and alerting with Prometheus.\"\n    }\n  ],\n  \"good_to_have\": [\n    {\n      \"skill\": \"Docker\",\n      \"category\": \"technical_skills\",\n      \"status\": \"partial\",\n      \"reason\": \"Experience building and running containers with Docker is preferred; the resume shows Docker Compose usage, which is related but not the same.\",\n      \"jd_evidence\": \"Experience building and running containers with Docker.\",\n      \"resume_evidence\": \"Used Docker Compose to run a local development database for the team.\"\n    }\n  ],\n  \"optional\": []\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Front-End Developer, Marigold Media (synthetic) | 2020-2024\",\n      \"bullets\": [\n        \"Designed and implemented 20 reusable React components utilized across four marketing websites.\",\n        \"Optimized page load times by 35% through lazy‑loading images and JavaScript bundle splitting.\",\n        \"Maintained three Linux web servers hosting static sites, applying monthly security updates.\",\n        \"Configured Docker Compose to run a local development database for the team.\",\n        \"Collaborated with designers to deliver accessible layouts that passed automated accessibility audits.\"\n      ]\n    },\n    {\n      \"section\": \"Web Developer, Pinecrest Studio (synthetic) | 2018-2020\",\n      \"bullets\": [\n        \"Developed client websites using HTML, CSS, and JavaScript for ten small businesses.\",\n        \"Set up deployment of static sites by copying files to a hosting provider.\",\n        \"Trained two new hires on the team’s coding standards.\"\n      ]\n    },\n    {\n      \"section\": \"Recipe Sharing Web App | 2022\",\n      \"bullets\": [\n        \"Built a React and Node.js application featuring user accounts and image uploads.\",\n        \"Wrote 25 component tests with Jest.\"\n      ]\n    }\n  ]\n}"
+    },
+    "p04_duplicate_tier_conflict": {
+      "e1": "{\n  \"technical_skills\": [\n    \"Java\",\n    \"Spring Boot\",\n    \"REST APIs\",\n    \"PostgreSQL\",\n    \"Redis\",\n    \"Docker\",\n    \"Apache Kafka\",\n    \"Kubernetes\",\n    \"AWS\"\n  ],\n  \"soft_skills\": [],\n  \"academic_qualifications\": []\n}",
+      "e2_normalized": {
+        "crucial": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Redis for caching",
+            "reason": "The job description lists Redis for caching as a required qualification and the resume shows no related experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Redis",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Containerization with Docker",
+            "reason": "Containerization with Docker is required and the resume does not mention Docker usage.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Docker",
+            "status": "missing"
+          }
+        ],
+        "diagnostics": [],
+        "good_to_have": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Cloud deployment experience on AWS",
+            "reason": "Cloud deployment experience on AWS is preferred; the resume shows deployment to an AWS EC2 instance.",
+            "resume_evidence": "Deployed one service to an AWS EC2 instance by following a team runbook.",
+            "resume_evidence_found": true,
+            "resume_evidence_names_skill": true,
+            "skill": "AWS",
+            "status": "partial"
+          }
+        ],
+        "normalization_ok": true,
+        "optional": []
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [\n    {\n      \"skill\": \"Redis\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description lists Redis for caching as a required qualification and the resume shows no related experience.\",\n      \"jd_evidence\": \"Redis for caching\"\n    },\n    {\n      \"skill\": \"Docker\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"Containerization with Docker is required and the resume does not mention Docker usage.\",\n      \"jd_evidence\": \"Containerization with Docker\"\n    }\n  ],\n  \"good_to_have\": [\n    {\n      \"skill\": \"AWS\",\n      \"category\": \"technical_skills\",\n      \"status\": \"partial\",\n      \"reason\": \"Cloud deployment experience on AWS is preferred; the resume shows deployment to an AWS EC2 instance.\",\n      \"jd_evidence\": \"Cloud deployment experience on AWS\",\n      \"resume_evidence\": \"Deployed one service to an AWS EC2 instance by following a team runbook.\"\n    }\n  ],\n  \"optional\": []\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Backend Engineer, Quarry Payments (synthetic) | 2020-2024\",\n      \"bullets\": [\n        \"Developed eight RESTful services in Java using Spring Boot to support a payment reconciliation platform.\",\n        \"Designed PostgreSQL schemas for fifteen tables and optimized six slow queries, reducing average response time from 800 ms to 200 ms.\",\n        \"Authored integration tests for Spring Boot controllers, increasing test coverage from 55 % to 78 %.\",\n        \"Deployed a service to an AWS EC2 instance following the team runbook.\",\n        \"Participated in on‑call rotation for four services.\"\n      ]\n    },\n    {\n      \"section\": \"Software Engineer, Tidewater Systems (synthetic) | 2017-2020\",\n      \"bullets\": [\n        \"Built Java batch jobs that processed invoices for 200 customers.\",\n        \"Migrated reporting queries to PostgreSQL from spreadsheets, eliminating 10 hours of manual work monthly.\",\n        \"Reviewed pull requests for a team of five engineers.\"\n      ]\n    },\n    {\n      \"section\": \"PROJECTS - Library Catalog API | 2021\",\n      \"bullets\": [\n        \"Built a Spring Boot API with PostgreSQL, supported by 40 automated tests.\"\n      ]\n    }\n  ]\n}"
+    },
+    "p05_equivalents_aliases": {
+      "e1": "{\n  \"technical_skills\": [\n    \"Python\",\n    \"AWS\",\n    \"GCP\",\n    \"Azure\",\n    \"SQL\",\n    \"NLP\",\n    \"Docker\",\n    \"Apache Spark\",\n    \"Tableau\"\n  ],\n  \"soft_skills\": [],\n  \"academic_qualifications\": []\n}",
+      "e2_normalized": {
+        "crucial": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Experience processing big data with Apache Spark.",
+            "reason": "The job description lists Apache Spark as a required qualification and the resume shows no related experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Apache Spark",
+            "status": "missing"
+          }
+        ],
+        "diagnostics": [],
+        "good_to_have": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Experience building dashboards in Tableau.",
+            "reason": "The job description lists Tableau as a preferred qualification and the resume shows no related experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Tableau",
+            "status": "missing"
+          }
+        ],
+        "normalization_ok": true,
+        "optional": []
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [\n    {\n      \"skill\": \"Apache Spark\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description lists Apache Spark as a required qualification and the resume shows no related experience.\",\n      \"jd_evidence\": \"Experience processing big data with Apache Spark.\"\n    }\n  ],\n  \"good_to_have\": [\n    {\n      \"skill\": \"Tableau\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description lists Tableau as a preferred qualification and the resume shows no related experience.\",\n      \"jd_evidence\": \"Experience building dashboards in Tableau.\"\n    }\n  ],\n  \"optional\": []\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Data Scientist, Orchard Retail Group (synthetic) | 2021-2024\",\n      \"bullets\": [\n        \"Designed and implemented a Python NLP pipeline that classified 50,000 customer reviews into six distinct topics.\",\n        \"Managed review data in PostgreSQL, writing SQL queries that informed weekly business reviews.\",\n        \"Deployed the topic model on Google Cloud Platform using Vertex AI notebooks for scalable inference.\",\n        \"Containerized the entire pipeline with Docker to ensure reproducible environments.\"\n      ]\n    },\n    {\n      \"section\": \"Support Ticket Router | 2022\",\n      \"bullets\": [\n        \"Developed a Python text classifier that routed support tickets with 88% accuracy on a test set.\"\n      ]\n    }\n  ]\n}"
+    },
+    "p06_mention_vs_evidence": {
+      "e1": "{\n  \"technical_skills\": [\"React\", \"TypeScript\", \"GraphQL\", \"MongoDB\", \"Next.js\", \"Cypress\"],\n  \"soft_skills\": [],\n  \"academic_qualifications\": []\n}",
+      "e2_normalized": {
+        "crucial": [],
+        "diagnostics": [],
+        "good_to_have": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Experience with Next.js for server-rendered applications.",
+            "reason": "The job description lists Next.js as a preferred qualification but the resume shows no related experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Next.js",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "End-to-end testing with Cypress is a plus.",
+            "reason": "The job description lists Cypress as a plus but the resume shows no related experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Cypress",
+            "status": "missing"
+          }
+        ],
+        "normalization_ok": true,
+        "optional": []
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [],\n  \"good_to_have\": [\n    {\n      \"skill\": \"Next.js\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description lists Next.js as a preferred qualification but the resume shows no related experience.\",\n      \"jd_evidence\": \"Experience with Next.js for server-rendered applications.\"\n    },\n    {\n      \"skill\": \"Cypress\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description lists Cypress as a plus but the resume shows no related experience.\",\n      \"jd_evidence\": \"End-to-end testing with Cypress is a plus.\"\n    }\n  ],\n  \"optional\": []\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Full-Stack Developer, Lakeside Booking (synthetic) | 2021-2024\",\n      \"bullets\": [\n        \"Built the customer booking interface in React and TypeScript, serving approximately 5,000 monthly users.\",\n        \"Migrated 30 JavaScript components to TypeScript, eliminating a class of runtime type errors.\",\n        \"Implemented server-side rendering for booking pages using a custom Express server and React.\",\n        \"Maintained REST endpoints developed in Node.js.\"\n      ]\n    },\n    {\n      \"section\": \"Event Planner | 2022\",\n      \"bullets\": [\n        \"Developed a React and TypeScript single-page application with a REST backend.\"\n      ]\n    }\n  ]\n}"
+    },
+    "p07_no_metrics_resume": {
+      "e1": "{\n  \"technical_skills\": [\"Python\", \"Flask\", \"PostgreSQL\", \"Redis\", \"Docker\", \"Kubernetes\"],\n  \"soft_skills\": [],\n  \"academic_qualifications\": []\n}",
+      "e2_normalized": {
+        "crucial": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Caching with Redis to reduce latency.",
+            "reason": "The job requires caching with Redis, but the resume shows no Redis experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Redis",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Designing PostgreSQL schemas and tuning queries for performance.",
+            "reason": "The resume shows basic PostgreSQL usage but no schema design or query tuning.",
+            "resume_evidence": "Wrote basic SELECT and JOIN queries against a PostgreSQL database.",
+            "resume_evidence_found": true,
+            "resume_evidence_names_skill": true,
+            "skill": "PostgreSQL",
+            "status": "partial"
+          }
+        ],
+        "diagnostics": [],
+        "good_to_have": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Containerizing services with Docker.",
+            "reason": "The resume includes a Dockerfile and local container run, but no containerization for production services.",
+            "resume_evidence": "Wrote a Dockerfile and ran the application container on a local machine.",
+            "resume_evidence_found": true,
+            "resume_evidence_names_skill": false,
+            "skill": "Docker",
+            "status": "partial"
+          }
+        ],
+        "normalization_ok": true,
+        "optional": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Operating services on Kubernetes at scale.",
+            "reason": "The job lists Kubernetes as optional, but the resume contains no Kubernetes experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Kubernetes",
+            "status": "missing"
+          }
+        ]
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [\n    {\n      \"skill\": \"Redis\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job requires caching with Redis, but the resume shows no Redis experience.\",\n      \"jd_evidence\": \"Caching with Redis to reduce latency.\"\n    },\n    {\n      \"skill\": \"PostgreSQL\",\n      \"category\": \"technical_skills\",\n      \"status\": \"partial\",\n      \"reason\": \"The resume shows basic PostgreSQL usage but no schema design or query tuning.\",\n      \"jd_evidence\": \"Designing PostgreSQL schemas and tuning queries for performance.\",\n      \"resume_evidence\": \"Wrote basic SELECT and JOIN queries against a PostgreSQL database.\"\n    }\n  ],\n  \"good_to_have\": [\n    {\n      \"skill\": \"Docker\",\n      \"category\": \"technical_skills\",\n      \"status\": \"partial\",\n      \"reason\": \"The resume includes a Dockerfile and local container run, but no containerization for production services.\",\n      \"jd_evidence\": \"Containerizing services with Docker.\",\n      \"resume_evidence\": \"Wrote a Dockerfile and ran the application container on a local machine.\"\n    }\n  ],\n  \"optional\": [\n    {\n      \"skill\": \"Kubernetes\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job lists Kubernetes as optional, but the resume contains no Kubernetes experience.\",\n      \"jd_evidence\": \"Operating services on Kubernetes at scale.\"\n    }\n  ]\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Backend Developer Intern, Willow Software (2023-2024)\",\n      \"bullets\": [\n        \"Developed Flask endpoints in Python for an internal inventory tool.\",\n        \"Resolved bugs reported by the support team and documented solutions for future developers.\",\n        \"Reviewed code authored by fellow interns to ensure quality and consistency.\"\n      ]\n    },\n    {\n      \"section\": \"Budget Tracker (2023)\",\n      \"bullets\": [\n        \"Created a Flask application in Python to record and manage expenses.\",\n        \"Implemented SELECT and JOIN queries on a PostgreSQL database to retrieve expense data.\",\n        \"Built a Dockerfile and executed the application container locally.\"\n      ]\n    }\n  ]\n}"
+    },
+    "p08_soft_academic": {
+      "e1": "{\n  \"technical_skills\": [\"SQL\", \"Python\", \"Power BI\"],\n  \"soft_skills\": [\"Clear written and verbal communication\", \"Collaborative approach\", \"Working with cross-functional teams\", \"Leading or mentoring junior analysts\"],\n  \"academic_qualifications\": [\"Bachelor's degree in a quantitative field such as statistics, economics or engineering\", \"Master's degree in statistics or a related field\"]\n}",
+      "e2_normalized": {
+        "crucial": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Experience building dashboards in Power BI.",
+            "reason": "The job description requires experience building dashboards in Power BI, which the resume does not demonstrate.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Power BI",
+            "status": "missing"
+          }
+        ],
+        "diagnostics": [],
+        "good_to_have": [
+          {
+            "category": "soft_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Experience leading or mentoring junior analysts.",
+            "reason": "The job description lists leading or mentoring junior analysts as a preferred qualification, but the resume provides no evidence of such experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Leading or mentoring junior analysts",
+            "status": "missing"
+          },
+          {
+            "category": "academic_qualifications",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Master's degree in statistics or a related field.",
+            "reason": "The job description states a Master's degree in statistics or a related field is preferred, but the resume only shows a Bachelor's degree.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Master's degree in statistics or a related field",
+            "status": "missing"
+          }
+        ],
+        "normalization_ok": true,
+        "optional": []
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [\n    {\n      \"skill\": \"Power BI\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description requires experience building dashboards in Power BI, which the resume does not demonstrate.\",\n      \"jd_evidence\": \"Experience building dashboards in Power BI.\"\n    }\n  ],\n  \"good_to_have\": [\n    {\n      \"skill\": \"Leading or mentoring junior analysts\",\n      \"category\": \"soft_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description lists leading or mentoring junior analysts as a preferred qualification, but the resume provides no evidence of such experience.\",\n      \"jd_evidence\": \"Experience leading or mentoring junior analysts.\"\n    },\n    {\n      \"skill\": \"Master's degree in statistics or a related field\",\n      \"category\": \"academic_qualifications\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description states a Master's degree in statistics or a related field is preferred, but the resume only shows a Bachelor's degree.\",\n      \"jd_evidence\": \"Master's degree in statistics or a related field.\"\n    }\n  ],\n  \"optional\": []\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Data Analyst, Redwood Telecom (synthetic) | 2021-2024\",\n      \"bullets\": [\n        \"Developed SQL queries to extract customer data for weekly reporting.\",\n        \"Presented monthly findings to 12 business stakeholders, addressing follow‑up inquiries.\",\n        \"Collaborated with finance and operations teams to standardize shared metric definitions.\",\n        \"Created a Python script to clean survey response files.\"\n      ]\n    }\n  ],\n  \"suggestions\": [\n    \"Consider adding a verifiable metric (e.g., number of records processed or time saved) to the SQL query bullet if available.\"\n  ]\n}"
+    },
+    "p09_sparse_inputs": {
+      "e1": "{\n  \"technical_skills\": [\"Python\", \"Git\", \"SQL\"],\n  \"soft_skills\": [],\n  \"academic_qualifications\": []\n}",
+      "e2_normalized": {
+        "crucial": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Needed: Git.",
+            "reason": "The job description lists Git as a required qualification and the resume shows no related experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Git",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Needed: basic SQL.",
+            "reason": "The job description lists basic SQL as a required qualification and the resume shows no related experience.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "SQL",
+            "status": "missing"
+          }
+        ],
+        "diagnostics": [],
+        "good_to_have": [],
+        "normalization_ok": true,
+        "optional": []
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [\n    {\n      \"skill\": \"Git\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description lists Git as a required qualification and the resume shows no related experience.\",\n      \"jd_evidence\": \"Needed: Git.\"\n    },\n    {\n      \"skill\": \"SQL\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job description lists basic SQL as a required qualification and the resume shows no related experience.\",\n      \"jd_evidence\": \"Needed: basic SQL.\"\n    }\n  ],\n  \"good_to_have\": [],\n  \"optional\": []\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Projects - Temperature Logger (2024)\",\n      \"bullets\": [\n        \"Developed a Python application that reads sensor data from a file and calculates the daily average temperature.\"\n      ]\n    }\n  ]\n}"
+    },
+    "p10_adjacent_technologies": {
+      "e1": "{\n  \"technical_skills\": [\n    \"Python\",\n    \"Apache Kafka\",\n    \"Snowflake\",\n    \"Apache Airflow\",\n    \"Kubernetes\",\n    \"Terraform\"\n  ],\n  \"soft_skills\": [],\n  \"academic_qualifications\": []\n}",
+      "e2_normalized": {
+        "crucial": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Apache Kafka for event streaming.",
+            "reason": "The job requires Apache Kafka for event streaming, but the resume shows only RabbitMQ usage.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Apache Kafka",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Snowflake as the analytics warehouse.",
+            "reason": "The job requires Snowflake as the analytics warehouse, but the resume lists only Google BigQuery.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Snowflake",
+            "status": "missing"
+          },
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Apache Airflow or a similar workflow orchestrator.",
+            "reason": "The job requires Apache Airflow or a similar workflow orchestrator, but the resume lists Luigi instead.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Apache Airflow",
+            "status": "missing"
+          }
+        ],
+        "diagnostics": [],
+        "good_to_have": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Kubernetes for running data services.",
+            "reason": "Kubernetes is listed as a preferred skill, but the resume only mentions Docker Swarm.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Kubernetes",
+            "status": "missing"
+          }
+        ],
+        "normalization_ok": true,
+        "optional": [
+          {
+            "category": "technical_skills",
+            "evidence_found": true,
+            "evidence_related": true,
+            "in_extracted_list": true,
+            "jd_evidence": "Terraform for infrastructure automation.",
+            "reason": "Terraform is optional, and the resume does not mention it.",
+            "resume_evidence_found": null,
+            "resume_evidence_names_skill": null,
+            "resume_mention_found": false,
+            "skill": "Terraform",
+            "status": "missing"
+          }
+        ]
+      },
+      "e2_raw": "```json\n{\n  \"crucial\": [\n    {\n      \"skill\": \"Apache Kafka\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job requires Apache Kafka for event streaming, but the resume shows only RabbitMQ usage.\",\n      \"jd_evidence\": \"Apache Kafka for event streaming.\"\n    },\n    {\n      \"skill\": \"Snowflake\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job requires Snowflake as the analytics warehouse, but the resume lists only Google BigQuery.\",\n      \"jd_evidence\": \"Snowflake as the analytics warehouse.\"\n    },\n    {\n      \"skill\": \"Apache Airflow\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"The job requires Apache Airflow or a similar workflow orchestrator, but the resume lists Luigi instead.\",\n      \"jd_evidence\": \"Apache Airflow or a similar workflow orchestrator.\"\n    }\n  ],\n  \"good_to_have\": [\n    {\n      \"skill\": \"Kubernetes\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"Kubernetes is listed as a preferred skill, but the resume only mentions Docker Swarm.\",\n      \"jd_evidence\": \"Kubernetes for running data services.\"\n    }\n  ],\n  \"optional\": [\n    {\n      \"skill\": \"Terraform\",\n      \"category\": \"technical_skills\",\n      \"status\": \"missing\",\n      \"reason\": \"Terraform is optional, and the resume does not mention it.\",\n      \"jd_evidence\": \"Terraform for infrastructure automation.\"\n    }\n  ]\n}\n```",
+      "e3_raw": "{\n  \"optimized_bullets\": [\n    {\n      \"section\": \"Data Engineer, Pelican Mobility (synthetic) | 2020-2024\",\n      \"bullets\": [\n        \"Developed Python services that publish vehicle events to RabbitMQ queues and consume them in downstream workers, handling approximately 1 million events per day across three queues.\",\n        \"Loaded daily trip summaries into Google BigQuery and authored SQL transformations to prepare data for analytics.\",\n        \"Deployed the team’s services as Docker containers on a Docker Swarm cluster, ensuring high availability and efficient resource utilization.\",\n        \"Scheduled nightly data pipelines with Luigi and implemented monitoring to detect and resolve failures promptly.\"\n      ]\n    }\n  ]\n}"
+    }
+  }
+}

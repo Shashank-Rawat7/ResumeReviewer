@@ -1,0 +1,43 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p02_partial_mixed_tiers",
+  "split": "dev",
+  "title": "Partial fit with mixed skill tiers",
+  "category": "partial_fit_mixed_tiers",
+  "purpose": "Three demonstrated skills, one partial and two missing required skills, one preferred and one optional gap. Tests tier assignment, partial versus missing, and an adjacent-technology trap (TensorFlow present, PyTorch required).",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "short",
+  "length_note": "Measured at 771 characters; chunk placement unverified.",
+  "inputs": {
+    "job_description": "Machine Learning Engineer - Lumen Analytics (synthetic)\n\nRequired:\n- Proficiency in Python for machine learning workflows.\n- Experience building models with scikit-learn.\n- Experience with pandas for data preparation.\n- Experience training deep learning models with PyTorch.\n- Experience tracking experiments with MLflow.\n- Experience processing large datasets with Apache Spark.\n\nPreferred:\n- Experience deploying services on Kubernetes.\n\nOptional:\n- Exposure to Apache Airflow for scheduling.",
+    "resume_text": "SYNTHETIC CANDIDATE TWO\nMachine Learning Engineer (early career)\n\nEXPERIENCE\nMachine Learning Intern, Cedar Valley Insurance (synthetic) | 2023-2024\n- Built a claim-risk classifier in Python with scikit-learn and improved recall from 0.62 to 0.71 on a held-out set.\n- Prepared training data with pandas, cleaning 4 raw tables into one feature table.\n- Trained a small TensorFlow model for text classification as an experiment.\n\nPROJECTS\nCustomer Churn Study | 2023\n- Compared 3 scikit-learn models on a public churn dataset and reported results in a notebook.\n- Prototyped one PySpark job on a sample dataset in a course project.\n\nSKILLS\nPython, scikit-learn, pandas, TensorFlow, SQL, Jupyter\n\nEDUCATION\nM.Tech in Data Science, Example Institute of Technology | 2022-2024",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE TWO", "Machine Learning Engineer (early career)"],
+      "sections": [
+        {"heading": "EXPERIENCE", "entries": [
+          {"title": "Machine Learning Intern, Cedar Valley Insurance (synthetic)", "dates": "2023-2024", "bullets": [
+            "Built a claim-risk classifier in Python with scikit-learn and improved recall from 0.62 to 0.71 on a held-out set.",
+            "Prepared training data with pandas, cleaning 4 raw tables into one feature table.",
+            "Trained a small TensorFlow model for text classification as an experiment."]}]},
+        {"heading": "PROJECTS", "entries": [
+          {"title": "Customer Churn Study", "dates": "2023", "bullets": [
+            "Compared 3 scikit-learn models on a public churn dataset and reported results in a notebook.",
+            "Prototyped one PySpark job on a sample dataset in a course project."]}]},
+        {"heading": "SKILLS", "lines": ["Python, scikit-learn, pandas, TensorFlow, SQL, Jupyter"]},
+        {"heading": "EDUCATION", "lines": ["M.Tech in Data Science, Example Institute of Technology | 2022-2024"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "Wrong tier (required gaps reported as preferred or optional, or the reverse).",
+    "Partial skill (Spark) reported as fully missing or as fully demonstrated.",
+    "Inferring PyTorch proficiency from the TensorFlow experiment.",
+    "ATS bullets claiming PyTorch, MLflow, Kubernetes or Airflow, or presenting the Spark prototype as production-scale."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A4: resume_text layout and resume_structure shape are provisional.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

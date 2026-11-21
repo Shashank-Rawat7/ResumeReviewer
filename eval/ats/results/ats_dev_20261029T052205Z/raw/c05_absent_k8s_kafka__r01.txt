@@ -1,0 +1,27 @@
+```json
+{
+  "optimized_bullets": [
+    {
+      "section": "Projects - Order Processing Service (Mar 2024 - May 2024)",
+      "bullets": [
+        "Designed a Python FastAPI order service that publishes events to RabbitMQ.",
+        "Implemented event consumers with retry logic and a dead‑letter queue.",
+        "Containerised the service using Docker and orchestrated locally with Docker Compose across four containers."
+      ]
+    },
+    {
+      "section": "Projects - URL Shortener (Nov 2023 - Dec 2023)",
+      "bullets": [
+        "Developed a URL shortener leveraging PostgreSQL and a custom rate limiter.",
+        "Documented the REST API with OpenAPI, enabling teammates to test endpoints directly from the browser."
+      ]
+    },
+    {
+      "section": "Work Experience - Backend Trainee (Jul 2023 - Sep 2023)",
+      "bullets": [
+        "Maintained three internal services, updating dependencies on a monthly basis."
+      ]
+    }
+  ]
+}
+```

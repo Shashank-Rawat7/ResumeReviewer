@@ -1,0 +1,7 @@
+Start (build if needed):   docker compose up --build
+Re-run existing images:    docker compose up
+Stop, keep data:           docker compose down
+Stop, delete DB + uploads: docker compose down -v
+Docker end-to-end check:   python tests/docker/smoke_test.py   (mock model, isolated project, no live API calls)
+
+Inside Compose the database host is "postgres"; for non-Docker runs use POSTGRES_HOST=localhost.

@@ -1,0 +1,40 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p08_soft_academic",
+  "split": "dev",
+  "title": "Soft skills and academic qualifications",
+  "category": "soft_skills_academic",
+  "purpose": "The job description mixes three technical skills, three soft skills and two academic qualifications. Tests category assignment and that course options are offered only for technical gaps, never for soft skills or academic qualifications.",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "short",
+  "length_note": "Measured at 517 characters; chunk placement unverified.",
+  "inputs": {
+    "job_description": "Business Data Analyst - Granite Insurance (synthetic)\n\nRequired:\n- Strong SQL skills for querying relational data.\n- Working knowledge of Python for data analysis.\n- Experience building dashboards in Power BI.\n- Clear written and verbal communication with business stakeholders.\n- A collaborative approach when working with cross-functional teams.\n- Bachelor's degree in a quantitative field such as statistics, economics or engineering.\n\nPreferred:\n- Experience leading or mentoring junior analysts.\n- Master's degree in statistics or a related field.",
+    "resume_text": "SYNTHETIC CANDIDATE EIGHT\nData Analyst\n\nEXPERIENCE\nData Analyst, Redwood Telecom (synthetic) | 2021-2024\n- Wrote SQL queries to extract customer data for weekly reports.\n- Presented monthly findings to 12 business stakeholders and answered their follow-up questions.\n- Worked with the finance and operations teams to agree on shared metric definitions.\n- Wrote a small Python script to clean a file of survey responses.\n\nEDUCATION\nB.Sc. in Statistics, Example University | 2017-2021\n\nSKILLS\nSQL, Excel, Python (basic)",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE EIGHT", "Data Analyst"],
+      "sections": [
+        {"heading": "EXPERIENCE", "entries": [
+          {"title": "Data Analyst, Redwood Telecom (synthetic)", "dates": "2021-2024", "bullets": [
+            "Wrote SQL queries to extract customer data for weekly reports.",
+            "Presented monthly findings to 12 business stakeholders and answered their follow-up questions.",
+            "Worked with the finance and operations teams to agree on shared metric definitions.",
+            "Wrote a small Python script to clean a file of survey responses."]}]},
+        {"heading": "EDUCATION", "lines": ["B.Sc. in Statistics, Example University | 2017-2021"]},
+        {"heading": "SKILLS", "lines": ["SQL, Excel, Python (basic)"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "Soft skills or academic qualifications offered course recommendations.",
+    "Mis-categorisation (a technical gap labelled soft, or a degree labelled technical).",
+    "Missing the Master's degree or leadership gaps, or flagging the met Bachelor's degree.",
+    "ATS bullets claiming Power BI, leadership or mentoring, or a Master's degree."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A4: resume_text layout and resume_structure shape are provisional.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

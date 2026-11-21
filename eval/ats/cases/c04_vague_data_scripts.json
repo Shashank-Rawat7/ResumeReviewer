@@ -1,0 +1,57 @@
+{
+  "id": "c04_vague_data_scripts",
+  "category": "vague_evidence",
+  "holdout": false,
+  "title": "Vague evidence: data scripts and a trainee analyst role",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "Junior Data Engineer\n\nOur data team moves data from operational systems into a cloud warehouse. You will write SQL and Python jobs, model tables with dbt and load them into Snowflake.\n\nResponsibilities:\n- Build and monitor daily data pipelines.\n- Write tested SQL transformations in dbt.\n- Document data sources and support analysts with data questions.\n\nRequirements:\n- Python and strong SQL.\n- dbt and Snowflake.\n- Git.\n\nNice to have: Airflow for orchestration.",
+  "resume": {
+    "name": "Candidate Delta",
+    "sections": [
+      {
+        "heading": "Projects - Data Scripts",
+        "dates": "Mar 2024 - May 2024",
+        "bullets": [
+          "Wrote scripts to process data files.",
+          "Cleaned data and made charts.",
+          "Worked with the team to deliver results."
+        ]
+      },
+      {
+        "heading": "Work Experience - Trainee Analyst",
+        "dates": "Jul 2023 - Dec 2023",
+        "bullets": [
+          "Supported the reporting team with day-to-day tasks.",
+          "Learned several tools used in the company."
+        ]
+      }
+    ],
+    "skills_line": "Python, Excel, SQL"
+  },
+  "resume_text": "Candidate Delta\n\nProjects - Data Scripts\nMar 2024 - May 2024\n- Wrote scripts to process data files.\n- Cleaned data and made charts.\n- Worked with the team to deliver results.\n\nWork Experience - Trainee Analyst\nJul 2023 - Dec 2023\n- Supported the reporting team with day-to-day tasks.\n- Learned several tools used in the company.\n\nSkills: Python, Excel, SQL\n",
+  "absent_skills": [
+    {
+      "name": "dbt",
+      "aliases": []
+    },
+    {
+      "name": "Snowflake",
+      "aliases": []
+    },
+    {
+      "name": "Airflow",
+      "aliases": [
+        "Apache Airflow"
+      ]
+    }
+  ],
+  "trap_types": [
+    "vague_evidence",
+    "invented_metric",
+    "absent_skill_leak"
+  ],
+  "traps": [
+    "Nothing in the resume says what data, how much, or with which tools; any specific tool, volume or result is invented.",
+    "dbt, Snowflake and Airflow are requested but not shown."
+  ]
+}

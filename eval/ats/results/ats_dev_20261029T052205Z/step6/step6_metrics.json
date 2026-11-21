@@ -1,0 +1,1321 @@
+{
+  "step6_analysis_version": 1,
+  "run_id": "ats_dev_20261029T052205Z",
+  "generated_utc": "2026-10-29T08:03:05.645818+00:00",
+  "analysis_script_sha256": "5ebe521ca047f38d50c66f2c97eafc59c38eac886b05faa03df555eb0bfb831b",
+  "disclosures": {
+    "dataset": "9 synthetic development cases, 2 repeats each, 102 generated bullets; not real resumes",
+    "human_judgments": "provisional: the files record one labelling source, not the reviewer's identity or independence; the decisions file consolidates the reviewed sheet, so their agreement is not independent corroboration",
+    "holdouts": "the three holdout cases were excluded from the baseline plan (plan split is dev); this analysis reads no case file, no raw response and no holdout data",
+    "evaluation_only_cap": "the baseline ran with an evaluation-only max_tokens of 4096 (override 4096); production uses 8192. Results describe the capped configuration, not production",
+    "model": "openai/gpt-oss-20b",
+    "effective_max_tokens": 4096,
+    "production_max_tokens": 8192,
+    "override_max_tokens": 4096
+  },
+  "baseline_hashes": {
+    "before": {
+      "bullets.csv": "cd39b7bf7a3feedfd3495d504b60507cedbce7208d64102904fc5f003feb6fad",
+      "bullets_reviewed.csv": "d3c9fe877f10002af0345f5ebd15b585f96d1365619cff4d0ebfef8acbbbc7ea",
+      "human_review_decisions.csv": "3f74ea6aabce1d3fc9ed1e3bc0b697e367e0fe0f8389bed46bb621fe33700ad1",
+      "calls.jsonl": "09d81363578e5fe38162a55dad9fcc3c3958df03b569b39b9a02324bdc164c2c",
+      "evaluations.jsonl": "c117548828d4644ed39c8d972969227b349711cd4f2c4ace2a30608d2ca7ca73",
+      "plan.json": "5fa407e4b3046fbdfc25e39bcc7a722ee0e91fedb8f501df740fbaba814b718d",
+      "summary.json": "175945392f0b1a6cf124428ae4f0d517c84e65a94932fa03093aa0a93b237c6f",
+      "metadata.json": "73bf6b11eb09d14f78c2b2ae1c55cbe3ee8f19679f37bce7e8dfdb03088c994a",
+      "report.md": "74308c56161c6e8db8396f009d7e631517f17e1d9457ad2f1d2f762dc7e1eaa5"
+    },
+    "after_analysis": {
+      "bullets.csv": "cd39b7bf7a3feedfd3495d504b60507cedbce7208d64102904fc5f003feb6fad",
+      "bullets_reviewed.csv": "d3c9fe877f10002af0345f5ebd15b585f96d1365619cff4d0ebfef8acbbbc7ea",
+      "human_review_decisions.csv": "3f74ea6aabce1d3fc9ed1e3bc0b697e367e0fe0f8389bed46bb621fe33700ad1",
+      "calls.jsonl": "09d81363578e5fe38162a55dad9fcc3c3958df03b569b39b9a02324bdc164c2c",
+      "evaluations.jsonl": "c117548828d4644ed39c8d972969227b349711cd4f2c4ace2a30608d2ca7ca73",
+      "plan.json": "5fa407e4b3046fbdfc25e39bcc7a722ee0e91fedb8f501df740fbaba814b718d",
+      "summary.json": "175945392f0b1a6cf124428ae4f0d517c84e65a94932fa03093aa0a93b237c6f",
+      "metadata.json": "73bf6b11eb09d14f78c2b2ae1c55cbe3ee8f19679f37bce7e8dfdb03088c994a",
+      "report.md": "74308c56161c6e8db8396f009d7e631517f17e1d9457ad2f1d2f762dc7e1eaa5"
+    },
+    "unchanged": true
+  },
+  "integrity": {
+    "row_counts": {
+      "bullets.csv": 102,
+      "bullets_reviewed.csv": 102,
+      "human_review_decisions.csv": 102,
+      "calls.jsonl": 18
+    },
+    "keys_unique_and_identical_across_three_csvs": true,
+    "unique_keys": 102,
+    "column_names_match_expected": true,
+    "reviewed_preserves_every_non_review_field": true,
+    "split_is_dev_only": true,
+    "calls_all_status_ok_and_linked_by_call_id": true,
+    "details": {
+      "labels_outside_agreed_sets": {
+        "count": 0,
+        "examples": []
+      },
+      "reviewed_vs_decisions_disagreements_by_field": {
+        "supported_by_source_evidence": 0,
+        "unsupported_or_invented_claims": 0,
+        "relevance_to_job_description": 0,
+        "clarity_and_action_orientation": 0,
+        "overall_rewrite_improvement": 0,
+        "reviewer_notes": 0
+      },
+      "original_sheet_human_cells_non_empty": 0,
+      "reviewed_non_review_cells_changed_exactly": 0,
+      "reviewed_non_review_cells_changed_after_whitespace_normalisation": 0
+    }
+  },
+  "human_review": {
+    "bullets": 102,
+    "source_of_labels": "human_review_decisions.csv (identical to the reviewed sheet unless data_quality says otherwise)",
+    "dimensions": {
+      "supported_by_source_evidence": {
+        "yes": {
+          "count": 70,
+          "of": 102,
+          "text": "70/102 (68.6%)"
+        },
+        "partially": {
+          "count": 32,
+          "of": 102,
+          "text": "32/102 (31.4%)"
+        },
+        "no": {
+          "count": 0,
+          "of": 102,
+          "text": "0/102 (0.0%)"
+        },
+        "other_or_blank": {
+          "count": 0,
+          "of": 102,
+          "text": "0/102 (0.0%)"
+        }
+      },
+      "relevance_to_job_description": {
+        "high": {
+          "count": 72,
+          "of": 102,
+          "text": "72/102 (70.6%)"
+        },
+        "medium": {
+          "count": 30,
+          "of": 102,
+          "text": "30/102 (29.4%)"
+        },
+        "low": {
+          "count": 0,
+          "of": 102,
+          "text": "0/102 (0.0%)"
+        },
+        "other_or_blank": {
+          "count": 0,
+          "of": 102,
+          "text": "0/102 (0.0%)"
+        }
+      },
+      "clarity_and_action_orientation": {
+        "high": {
+          "count": 96,
+          "of": 102,
+          "text": "96/102 (94.1%)"
+        },
+        "medium": {
+          "count": 6,
+          "of": 102,
+          "text": "6/102 (5.9%)"
+        },
+        "low": {
+          "count": 0,
+          "of": 102,
+          "text": "0/102 (0.0%)"
+        },
+        "other_or_blank": {
+          "count": 0,
+          "of": 102,
+          "text": "0/102 (0.0%)"
+        }
+      },
+      "overall_rewrite_improvement": {
+        "improved": {
+          "count": 70,
+          "of": 102,
+          "text": "70/102 (68.6%)"
+        },
+        "unchanged": {
+          "count": 18,
+          "of": 102,
+          "text": "18/102 (17.6%)"
+        },
+        "worse": {
+          "count": 14,
+          "of": 102,
+          "text": "14/102 (13.7%)"
+        },
+        "other_or_blank": {
+          "count": 0,
+          "of": 102,
+          "text": "0/102 (0.0%)"
+        }
+      }
+    },
+    "unsupported_or_invented_claims_field": {
+      "none": {
+        "count": 66,
+        "of": 102,
+        "text": "66/102 (64.7%)"
+      },
+      "explanatory_text": {
+        "count": 36,
+        "of": 102,
+        "text": "36/102 (35.3%)"
+      },
+      "blank": {
+        "count": 0,
+        "of": 102,
+        "text": "0/102 (0.0%)"
+      }
+    },
+    "overall_improvement_by_support_counts": {
+      "yes": {
+        "bullets": 70,
+        "improved": 52,
+        "unchanged": 18,
+        "worse": 0
+      },
+      "partially": {
+        "bullets": 32,
+        "improved": 18,
+        "unchanged": 0,
+        "worse": 14
+      },
+      "no": {
+        "bullets": 0,
+        "improved": 0,
+        "unchanged": 0,
+        "worse": 0
+      }
+    },
+    "by_case": [
+      {
+        "case_id": "c01_strong_task_api",
+        "bullets": 18,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 16,
+            "partially": 2,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 14,
+            "medium": 4,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 18,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 14,
+            "unchanged": 4,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c03_vague_backend_intern",
+        "bullets": 10,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 2,
+            "partially": 8,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 8,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 10,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 4,
+            "unchanged": 0,
+            "worse": 6,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c04_vague_data_scripts",
+        "bullets": 10,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 0,
+            "partially": 10,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 6,
+            "medium": 4,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 8,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 8,
+            "unchanged": 0,
+            "worse": 2,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c05_absent_k8s_kafka",
+        "bullets": 12,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 10,
+            "partially": 2,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 10,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 12,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 10,
+            "unchanged": 2,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c07_metric_heavy_formats",
+        "bullets": 14,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 14,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 10,
+            "medium": 4,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 14,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 12,
+            "unchanged": 2,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c08_no_metric_scale_trap",
+        "bullets": 10,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 4,
+            "partially": 6,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 8,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 8,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 6,
+            "unchanged": 0,
+            "worse": 4,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c09_no_metric_perf_trap",
+        "bullets": 10,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 6,
+            "partially": 4,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 4,
+            "medium": 6,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 8,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 6,
+            "unchanged": 2,
+            "worse": 2,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c11_fresher_llm_rag",
+        "bullets": 14,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 14,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 12,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 14,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 6,
+            "unchanged": 8,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c12_short_mismatch",
+        "bullets": 4,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 4,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 0,
+            "medium": 4,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 4,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 4,
+            "unchanged": 0,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      }
+    ],
+    "by_case_repeat": [
+      {
+        "case_id": "c01_strong_task_api",
+        "repeat": 1,
+        "bullets": 9,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 9,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 7,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 9,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 7,
+            "unchanged": 2,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c01_strong_task_api",
+        "repeat": 2,
+        "bullets": 9,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 7,
+            "partially": 2,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 7,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 9,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 7,
+            "unchanged": 2,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c03_vague_backend_intern",
+        "repeat": 1,
+        "bullets": 5,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 1,
+            "partially": 4,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 5,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 2,
+            "unchanged": 0,
+            "worse": 3,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c03_vague_backend_intern",
+        "repeat": 2,
+        "bullets": 5,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 1,
+            "partially": 4,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 5,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 2,
+            "unchanged": 0,
+            "worse": 3,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c04_vague_data_scripts",
+        "repeat": 1,
+        "bullets": 5,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 0,
+            "partially": 5,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 3,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 4,
+            "unchanged": 0,
+            "worse": 1,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c04_vague_data_scripts",
+        "repeat": 2,
+        "bullets": 5,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 0,
+            "partially": 5,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 3,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 4,
+            "unchanged": 0,
+            "worse": 1,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c05_absent_k8s_kafka",
+        "repeat": 1,
+        "bullets": 6,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 5,
+            "partially": 1,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 5,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 6,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 5,
+            "unchanged": 1,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c05_absent_k8s_kafka",
+        "repeat": 2,
+        "bullets": 6,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 5,
+            "partially": 1,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 5,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 6,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 5,
+            "unchanged": 1,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c07_metric_heavy_formats",
+        "repeat": 1,
+        "bullets": 7,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 7,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 5,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 7,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 6,
+            "unchanged": 1,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c07_metric_heavy_formats",
+        "repeat": 2,
+        "bullets": 7,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 7,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 5,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 7,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 6,
+            "unchanged": 1,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c08_no_metric_scale_trap",
+        "repeat": 1,
+        "bullets": 5,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 2,
+            "partially": 3,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 3,
+            "unchanged": 0,
+            "worse": 2,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c08_no_metric_scale_trap",
+        "repeat": 2,
+        "bullets": 5,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 2,
+            "partially": 3,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 3,
+            "unchanged": 0,
+            "worse": 2,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c09_no_metric_perf_trap",
+        "repeat": 1,
+        "bullets": 5,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 3,
+            "partially": 2,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 2,
+            "medium": 3,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 3,
+            "unchanged": 1,
+            "worse": 1,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c09_no_metric_perf_trap",
+        "repeat": 2,
+        "bullets": 5,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 3,
+            "partially": 2,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 2,
+            "medium": 3,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 4,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 3,
+            "unchanged": 1,
+            "worse": 1,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c11_fresher_llm_rag",
+        "repeat": 1,
+        "bullets": 7,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 7,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 6,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 7,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 5,
+            "unchanged": 2,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c11_fresher_llm_rag",
+        "repeat": 2,
+        "bullets": 7,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 7,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 6,
+            "medium": 1,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 7,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 1,
+            "unchanged": 6,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c12_short_mismatch",
+        "repeat": 1,
+        "bullets": 2,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 2,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 0,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 2,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 2,
+            "unchanged": 0,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      },
+      {
+        "case_id": "c12_short_mismatch",
+        "repeat": 2,
+        "bullets": 2,
+        "counts": {
+          "supported_by_source_evidence": {
+            "yes": 2,
+            "partially": 0,
+            "no": 0,
+            "other_or_blank": 0
+          },
+          "relevance_to_job_description": {
+            "high": 0,
+            "medium": 2,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "clarity_and_action_orientation": {
+            "high": 2,
+            "medium": 0,
+            "low": 0,
+            "other_or_blank": 0
+          },
+          "overall_rewrite_improvement": {
+            "improved": 2,
+            "unchanged": 0,
+            "worse": 0,
+            "other_or_blank": 0
+          }
+        }
+      }
+    ],
+    "data_quality": {
+      "support_yes_with_explanatory_claim_text": {
+        "count": 4,
+        "of_support_yes": 70,
+        "rows": [
+          {
+            "case_id": "c03_vague_backend_intern",
+            "repeat": 1,
+            "bullet_index": 1,
+            "unsupported_or_invented_claims_text": "Application-stability improvement is inferred."
+          },
+          {
+            "case_id": "c03_vague_backend_intern",
+            "repeat": 2,
+            "bullet_index": 1,
+            "unsupported_or_invented_claims_text": "Application-stability improvement is inferred."
+          },
+          {
+            "case_id": "c08_no_metric_scale_trap",
+            "repeat": 1,
+            "bullet_index": 1,
+            "unsupported_or_invented_claims_text": "Efficiency benefit is not measured."
+          },
+          {
+            "case_id": "c08_no_metric_scale_trap",
+            "repeat": 2,
+            "bullet_index": 1,
+            "unsupported_or_invented_claims_text": "Efficiency benefit is not measured."
+          }
+        ],
+        "handling": "reported as a data-quality observation; labels are preserved exactly as supplied and not corrected"
+      },
+      "support_not_yes_without_explanatory_claim_text": 0,
+      "reviewer_notes_blank": {
+        "count": 0,
+        "of": 102,
+        "text": "0/102 (0.0%)"
+      }
+    }
+  },
+  "automated_vs_human": {
+    "scope": "all bullets from status-ok responses; counts only, because neither the checks nor the human labels are ground truth",
+    "flag_totals": {
+      "d2": {
+        "count": 0,
+        "of": 102,
+        "text": "0/102 (0.0%)"
+      },
+      "d3": {
+        "count": 6,
+        "of": 102,
+        "text": "6/102 (5.9%)"
+      },
+      "d4": {
+        "count": 6,
+        "of": 102,
+        "text": "6/102 (5.9%)"
+      },
+      "d6_unchanged": {
+        "count": 8,
+        "of": 102,
+        "text": "8/102 (7.8%)"
+      },
+      "d6_near_duplicate": {
+        "count": 0,
+        "of": 102,
+        "text": "0/102 (0.0%)"
+      },
+      "any_checker_finding_text_in_sheet": {
+        "count": 14,
+        "of": 102,
+        "text": "14/102 (13.7%)"
+      }
+    },
+    "d3_d4_overlap": {
+      "both_d3_and_d4": 6,
+      "d3_only": 0,
+      "d4_only": 0,
+      "neither": 96,
+      "note": "D3 (declared absent skills) and D4 (vocabulary technologies, advisory) overlap; they are never summed"
+    },
+    "crosstabs_counts": {
+      "d2_vs_support": {
+        "flagged": {
+          "bullets": 0,
+          "yes": 0,
+          "partially": 0,
+          "no": 0
+        },
+        "not_flagged": {
+          "bullets": 102,
+          "yes": 70,
+          "partially": 32,
+          "no": 0
+        }
+      },
+      "d3_vs_support": {
+        "flagged": {
+          "bullets": 6,
+          "yes": 0,
+          "partially": 6,
+          "no": 0
+        },
+        "not_flagged": {
+          "bullets": 96,
+          "yes": 70,
+          "partially": 26,
+          "no": 0
+        }
+      },
+      "d4_vs_support": {
+        "flagged": {
+          "bullets": 6,
+          "yes": 0,
+          "partially": 6,
+          "no": 0
+        },
+        "not_flagged": {
+          "bullets": 96,
+          "yes": 70,
+          "partially": 26,
+          "no": 0
+        }
+      },
+      "d6_unchanged_vs_overall": {
+        "flagged": {
+          "bullets": 8,
+          "improved": 0,
+          "unchanged": 8,
+          "worse": 0
+        },
+        "not_flagged": {
+          "bullets": 94,
+          "improved": 70,
+          "unchanged": 10,
+          "worse": 14
+        }
+      },
+      "d6_near_duplicate_vs_overall": {
+        "flagged": {
+          "bullets": 0,
+          "improved": 0,
+          "unchanged": 0,
+          "worse": 0
+        },
+        "not_flagged": {
+          "bullets": 102,
+          "improved": 70,
+          "unchanged": 18,
+          "worse": 14
+        }
+      }
+    },
+    "union_d2_d3_d4_counts": {
+      "definition": "bullets with at least one of D2, D3, D4 (a union of overlapping checks, not a sum)",
+      "by_support": {
+        "flagged": {
+          "bullets": 6,
+          "yes": 0,
+          "partially": 6,
+          "no": 0
+        },
+        "not_flagged": {
+          "bullets": 96,
+          "yes": 70,
+          "partially": 26,
+          "no": 0
+        }
+      },
+      "support_partially_or_no_total": 32,
+      "support_partially_or_no_without_any_d2_d3_d4_flag": 26,
+      "human_unchanged_total": 18,
+      "human_unchanged_without_d6_flag": 10
+    },
+    "not_comparable": [
+      "D2 flagged no bullets, so it cannot be compared with human labels",
+      "D1/D5 detail is not in the label sheet; only matched_source_heading is (non-blank on 102/102 bullets)"
+    ],
+    "not_calculated": "accuracy, precision and recall (no defensible ground truth exists)"
+  },
+  "repeat_comparison": {
+    "method": "positions are matched by (case_id, bullet_index); a pair is compared only when output_section and matched_source_heading agree and the heading is non-blank; anything else is reported, never forced",
+    "positions_total": 51,
+    "pair_status_counts": {
+      "paired": 51
+    },
+    "cases_with_different_bullet_counts_between_repeats": [],
+    "paired_positions": 51,
+    "wording": {
+      "exact_equal": {
+        "count": 25,
+        "of": 51,
+        "text": "25/51 (49.0%)"
+      },
+      "normalized_equal_but_not_exact": {
+        "count": 1,
+        "of": 51,
+        "text": "1/51 (2.0%)"
+      },
+      "normalized_equal_total_including_exact": {
+        "count": 26,
+        "of": 51,
+        "text": "26/51 (51.0%)"
+      },
+      "changed_after_normalisation": {
+        "count": 25,
+        "of": 51,
+        "text": "25/51 (49.0%)"
+      },
+      "word_overlap_jaccard_of_changed_pairs": {
+        "pairs": 25,
+        "min": 0.375,
+        "median": 0.714,
+        "max": 0.929
+      }
+    },
+    "human_judgments_differing_between_repeats": {
+      "supported_by_source_evidence": {
+        "count": 2,
+        "of": 51,
+        "text": "2/51 (3.9%)"
+      },
+      "relevance_to_job_description": {
+        "count": 0,
+        "of": 51,
+        "text": "0/51 (0.0%)"
+      },
+      "clarity_and_action_orientation": {
+        "count": 0,
+        "of": 51,
+        "text": "0/51 (0.0%)"
+      },
+      "overall_rewrite_improvement": {
+        "count": 4,
+        "of": 51,
+        "text": "4/51 (7.8%)"
+      }
+    },
+    "unsupported_claims_field_none_vs_text_differs": {
+      "count": 2,
+      "of": 51,
+      "text": "2/51 (3.9%)"
+    },
+    "judgments_by_wording_class": {
+      "exact_wording": {
+        "positions": 25,
+        "any_of_four_dimensions_differs": 0
+      },
+      "normalized_equal_not_exact": {
+        "positions": 1,
+        "any_of_four_dimensions_differs": 0
+      },
+      "wording_changed": {
+        "positions": 25,
+        "any_of_four_dimensions_differs": 6
+      }
+    },
+    "automated_flags_differing_between_repeats": {
+      "d3": 0,
+      "d4": 0,
+      "d6_unchanged": 6
+    },
+    "response_status": {
+      "status_counts_all_calls": {
+        "ok": 18
+      },
+      "cases_with_same_status_in_both_repeats": {
+        "count": 9,
+        "of": 9,
+        "text": "9/9 (100.0%)"
+      },
+      "finish_reasons": {
+        "stop": 18
+      },
+      "truncated_calls": 0,
+      "calls_with_more_than_one_runner_attempt": 0,
+      "note": "every call had the same status, so status consistency carries no information here"
+    }
+  },
+  "not_calculated": [
+    "accuracy",
+    "precision",
+    "recall",
+    "inter-rater reliability",
+    "generalisation to real resumes",
+    "production-equivalent quality (the run used a lower evaluation-only token cap)"
+  ]
+}

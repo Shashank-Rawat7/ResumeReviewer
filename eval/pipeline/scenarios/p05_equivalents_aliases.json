@@ -1,0 +1,42 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p05_equivalents_aliases",
+  "split": "dev",
+  "title": "Equivalent skills, specific technologies and aliases",
+  "category": "equivalents_aliases",
+  "purpose": "Five JD skills are satisfied through an accepted alternative (GCP for an AWS/GCP/Azure requirement), a more specific technology (PostgreSQL for SQL databases) or an acronym and its expansion (NLP). Two true gaps remain. Tests that equivalents are not flagged and that alias matching works.",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "short",
+  "length_note": "Measured at 768 characters; chunk placement unverified.",
+  "inputs": {
+    "job_description": "NLP Data Scientist - Verdant Labs (synthetic)\n\nRequired:\n- Strong Python programming skills.\n- Experience with a major cloud platform such as AWS, GCP or Azure.\n- Experience with SQL databases for analysis and reporting.\n- Practical NLP experience, such as text classification.\n- Experience with Docker for reproducible environments.\n- Experience processing big data with Apache Spark.\n\nPreferred:\n- Experience building dashboards in Tableau.",
+    "resume_text": "SYNTHETIC CANDIDATE FIVE\nData Scientist\n\nEXPERIENCE\nData Scientist, Orchard Retail Group (synthetic) | 2021-2024\n- Built a natural language processing pipeline in Python that classified 50,000 customer reviews into 6 topics.\n- Stored review data in PostgreSQL and wrote analysis queries that supported weekly business reviews.\n- Trained and served the topic model on Google Cloud Platform (GCP) using Vertex AI notebooks.\n- Packaged the pipeline in a reproducible image with Docker.\n\nPROJECTS\nSupport Ticket Router | 2022\n- Built a text classifier in Python that routed support tickets with 88% accuracy on a test set.\n\nSKILLS\nPython, natural language processing, PostgreSQL, Google Cloud Platform, Docker\n\nEDUCATION\nM.Sc. in Statistics, Example University | 2019-2021",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE FIVE", "Data Scientist"],
+      "sections": [
+        {"heading": "EXPERIENCE", "entries": [
+          {"title": "Data Scientist, Orchard Retail Group (synthetic)", "dates": "2021-2024", "bullets": [
+            "Built a natural language processing pipeline in Python that classified 50,000 customer reviews into 6 topics.",
+            "Stored review data in PostgreSQL and wrote analysis queries that supported weekly business reviews.",
+            "Trained and served the topic model on Google Cloud Platform (GCP) using Vertex AI notebooks.",
+            "Packaged the pipeline in a reproducible image with Docker."]}]},
+        {"heading": "PROJECTS", "entries": [
+          {"title": "Support Ticket Router", "dates": "2022", "bullets": [
+            "Built a text classifier in Python that routed support tickets with 88% accuracy on a test set."]}]},
+        {"heading": "SKILLS", "lines": ["Python, natural language processing, PostgreSQL, Google Cloud Platform, Docker"]},
+        {"heading": "EDUCATION", "lines": ["M.Sc. in Statistics, Example University | 2019-2021"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "Flagging GCP, PostgreSQL or the NLP work as gaps because the JD wording differs from the resume wording.",
+    "Alias mismatch between NLP and natural language processing leaving a demonstrated skill unmatched.",
+    "ATS bullets claiming AWS, Azure, Spark or Tableau, or generalising PostgreSQL to other named databases."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A4: resume_text layout and resume_structure shape are provisional.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

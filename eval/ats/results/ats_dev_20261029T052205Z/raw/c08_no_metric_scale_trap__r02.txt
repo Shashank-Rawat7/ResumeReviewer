@@ -1,0 +1,21 @@
+```json
+{
+  "optimized_bullets": [
+    {
+      "section": "Projects - Chat Backend (Jan 2024 - Mar 2024)",
+      "bullets": [
+        "Designed and implemented a FastAPI‑based chat backend using WebSockets, enabling real‑time room participation and message transmission.",
+        "Persisted message history in PostgreSQL and introduced pagination to efficiently retrieve older messages.",
+        "Developed comprehensive unit tests for message handlers with pytest to ensure reliability."
+      ]
+    },
+    {
+      "section": "Projects - Notes Sync (Oct 2023 - Dec 2023)",
+      "bullets": [
+        "Created a notes application featuring user authentication and a REST API for CRUD operations.",
+        "Containerized the application with Docker and deployed it on a personal server for peer testing."
+      ]
+    }
+  ]
+}
+```

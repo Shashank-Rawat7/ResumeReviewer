@@ -1,0 +1,83 @@
+{
+  "evaluation": {
+    "cli_report_version": "pipeline-cli-1",
+    "code_sha256_at_evaluation": {
+      "cli.py": "80bf64513872db4ac4886301c71b48492ce96c5b743ee28412e9d9aceb8ebeda",
+      "e3.py": "76e1fc11205873f3114ed824aee8353fc125084cf807ced17d0d3d89a478b18a",
+      "runner.py": "e4f6133348740a31002a7fe363b34ee7be2a113c420a61a8428c363aa8e56fc4",
+      "score.py": "a1a37beaa93aa8faa8ce5c6b75fd7f399329e4b8ec2f6887c056110a2c13f841"
+    },
+    "command": "python -B -m eval.pipeline.cli --outputs <original run folder>/outputs_rep1.json --output-report report_rep1.json --review-rows review_rows_rep1.json",
+    "outputs_file_sha256_recorded_by_cli": "e14f255fe39386af31c5a411e54cbf83d550c2ada31f3f7d68d27dd7a326cd7f",
+    "report_rep1.json_sha256": "9ecc776c31c4a283cb7bbde99ccb18ef9fa82f30598794186d277bfb7a0906c2",
+    "review_rows": 58,
+    "review_rows_rep1.json_sha256": "eae4c1cca8aca5d8f077ba3be49b642b2dbb73eb2ed7d7d595c8ced4f9b12587"
+  },
+  "limitations": [
+    "One repeat of the three planned: there is no variability range, and a single run cannot show run-to-run variation.",
+    "The live run was interrupted; this is not a completed evaluation of the plan.",
+    "The 10 scenarios are hand-authored synthetic drafts (labels draft-1); results do not show generalisation to real resumes.",
+    "E3 results are deterministic screens only. Zero flags is not proof that the bullets are factually correct.",
+    "The recorded model name is the configured name echoed by the client library, not an independently verified provider identifier.",
+    "The model client had no request timeout (library default) and client-library retries were disabled (max_retries=0)."
+  ],
+  "note_version": "pipeline-recovery-note-1",
+  "original_plan_hash": "1115e1a8aeb8d7cd5dbebf5ab9975345b92a7c4f15a12482bba791d7cbc51072",
+  "original_plan_validated_against_current_files": true,
+  "original_run": {
+    "interruption": "The process was terminated manually after it stopped writing to calls.jsonl (last write 2026-10-30 07:28:48 UTC). A request that never returned is the suspected cause (the client library sets no request timeout); this was not directly verified.",
+    "logical_calls_logged_before_interruption": 53,
+    "manifest": "none was written (it is written only when a run ends normally)",
+    "planned_logical_calls": 90,
+    "repeat_1": "completed: all 30 logical calls succeeded, outputs_rep1.json written",
+    "repeat_2": "incomplete: 23 of 30 calls logged, no outputs_rep2.json",
+    "repeat_3": "not started"
+  },
+  "original_run_id": "pipeline_8a8a6a446c17",
+  "repeat_1_call_outcomes": {
+    "e1": {
+      "attempts": 10,
+      "finish_reasons": {
+        "stop": 10
+      },
+      "logical_calls_failed": 0,
+      "logical_calls_ok": 10,
+      "retried_attempts": 0,
+      "skipped": 0
+    },
+    "e2": {
+      "attempts": 10,
+      "finish_reasons": {
+        "stop": 10
+      },
+      "logical_calls_failed": 0,
+      "logical_calls_ok": 10,
+      "retried_attempts": 0,
+      "skipped": 0
+    },
+    "e3": {
+      "attempts": 10,
+      "finish_reasons": {
+        "stop": 10
+      },
+      "logical_calls_failed": 0,
+      "logical_calls_ok": 10,
+      "retried_attempts": 0,
+      "skipped": 0
+    }
+  },
+  "repeat_1_call_totals": {
+    "logged_attempts": 30,
+    "retried_attempts": 0,
+    "skipped": 0,
+    "statuses": {
+      "ok": 30
+    }
+  },
+  "source_files_sha256": {
+    "calls.jsonl": "8eaa5b94021a6f1009d1f1dec9fc3a70606e48e2c9a621c82ea449d0d68de6b6",
+    "outputs_rep1.json": "e14f255fe39386af31c5a411e54cbf83d550c2ada31f3f7d68d27dd7a326cd7f",
+    "plan.json": "aa5fb5a9fef9ec8c6bd4253964fc681d65342c6a5e6c0c865dfc92a5cbdc2ae4"
+  },
+  "title": "Repeat 1 recovery of interrupted live run pipeline_8a8a6a446c17"
+}

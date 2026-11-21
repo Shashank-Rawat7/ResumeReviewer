@@ -1,0 +1,123 @@
+{
+  "case_ids": [
+    "c01_strong_task_api",
+    "c03_vague_backend_intern",
+    "c04_vague_data_scripts",
+    "c05_absent_k8s_kafka",
+    "c07_metric_heavy_formats",
+    "c08_no_metric_scale_trap",
+    "c09_no_metric_perf_trap",
+    "c11_fresher_llm_rag",
+    "c12_short_mismatch"
+  ],
+  "created_utc": "2026-10-27T13:30:45.756604+00:00",
+  "fingerprints": {
+    "checker": "16c1b5f06df7dd86c12665cdf9d436517098b8fea74c3fccd02b054ea4857006",
+    "dataset": "5288a730380421ae7460e48bc31d6b30be79833b32331e11190d594268f4dd20",
+    "prompt": "38ef19bbdc128fe8b53508b59aa772a82f911e643bb402dfb1e7ab3648dbbeb4",
+    "vocabulary": "7cd2352c3754afa0a6d77af85d8f2cb4d4422840e25718934b6703539e146ffe"
+  },
+  "frozen_from": null,
+  "kind": "plan",
+  "model_expected": "openai/gpt-oss-20b",
+  "pacing": {
+    "minimum_wall_seconds": 680,
+    "pace_seconds": 40
+  },
+  "planned_calls": 18,
+  "prompt_example_numbers": [
+    "2",
+    "2020",
+    "2021",
+    "35",
+    "5",
+    "50",
+    "92"
+  ],
+  "prompt_key": "resume_ats_optimizer",
+  "repeats": 2,
+  "run_id": "ats_dev_20261027T133045Z",
+  "schedule": [
+    {
+      "case_id": "c01_strong_task_api",
+      "repeat": 1
+    },
+    {
+      "case_id": "c01_strong_task_api",
+      "repeat": 2
+    },
+    {
+      "case_id": "c03_vague_backend_intern",
+      "repeat": 1
+    },
+    {
+      "case_id": "c03_vague_backend_intern",
+      "repeat": 2
+    },
+    {
+      "case_id": "c04_vague_data_scripts",
+      "repeat": 1
+    },
+    {
+      "case_id": "c04_vague_data_scripts",
+      "repeat": 2
+    },
+    {
+      "case_id": "c05_absent_k8s_kafka",
+      "repeat": 1
+    },
+    {
+      "case_id": "c05_absent_k8s_kafka",
+      "repeat": 2
+    },
+    {
+      "case_id": "c07_metric_heavy_formats",
+      "repeat": 1
+    },
+    {
+      "case_id": "c07_metric_heavy_formats",
+      "repeat": 2
+    },
+    {
+      "case_id": "c08_no_metric_scale_trap",
+      "repeat": 1
+    },
+    {
+      "case_id": "c08_no_metric_scale_trap",
+      "repeat": 2
+    },
+    {
+      "case_id": "c09_no_metric_perf_trap",
+      "repeat": 1
+    },
+    {
+      "case_id": "c09_no_metric_perf_trap",
+      "repeat": 2
+    },
+    {
+      "case_id": "c11_fresher_llm_rag",
+      "repeat": 1
+    },
+    {
+      "case_id": "c11_fresher_llm_rag",
+      "repeat": 2
+    },
+    {
+      "case_id": "c12_short_mismatch",
+      "repeat": 1
+    },
+    {
+      "case_id": "c12_short_mismatch",
+      "repeat": 2
+    }
+  ],
+  "split": "dev",
+  "token_estimates": {
+    "ARE_ESTIMATES_NOT_MEASURED_USAGE": true,
+    "input_tokens_estimate": 19400,
+    "method": "input = characters of filled prompt / 4; output = 1500 tokens per call assumed",
+    "output_tokens_assumed": 27000,
+    "per_call_average_estimate": 2577,
+    "total_tokens_estimate": 46400
+  }
+}

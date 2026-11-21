@@ -1,0 +1,49 @@
+{
+  "status": "DRAFT — NOT FROZEN",
+  "schema_version": "draft-1",
+  "scenario_id": "p03_poor_fit",
+  "split": "dev",
+  "title": "Poor fit with many gaps, long resume",
+  "category": "poor_fit",
+  "purpose": "A front-end developer applying to a DevOps role: one demonstrated skill, six missing required skills, one partial preferred skill and one missing optional skill. Tests gap volume handling and resistance to keyword-stuffing absent skills in ATS bullets.",
+  "provenance": {"synthetic": true, "real_person": false, "real_posting": false, "drafted_by": "Claude", "reviewed_by": null, "approved_by": null},
+  "length_class": "long",
+  "length_note": "Measured at 1124 characters; chunk placement unverified.",
+  "inputs": {
+    "job_description": "Cloud / DevOps Engineer - Stonebridge Systems (synthetic)\n\nWe are looking for a DevOps engineer to run and automate our cloud platform.\n\nRequired qualifications:\n- Production experience operating Kubernetes clusters.\n- Infrastructure as code with Terraform.\n- Hands-on experience with AWS services such as EC2 and S3.\n- Building CI/CD pipelines with Jenkins.\n- Configuration management with Ansible.\n- Monitoring and alerting with Prometheus.\n- Solid Linux administration skills.\n\nPreferred qualifications:\n- Experience building and running containers with Docker.\n\nOptional extras:\n- Dashboards with Grafana are a plus.",
+    "resume_text": "SYNTHETIC CANDIDATE THREE\nFront-End Developer\n\nEXPERIENCE\nFront-End Developer, Marigold Media (synthetic) | 2020-2024\n- Built 20 reusable React components used across 4 marketing websites.\n- Improved page load time by 35% by lazy-loading images and splitting JavaScript bundles.\n- Maintained 3 Linux web servers that host the company's static sites, applying monthly security updates.\n- Used Docker Compose to run a local development database for the team.\n- Worked with designers to ship accessible layouts that passed automated accessibility audits.\n\nWeb Developer, Pinecrest Studio (synthetic) | 2018-2020\n- Built client websites with HTML, CSS, and JavaScript for 10 small businesses.\n- Set up deployment of static sites by copying files to a hosting provider.\n- Trained 2 new hires on the team's coding standards.\n\nPROJECTS\nRecipe Sharing Web App | 2022\n- Built a React and Node.js application with user accounts and image uploads.\n- Wrote 25 component tests with Jest.\n\nSKILLS\nJavaScript, React, Node.js, HTML, CSS, Linux, Docker Compose, Jest\n\nEDUCATION\nB.Sc. in Information Technology, Example University | 2014-2018",
+    "resume_structure": {
+      "header": ["SYNTHETIC CANDIDATE THREE", "Front-End Developer"],
+      "sections": [
+        {"heading": "EXPERIENCE", "entries": [
+          {"title": "Front-End Developer, Marigold Media (synthetic)", "dates": "2020-2024", "bullets": [
+            "Built 20 reusable React components used across 4 marketing websites.",
+            "Improved page load time by 35% by lazy-loading images and splitting JavaScript bundles.",
+            "Maintained 3 Linux web servers that host the company's static sites, applying monthly security updates.",
+            "Used Docker Compose to run a local development database for the team.",
+            "Worked with designers to ship accessible layouts that passed automated accessibility audits."]},
+          {"title": "Web Developer, Pinecrest Studio (synthetic)", "dates": "2018-2020", "bullets": [
+            "Built client websites with HTML, CSS, and JavaScript for 10 small businesses.",
+            "Set up deployment of static sites by copying files to a hosting provider.",
+            "Trained 2 new hires on the team's coding standards."]}]},
+        {"heading": "PROJECTS", "entries": [
+          {"title": "Recipe Sharing Web App", "dates": "2022", "bullets": [
+            "Built a React and Node.js application with user accounts and image uploads.",
+            "Wrote 25 component tests with Jest."]}]},
+        {"heading": "SKILLS", "lines": ["JavaScript, React, Node.js, HTML, CSS, Linux, Docker Compose, Jest"]},
+        {"heading": "EDUCATION", "lines": ["B.Sc. in Information Technology, Example University | 2014-2018"]}
+      ]
+    }
+  },
+  "principal_failure_modes": [
+    "Losing gap entries under volume (fewer than the seven authored gaps surfaced).",
+    "Flagging the demonstrated Linux skill.",
+    "ATS bullets claiming absent skills (Kubernetes, Terraform, AWS, Jenkins, Ansible, Prometheus, Grafana) or inflating Docker Compose use.",
+    "Tension in the ATS prompt between integrating JD keywords and excluding missing skills."
+  ],
+  "content_hash": null,
+  "notes": [
+    "A4: resume_text layout and resume_structure shape are provisional.",
+    "A8: content_hash is null because no hashing was run; compute it at freeze."
+  ]
+}

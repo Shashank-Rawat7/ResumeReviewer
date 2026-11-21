@@ -1,0 +1,136 @@
+{
+  "code": {
+    "../ats/checks.py": "3da69557e0b1f16e4eccd7746229ffd913ea78df0f3f34cb0fe133fff6ae2cf9",
+    "cli.py": "80bf64513872db4ac4886301c71b48492ce96c5b743ee28412e9d9aceb8ebeda",
+    "dataset.py": "56abf60b191b89c0163f39e6351262d98149a4669800abb415538437850fec80",
+    "e3.py": "76e1fc11205873f3114ed824aee8353fc125084cf807ced17d0d3d89a478b18a",
+    "runner.py": "7f7cbc689b05ec1a297670ef179214196b1689c665bd377e109eb60ae166f859",
+    "score.py": "a1a37beaa93aa8faa8ce5c6b75fd7f399329e4b8ec2f6887c056110a2c13f841",
+    "stages.py": "29d7ea18b338485dad43b97866cca0700e69c2b9c045cd893a8db95310ded943"
+  },
+  "conditions": [
+    "Inputs are the scenario's job_description and resume_text, passed to the prompts directly. Production joins overlapping text chunks into resume_text (open item A6); that duplication is not reproduced.",
+    "PDF extraction and the resume-summary and credentials steps are not evaluated.",
+    "E2 is COUPLED to E1 as in production: it receives E1's cleaned output. E3 receives only the job description and the resume text and never E1 or E2 data.",
+    "Model settings are those written in the ChatGroq(...) call of src/parser.py. No seed is set, as in production, so repeats measure run-to-run variation rather than a fixed result.",
+    "The runner retries a transport failure at most once. Provider-library retries (if any) are invisible to the runner, so planned requests are a lower bound.",
+    "Scenario files stay unfrozen (draft); their content hashes are recorded and the run refuses if any changed."
+  ],
+  "dataset": {
+    "ids": [
+      "p01_strong_fit",
+      "p02_partial_mixed_tiers",
+      "p03_poor_fit",
+      "p04_duplicate_tier_conflict",
+      "p05_equivalents_aliases",
+      "p06_mention_vs_evidence",
+      "p07_no_metrics_resume",
+      "p08_soft_academic",
+      "p09_sparse_inputs",
+      "p10_adjacent_technologies"
+    ],
+    "label_file_sha256": {
+      "p01_strong_fit": "65c474798af99af5a1b5e2d7424e2642363bc2f8805b77c7fe5063eb3af16419",
+      "p02_partial_mixed_tiers": "34fe08bbe4298bdab7d840b4c20078da05a078527e41e3c082b6b3f48f8f5335",
+      "p03_poor_fit": "807c513873ed94e581652575bc8a373d522838f0d676528028339f4e5f4ba717",
+      "p04_duplicate_tier_conflict": "104a41a7b31c3ff4f7bccb1ffde97ec0d68aa7ca7fde0744cc32ab908fb626b3",
+      "p05_equivalents_aliases": "7a159d788c23a20c64a6832ebf776b4d13cf188a757d8c2a40ea70f92076b2b1",
+      "p06_mention_vs_evidence": "10ed86f83709ffb0ea2de431ea3a7ce48ccd0fa1ecdde1930227c70900ebbed7",
+      "p07_no_metrics_resume": "f33704b7c5fc3c69b1447479afd2d90a1adc8f791ff9baf533d0133a678c8ad8",
+      "p08_soft_academic": "c1ea8cc7290d21b00839133cd1e353a6005f0917faeb9092aaca196757186d9b",
+      "p09_sparse_inputs": "74e5cda2ffc00c8f482dca3f048bdb97ab9fd37ffdb43cf7bb826fc74fdd7aae",
+      "p10_adjacent_technologies": "d56d075a39fb7a2ca3701f57b85e0dcc1e6855978b195be43bb89a622c87dd61"
+    },
+    "label_frozen_sha256": {
+      "p01_strong_fit": "679967639e73dcecbd1da3bbf186496a82ac1cfbdb037b555a3fd269a584c8a1",
+      "p02_partial_mixed_tiers": "26af67b53ee758143f62a355e6cf9efe9e9c50e003c06938352bae21e5a59f83",
+      "p03_poor_fit": "48df7543ac1a1b74f859eaa6998c2d1d1ddce072ec32724c2613e5a945813355",
+      "p04_duplicate_tier_conflict": "959806bcec84fcbf9c40a13cde5046be76769770b164e55b99926e94adc4f532",
+      "p05_equivalents_aliases": "fdc5edcffc57cc1305cc48686674b025f202a3178c9b9db58552cd93565aa643",
+      "p06_mention_vs_evidence": "2299c02d70f8fbc200f060dea1e964839cc5e641bace0f0f523e0e0e08a04e4d",
+      "p07_no_metrics_resume": "43e5fcb37cd7a59a5e91857787d8df55e6c2aa32e365cd7516929cb6c5371160",
+      "p08_soft_academic": "9af2cfacf5f706e8d3811847379ae5f81a2f01a4ca5c6e186d7c17921f7a1fde",
+      "p09_sparse_inputs": "46d62a3f1dd994450cf29bc0e2c3b08c87fd6d6bc2f3126b163f29a6a1c55896",
+      "p10_adjacent_technologies": "f6b58736978f141284798db9854f52f802a5ee3e356659df1543fa8955bee459"
+    },
+    "scenario_file_sha256": {
+      "p01_strong_fit": "2c341765718bf45edef1a22595da9ea9e8016059e95d6e931fa84c7d043313e0",
+      "p02_partial_mixed_tiers": "bd3266179fb4065fcf95b07251b2a434bc2af5e4570c7f2452898fd9d367cdc4",
+      "p03_poor_fit": "75d5f689f843c69accadb9116f6174d6a25f1eab79b4c1c65d4f774fdf2db1ed",
+      "p04_duplicate_tier_conflict": "50def9b7ac5834f59ac06d42b384933852b2850865e0ac15bdd02a5ca1513d05",
+      "p05_equivalents_aliases": "96520230ac5c5062016e4a12d0455c18c15e7eb345fa33ae7cd94043739e05cb",
+      "p06_mention_vs_evidence": "10b8de317cf9778728bcb2b1d53ffed153b53bce0b3c89cb1ded694011610bf4",
+      "p07_no_metrics_resume": "9a30485bf517cc97acf97fe42852e8fc6e80e49ea20839453222c43ab2120c2f",
+      "p08_soft_academic": "e16f8f5fa407e3555da28f280d887c4f1b584248be52f2773b098a9848fa8cbc",
+      "p09_sparse_inputs": "a5f52546f8d1243f635762361a34e8cc7966c003d2f89cd4d37b649eae3657de",
+      "p10_adjacent_technologies": "8a2eaf34f1157d16414313bb02ce224c2053282f98fad9818b0c5be4e4235647"
+    },
+    "scenarios_frozen": false
+  },
+  "limitations": [
+    "Ten hand-authored synthetic scenarios, one model, draft-1 labels: a baseline, not a generalisation claim.",
+    "Pooled rates add numerators and denominators across scenarios; per-scenario results are kept beside them.",
+    "E3 numbers are deterministic screens, not verification that bullets are factually correct.",
+    "Ranges across repeats show variation between runs; they are not confidence intervals."
+  ],
+  "model": {
+    "max_tokens": 8192,
+    "model": "openai/gpt-oss-20b",
+    "reasoning_effort": "low",
+    "temperature": 0.2
+  },
+  "parameters": {
+    "abort_after_consecutive_failures": 3,
+    "max_retries": 1,
+    "pace_seconds": 40,
+    "repeats": 3,
+    "retry_backoff_seconds": 60
+  },
+  "plan_hash": "e068ccd242a12694bc3d6f54b1738ab5dc5fefc4ba727e8e541da90295d778be",
+  "plan_version": "pipeline-plan-1",
+  "prompts": {
+    "e1": {
+      "key": "job_description_skill_extractor",
+      "template_sha256": "288f03c180c076fe06f1f7b7f62f5a8193f90d8ed0d2182bfb08b24bf6917717",
+      "variables": [
+        "job_description"
+      ]
+    },
+    "e2": {
+      "key": "job_resume_comparison",
+      "template_sha256": "b5e26df325a279ee8be17795455f26308fd3747575054c51ecbd76465ef84895",
+      "variables": [
+        "job_description",
+        "job_skills",
+        "resume_content"
+      ]
+    },
+    "e3": {
+      "key": "resume_ats_optimizer",
+      "template_sha256": "65e791f2aac089548345fd0beaddde17dc3519e01139dc9a820d064a61d6da95",
+      "variables": [
+        "job_description",
+        "resume_content"
+      ]
+    }
+  },
+  "run_id": "pipeline_b7283a780b52",
+  "schedule": {
+    "max_requests_with_runner_retry": 180,
+    "minimum_pacing_seconds": 3560,
+    "order": "repeat-major; within a repeat each scenario in id order; within a scenario E1, then E2, then E3",
+    "pacing": "pace_seconds before every logical call except the first; retries wait retry_backoff_seconds",
+    "planned_calls": 90,
+    "planned_calls_by_stage": {
+      "e1": 30,
+      "e2": 30,
+      "e3": 30
+    },
+    "planned_calls_note": "An upper bound: an E2 call is skipped when its E1 call failed."
+  },
+  "source_files": {
+    "frontend/display.py": "9922cef7576a4ede829bf81515484caca84c4a048de9dab75d30517465772891",
+    "src/parser.py": "08b1f41d34c096c55423780eaeff9de9a1422d9177a5a9f182613a37e9b1af24",
+    "src/prompts.yaml": "bb31133e22209c2e8f27711659a80c6c653f91aff818808549a39ed07c1c34a7"
+  }
+}

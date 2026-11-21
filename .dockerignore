@@ -1,0 +1,46 @@
+# Keep images small and free of secrets, personal data and development artifacts.
+# (The build context is the project root for both images.)
+
+# Secrets
+**/.env
+**/.env.*
+
+# Version control
+.git
+.gitignore
+.gitattributes
+
+# Virtual environments, caches, bytecode
+**/venv
+**/.venv
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+
+# Personal data, uploads and generated resume-analysis files
+data
+**/*.pdf
+src/*.txt
+src/[0-9]*
+
+# Logs
+**/logs
+**/*.log
+
+# Development, evaluation and documentation (not needed at runtime)
+eval
+tests
+requirements-dev.txt
+docker-compose*.yaml
+start_docker.sh
+commands.txt
+helper.py
+# Developer-only scripts that nothing in the application imports: backend/testing.py prints user data, reset_db.py
+# drops every table, connection.py connects to a hard-coded local database when imported.
+backend/testing.py
+backend/db/reset_db.py
+backend/db/connection.py
+README.md
+*.md
+_obs_*
+*.tar.gz

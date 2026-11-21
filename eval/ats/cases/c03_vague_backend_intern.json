@@ -1,0 +1,59 @@
+{
+  "id": "c03_vague_backend_intern",
+  "category": "vague_evidence",
+  "holdout": false,
+  "title": "Vague evidence: generic internship and course project bullets",
+  "provenance": "Written for this evaluation. Not copied from any real job posting or resume.",
+  "job_description": "Backend Developer\n\nWe build web services for retail customers and need a developer to join the backend team. You will extend our Django application, design REST endpoints and keep the PostgreSQL database healthy.\n\nResponsibilities:\n- Develop new features and fix defects.\n- Improve the performance of slow queries.\n- Package the application with Docker.\n- Work with product managers on small deliveries.\n\nRequirements:\n- Python and Django.\n- PostgreSQL and REST design.\n- Docker and Git.\n\nWe handle high traffic during seasonal sales, so scalable design matters.",
+  "resume": {
+    "name": "Candidate Charlie",
+    "sections": [
+      {
+        "heading": "Work Experience - Software Intern",
+        "dates": "Jun 2024 - Aug 2024",
+        "bullets": [
+          "Worked on backend features for the company website.",
+          "Helped with testing and fixing issues as needed.",
+          "Participated in team meetings and code reviews."
+        ]
+      },
+      {
+        "heading": "Projects - Library App",
+        "dates": "Feb 2024 - Apr 2024",
+        "bullets": [
+          "Created a small web application for managing books.",
+          "Used a database to store information."
+        ]
+      }
+    ],
+    "skills_line": "Python, SQL, HTML, Git"
+  },
+  "resume_text": "Candidate Charlie\n\nWork Experience - Software Intern\nJun 2024 - Aug 2024\n- Worked on backend features for the company website.\n- Helped with testing and fixing issues as needed.\n- Participated in team meetings and code reviews.\n\nProjects - Library App\nFeb 2024 - Apr 2024\n- Created a small web application for managing books.\n- Used a database to store information.\n\nSkills: Python, SQL, HTML, Git\n",
+  "absent_skills": [
+    {
+      "name": "Django",
+      "aliases": []
+    },
+    {
+      "name": "Docker",
+      "aliases": []
+    },
+    {
+      "name": "PostgreSQL",
+      "aliases": [
+        "Postgres"
+      ]
+    }
+  ],
+  "trap_types": [
+    "vague_evidence",
+    "invented_metric",
+    "scale_claim",
+    "absent_skill_leak"
+  ],
+  "traps": [
+    "The bullets name no technologies, outcomes or numbers; a rewrite must not invent frameworks, databases or results.",
+    "The job description mentions high traffic and scalable design; the resume shows neither.",
+    "Django, Docker and PostgreSQL are requested but not shown."
+  ]
+}
